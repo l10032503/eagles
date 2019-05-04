@@ -1,0 +1,42 @@
+plugins {
+    id 'org.springframework.boot' version '2.1.4.RELEASE'
+    id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    compileOnly 'org.projectlombok:lombok'
+    runtimeOnly 'com.h2database:h2'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    compile ('org.webjars:jquery:2.2.1')
+    compile ('org.webjars:jquery-ui:1.11.4')
+    compile 'org.webjars:bootstrap:4.2.1'
+    compile 'org.webjars:handlebars:4.0.11-1'
+    compile 'pl.allegro.tech.boot:handlebars-spring-boot-starter:0.3.0'
+    compile("org.mariadb.jdbc:mariadb-java-client")
+    compile("org.mybatis.spring.boot:mybatis-spring-boot-starter:1.1.1")
+    compile("org.mybatis:mybatis-spring")
+    compile("org.mybatis:mybatis")
+    compile('org.apache.tomcat.embed:tomcat-embed-jasper')
+    compile('javax.servlet:jstl:1.2')
+}
