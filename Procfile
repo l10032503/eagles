@@ -1,1 +1,1 @@
-web: java -jar target/eagles.jar
+web: java -jar target/com.example.eagles.main.jar
