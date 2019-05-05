@@ -1,13 +1,28 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.1.4.RELEASE")
+        classpath "io.spring.gradle:dependency-management-plugin:1.0.4.RELEASE"
+    }
+}
+
 plugins {
     id 'org.springframework.boot' version '2.1.4.RELEASE'
+    id 'com.gradle.build-scan' version '2.0.2'
     id 'java'
 }
 
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
+
 
 configurations {
     compileOnly {
@@ -18,6 +33,8 @@ configurations {
 repositories {
     mavenCentral()
 }
+
+
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
@@ -43,10 +60,10 @@ dependencies {
     compile 'com.fasterxml.jackson.core:jackson-core:2.6.3'
     compile 'com.fasterxml.jackson.core:jackson-annotations:2.6.3'
     compile 'com.fasterxml.jackson.core:jackson-databind:2.6.3'
-
-    //compile 'net.sf.json-lib:json-lib:2.4:jdk15@jar'
+    
     compile 'net.sf.json-lib:json-lib-ext-spring:1.0.2'
     compile 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.6.4'
     compile 'commons-collections:commons-collections:3.2'
 
 }
+
