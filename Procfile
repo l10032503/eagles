@@ -1,1 +1,0 @@
-web: java -jar target/com.example.eagles.main.jar
