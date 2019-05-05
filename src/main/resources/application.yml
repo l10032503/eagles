@@ -7,3 +7,5 @@ spring:
 ---
 spring:
   profiles: local
+  jpa:
+    show-sql: true
