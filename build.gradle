@@ -3,17 +3,10 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.1.4.RELEASE")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.1.0.RELEASE")
         classpath "io.spring.gradle:dependency-management-plugin:1.0.4.RELEASE"
     }
 }
-
-plugins {
-    id 'org.springframework.boot' version '2.1.4.RELEASE'
-    id 'com.gradle.build-scan' version '2.0.2'
-    id 'java'
-}
-
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
@@ -22,7 +15,7 @@ apply plugin: 'io.spring.dependency-management'
 
 
 group = 'com.example'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.1'
 sourceCompatibility = '1.8'
 
 configurations {
