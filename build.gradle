@@ -14,8 +14,6 @@ plugins {
     id 'java'
 }
 
-jar{
-}
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
