@@ -12,4 +12,9 @@ public class WebController {
     public String main(Model model) {
         return "main";
     }
+
+    @GetMapping("/index")
+    public String index(){
+        return "index";
+    }
 }
