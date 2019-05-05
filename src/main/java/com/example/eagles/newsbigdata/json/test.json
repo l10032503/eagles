@@ -1,0 +1,54 @@
+{
+  "access_key": "d3a80ae9-482c-41d0-9c39-146fe526e09d",
+  "argument": {
+    "query": "검색 키워드",
+    "published_at": {
+      "from": "2015-01-01",
+      "until": "2016-01-31"
+    },
+    "provider": [
+      "경향신문"
+    ],
+    "category": [
+      "정치>정치일반",
+      "스포츠일반"
+    ],
+    "category_incident": [
+      "범죄",
+      "교통사고"
+    ],
+    "byline": "",
+    "provider_subject": [
+      "경제", "부동산"
+    ],
+    "subject_info": [
+      ""
+    ],
+    "subject_info1": [
+      ""
+    ],
+    "subject_info2": [
+      ""
+    ],
+    "subject_info3": [
+      ""
+    ],
+    "subject_info4": [
+      ""
+    ],
+    "sort": {"date": "desc"},
+    "hilight": 200,
+    "returnFrom": 0,
+    "returnSize": 5,
+    "fields": [
+      "content",
+      "byline",
+      "category",
+      "hilight",
+      "category_incident",
+      "images",
+      "provider_subject",
+      "provider_news_id"
+    ]
+  }
+}
