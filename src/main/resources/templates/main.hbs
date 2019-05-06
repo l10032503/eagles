@@ -63,6 +63,16 @@
             margin-top: 1%;
         }
 
+        #floating-bar {
+            height: 180px;
+            width: 80px;
+            position: fixed;
+            right: 3%;
+            top: 40%;
+            margin: 0 0 0 110px;
+            padding: 5px;
+        }
+
     </style>
 
     <div class="login">
@@ -162,7 +172,7 @@
                         </ul>
                     </li> <!-- 여기까지 두번째 상단바 메뉴 -->
 
-                    <li><a class="icon fa-user" href="/left-sidebar"><span>함께 공부하기</span></a>
+                    <li><a class="icon fa-user" href="#"><span>함께 공부하기</span></a>
                         <ul>
                             <li><a href="#">스터디 • 모임</a></li>
                             <li><a href="#">학원 • 과외</a></li>
@@ -170,8 +180,8 @@
                         </ul>
                     </li> <!-- 여기까지 세번째 상단바 메뉴 -->
 
-                    <li><a class="icon fa-retweet" href="right-sidebar.hbs"><span>Right Sidebar</span></a></li>
-                    <li><a class="icon fa-sitemap" href="no-sidebar.hbs"><span>No Sidebar</span></a></li>
+                    <li><a class="icon fa-retweet" href="#"><span>Right Sidebar</span></a></li>
+                    <li><a class="icon fa-sitemap" href="#"><span>No Sidebar</span></a></li>
                 </ul>
             </nav>
 
@@ -461,6 +471,12 @@
             </div>
         </div>
     </section>
+
+    <div id="floating-bar">
+        <button style="margin-bottom: 5px; width: 100%; height: 33%; padding: 3px; border-radius: 7px;">기사<br>스크랩</button>
+        <button style="margin-bottom: 5px;width: 100%; height: 33%; padding: 3px; border-radius: 7px;">열람한<br>기사</button>
+        <button style="width: 100%; padding: 3px; height: 33%; border-radius: 7px;">Q&A</button>
+    </div>
 
     <!-- Footer -->
     <section id="footer">
