@@ -1,7 +1,7 @@
 package com.example.eagles.newsbigdata;
 
-import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONArray;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -16,7 +16,8 @@ public class IssueRanking {
             sendObject.put("access_key", "42d3584e-0c65-4b25-802d-11697fe24e9c");
             argument.put("date", date);
             JSONArray provider = new JSONArray();
-            provider.addAll(providerList);
+            if(!providerList.isEmpty())
+                provider.addAll(providerList);
             argument.put("provider",provider);
             sendObject.put("argument",argument);
         }catch(Exception e){

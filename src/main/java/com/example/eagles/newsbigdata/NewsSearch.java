@@ -1,7 +1,7 @@
 package com.example.eagles.newsbigdata;
 
-import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONArray;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -30,41 +30,50 @@ public class NewsSearch {
                 argument.put("published_at", published_at);
 
                 JSONArray provider = new JSONArray();
-                provider.addAll(providerList);
+                if(!providerList.isEmpty())
+                    provider.addAll(providerList);
                 argument.put("provider",provider);
 
                 JSONArray category = new JSONArray();
-                category.addAll(categoryList);
+                if(!categoryList.isEmpty())
+                    category.addAll(categoryList);
                 argument.put("category", category);
 
                 JSONArray category_incident = new JSONArray();
-                category_incident.addAll(category_incidentList);
+                if(!category_incidentList.isEmpty())
+                    category_incident.addAll(category_incidentList);
                 argument.put("category_incident", category_incident);
 
                 argument.put("byline", byline);
 
                 JSONArray provider_subject = new JSONArray();
-                provider_subject.addAll(provider_subjectList);
+                if(!provider_subjectList.isEmpty())
+                    provider_subject.addAll(provider_subjectList);
                 argument.put("provider_subject", provider_subject);
 
                 JSONArray subject_info = new JSONArray();
-                subject_info.addAll(subject_infoList);
+                if(!subject_infoList.isEmpty())
+                    subject_info.addAll(subject_infoList);
                 argument.put("subject_info", subject_info);
 
                 JSONArray subject_info1 = new JSONArray();
-                subject_info1.addAll(subject_info1List);
+                if(!subject_info1List.isEmpty())
+                    subject_info1.addAll(subject_info1List);
                 argument.put("subject_info1", subject_info1);
 
                 JSONArray subject_info2 = new JSONArray();
-                subject_info2.addAll(subject_info2List);
+                if(!subject_info2List.isEmpty())
+                    subject_info2.addAll(subject_info2List);
                 argument.put("subject_info2", subject_info2);
 
                 JSONArray subject_info3 = new JSONArray();
-                subject_info3.addAll(subject_info3List);
+                if(!subject_info3List.isEmpty())
+                    subject_info3.addAll(subject_info3List);
                 argument.put("subject_info3", subject_info3);
 
                 JSONArray subject_info4 = new JSONArray();
-                subject_info4.addAll(subject_info4List);
+                if(!subject_info4List.isEmpty())
+                    subject_info4.addAll(subject_info4List);
                 argument.put("subject_info4", subject_info4);
 
                 JSONObject sort = new JSONObject();
@@ -76,7 +85,8 @@ public class NewsSearch {
                 argument.put("returnSize", returnSize);
 
                 JSONArray fields = new JSONArray();
-                fields.addAll(fieldsList);
+                if(!fieldsList.isEmpty())
+                    fields.addAll(fieldsList);
                 argument.put("fields", fields);
             sendObject.put("argument",argument);
         }catch(Exception e){
