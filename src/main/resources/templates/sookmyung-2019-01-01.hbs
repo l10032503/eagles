@@ -1,0 +1,475 @@
+<!DOCTYPE HTML>
+<!--
+	Strongly Typed by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    <title>이글스 | Easy하게 글써지는 뉴스</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/webjars/bootstrap/4.2.1/css/bootstrap.css">
+    <link rel="stylesheet" href="/webjars/bootstrap/4.2.1/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="/webjars/bootstrap/4.2.1/css/bootstrap-reboot.css">
+    <script src="/webjars/jquery/2.2.1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/4.2.1/js/bootstrap.bundle.js"></script>
+    <script src="/webjars/handlebars/4.0.11-1/handlebars.js"></script>
+</head>
+<style>
+    .columns{
+        columns: 3;
+    }
+
+    #floating-bar {
+        height: 180px;
+        width: 80px;
+        position: fixed;
+        right: 3%;
+        top: 40%;
+        margin: 0 0 0 110px;
+        padding: 5px;
+    }
+    #essaytitle{
+        position: relative;
+        background: #fff;
+        text-align: center;
+    }
+    #essaytitle > .container {
+        padding: 7em 0 3em 0;
+        border-bottom: solid 2px #e5e5e5;
+        box-shadow: inset 0px -8px 0px 0px #fff, inset 0px -10px 0px 0px #e5e5e5;
+        text-align: center;
+    }
+
+    #essaytitle h1 {
+        font-weight: 700;
+        color: #ed786a;
+        text-shadow: 0.05em 0.075em 0 rgba(0, 0, 0, 0.1);
+        font-size: 3em;
+        letter-spacing: 13px;
+    }
+</style>
+<body class="no-sidebar is-preload">
+<div id="page-wrapper">
+
+    <!-- Header -->
+    <section id="essaytitle">
+        <div class="container">
+            <!-- Logo -->
+            <h4>2018학년도 수시모집 논술 우수자 전형</h4>
+            <h1 id="logo"><a >논술시험 문제지</a></h1>
+            <h5>인문계열 1회차</h5>
+
+            <!-- Nav -->
+            <nav id="nav">
+                <ul>
+                    <li><a class="icon fa-align-center"><span>논술 기출</span></a>
+                        <ul>
+                            <li><a href="#">대학별 기출</a>
+                                <ul>
+                                    <div class="columns">
+                                        <li><a href="#">가톨릭대(경기)</a></li>
+                                        <li><a href="#">가톨릭대(서울)</a></li>
+                                        <li><a href="#">건국대(서울)</a></li>
+                                        <li><a href="#">경기대(경기)</a></li>
+                                        <li><a href="#">경기대(서울)</a></li>
+                                        <li><a href="#">경북대</a></li>
+                                        <li><a href="#">경희대</a></li>
+                                        <li><a href="#">광운대</a></li>
+                                        <li><a href="#">단국대</a></li>
+                                        <li><a href="#">덕성여대</a></li>
+                                        <li><a href="#">동국대(서울)</a></li>
+                                        <li><a href="#">부산대</a></li>
+                                        <li><a href="#">서강대</a></li>
+                                        <li><a href="#">서울과기대</a></li>
+                                        <li><a href="#">서울시립대</a></li>
+                                        <li><a href="#">서울여대</a></li>
+                                        <li><a href="#">성균관대</a></li>
+                                        <li><a href="#">성신여대</a></li>
+                                        <li><a href="#">세종대</a></li>
+                                        <li><a href="/sookmyung">숙명여대</a></li>
+                                        <li><a href="#">숭실대</a></li>
+                                        <li><a href="#">아주대</a></li>
+                                        <li><a href="#">연세대(서울)</a></li>
+                                        <li><a href="#">연세대(원주)</a></li>
+                                        <li><a href="#">인하대</a></li>
+                                        <li><a href="#">중앙대(서울)</a></li>
+                                        <li><a href="#">중앙대(안성)</a></li>
+                                        <li><a href="#">한국기술교육대</a></li>
+                                        <li><a href="#">한국산업기술대</a></li>
+                                        <li><a href="#">한국외대</a></li>
+                                        <li><a href="#">한양대(서울)</a></li>
+                                        <li><a href="#">한양대(ERICA)</a></li>
+                                        <li><a href="#">홍익대</a></li>
+                                    </div>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">영역별 기출</a>
+                                <ul>
+                                    <li><a href="#">경상</a></li>
+                                    <li><a href="#">예체능</a></li>
+                                    <li><a href="#">인문(사회)</a></li>
+                                    <li><a href="#">영어</a></li>
+                                    <li><a href="#">통계도표</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li> <!-- 여기까지 첫번째 상단바 메뉴 -->
+
+                    <li>
+                        <a href="#" class="icon fa-info"><span>입시정보</span></a>
+                        <ul>
+                            <li>
+                                <a href="#">보도자료</a>
+                                <ul>
+                                    <li><a href="#">대학별 보도</a></li>
+                                    <li><a href="#">교육업체 • 학원</a></li>
+                                    <li><a href="#">정부 • 공공기관</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">대학소식</a>
+                                <ul>
+                                    <li><a href="#">논술전형 공지</a></li>
+                                    <li><a href="#">논술 가이드</a></li>
+                                    <li><a href="#">모의논술 공지</a></li>
+                                    <li><a href="#">수능최저등급 기준</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li> <!-- 여기까지 두번째 상단바 메뉴 -->
+
+                    <li><a class="icon fa-user" href="/left-sidebar"><span>함께 공부하기</span></a>
+                        <ul>
+                            <li><a href="#">스터디 • 모임</a></li>
+                            <li><a href="#">학원 • 과외</a></li>
+                            <li><a href="#">튜터링 신청</a></li>
+                        </ul>
+                    </li> <!-- 여기까지 세번째 상단바 메뉴 -->
+
+                    <li><a class="icon fa-retweet" href="right-sidebar.hbs"><span>Right Sidebar</span></a></li>
+                    <li><a class="icon fa-sitemap" href="no-sidebar.hbs"><span>No Sidebar</span></a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </section>
+
+    <!-- Main -->
+    <section id="main">
+        <div class="container">
+            <div id="content">
+                <!-- Post -->
+                <article class="box post">
+                    <header>
+                        <h2>계열문항1</h2>
+                    </header>
+                    <div class="col-lg-12" style="margin: 0; float: left">
+                        <div class="col-lg-6" style="margin: 0; float: left">
+                            <h3>&lt; 가 &gt;</h3>
+                            <p>시장: 이런 말을 꺼내기 참 괴롭습니다만, 스토크만 박사는 우리의 온천과 리조트 전체를 파괴하려고
+                                하고 있습니다. 지금 우리 마을은 최고의 휴양지로서 국제적으로도 이름이 나려는 순간에 와
+                                있습니다. 난 5년 안에 여기 모인 여러분들을 세계 최고의 부자 시민으로 만들 수 있습니다.
+                                학교가 들어서고 고속도로가 건설되며 주택단지가 새로 조성될 것입니다. 여러분, 묻겠습니다.
+                                어떤 사람이 그러려는 것처럼 온천의 작은 문제를 확대하고 과장하여 우리의 앞길을 막는 권리
+                                를 주장해도 되겠습니까?<br><br>
+                                (스토크만, 보고서를 들고 단상으로 오른다)<br><br>
+                                스토크만: 여러분, (시장을 가리키며) 시장께선 여러 이야기를 하셨습니다. 그러나 어떤 사실에 대해선 한
+                                마디도 하지 않으셨습니다.<br><br>
+                                주민 1: 우린, 박사님을 잘 알고 있어요.<br><br>
+                                스토크만: 아니오, 여러분은 저를 모릅니다. 전 마을의 생명을 구하기 위하여 여기 왔습니다. 온천의 수질
+                                은…….<br><br>
+                                주민 2: 마을이 싫으면 짐을 싸가지고 조용히 나가시우!<br><br>
+                                (주민들, 반대의 반응을 보인다. 집어치우라는 고함이 터져 나온다. 한 시민은 나팔을 불어댄
+                                다. 스토크만, 원고를 내리고 좌절을 느끼며 뒤로 물러선다)<br><br>
+                                신문기자: 제발 조용히들 하십시오. 박사님, 박사님의 말씀을 듣기 전에 투표를 먼저 하는 게 좋을 것 같
+                                습니다. 다수의 원칙을 따라야 합니다.<br><br>
+                                스토크만: (돌아서서 원고를 군중에게 뿌린다) 투표할 필요도 없소. 다 알았습니다. 온천은 더 이상 나의
+                                주제가 아닙니다.<br><br>
+                                신문기자: 박사께선 열심히 살고 있는 선량한 민중을 그런 식으로 비난하는 것입니까?<br><br>
+                                스토크만: 민중이라는 마법의 단어로 날 취하게 하지 마시오. 인간의 겉모습을 지녔다고 저절로 민중이
+                                되지는 않습니다. 민중의 명예는 반드시 성취해서 얻어야 하는 것입니다. 인간이라는 이름도
+                                역시 쟁취해야 하는 것입니다. 온천물은 오염되었습니다!<br><br>
+                                시장: 당신이 그럴 권리는 없어!<br><br>
+                                스토크만: 그렇게도 내가 무서운가요? 온천에 대해서는 이야기하지 않겠어요. (군중에게 말한다) 난 한때
+                                다수의 민중이 내 편이라고 생각했습니다. 나에게 다수가 있다. 그 느낌은 괜찮았습니다.<br><br>
+                                주민들: 혁명가는 물러가라!<br><br>
+                                스토크만: 난 혁명가가 아닙니다. 아니, 정정하겠습니다. 그래요, 나는 혁명가입니다! 다수가 항상 옳다고
+                                믿는 허위의식에 반대하는 혁명가입니다. 잘 들어두세요. 다수가 항상 옳은 것은 아닙니다. 단언
+                                합니다.<br><br>
+                                신문기자: 다수가 원하면 소수는 다수의 의견을 따라야 합니다.<br><br>
+                                스토크만: 다수가 모르는 것을 소수가 알고 있다면, 다수와 논쟁하고 다수와 싸워야 하는 것 아닙니까?
+                                그것이 소수의 권리 아닙니까? 다수가 깨닫기 전에 소수가 먼저 깨달았다면? 소수의 권리는
+                                다수에게 공격을 받더라도 신성한 것입니다.</p><br>
+                            <h3>&lt; 나 &gt;</h3>
+                            <p>포퓰리스트들은 직설적이고 단정적인 말투를 즐겨 쓴다. 어렵고 복잡한 말 속에 담긴 지배 이데올로기를
+                                비판하면서 보통사람들이 쓰는 말을 의도적으로 흉내 낸다. 포퓰리스트들은 지식인 특유의 추상적 언어와
+                                전문적 용어에 강한 거부감을 느낀다. 엘리트들이 보통사람의 접근을 막고 자기 이익을 영구히 누리기 위해일부러 말을 어렵고 복잡하게 한다는 것이다.
+                                포퓰리스트들이 정치를 바라보는 관점과 분석틀, 나아가 문제를 풀어가는 대안도 단순, 명쾌하다. 포퓰리
+                                스트들은 인민을 신주 모시듯이 한다. 그들이 찬양해 마지않는 보통사람들은 일상적이고 평범하다. 말을 돌
+                                려서 하지 않고 직설적으로 자기 의사를 표현한다. 단순하고 명료한 것이야말로 인민의 표상이요, 미덕이다.
+                                따라서 포퓰리스트들은 단순정치를 펼친다. 정치라는 것이 보통사람의 지혜를 구현해야 한다면 그 모습은
+                                단순하고 직접적인 성격을 띨 수밖에 없다는 것이다.<br>
+                                포퓰리스트들은 세상일에 대한 해법도 보통사람들의 상식에 입각해서 간단하게 제시한다. 이분법적 세계
+                                관과 단순정치가 조합을 이루게 되면 정치적 현안에 관한 토론이나 담론 자체도 찬성과 반대로 양극화되어
+                                나타난다. 이해관계뿐만 아니라 이슈도 이원화되는 것이다. 정치 세계가 적대적인 둘로 나뉘듯이 정치적 이
+                                슈도 그 관점에서 파악된다. 즉 정치적 이슈가 ‘좋고 나쁨’, ‘옳고 그름’, ‘우리 편과 그들 편’으로 단순화된다.
+                                정치적인 분석이나 현실 문제에 대한 대안 역시 간단명료하면서도 직접적이어야 한다. 그래서 포퓰리스트
+                                들은 ‘여기, 지금’에 초점을 맞춘다. 추상적 표현이나 먼 후일에 해당되는 이야기는 하지 않는다. 너무 거창
+                                하고 고상한 것도 삼간다. 그 대신 구체적이고 생생한 느낌을 주는 주변의 일, 즉각적인 일을 화제에 올린
+                                다. 중장기적 과제나 나와 무관해 보이는 타인의 고통은 모른 척하고, 즉각적이고 가시적인 효과가 있어 보
+                                이는 대안을 제시한다. 포퓰리스트들은 구체적인 특정 상황, 그리고 듣는 사람이 바로 자신의 일인 양 여길
+                                수 있을 만한 과제에 힘을 쏟는다.<br>
+                                포퓰리스트들은 이런 명분과 논리를 통해 정치적 논쟁을 선점해 버린다. 자기들에게 유리한 방향으로 논
+                                쟁을 몰고 간다. 그들은 인민의 진정한 대변자로 자처하며 정치적 대칭 관계에 있는 세력들을 ‘반인민적’인
+                                세력으로 몰아붙인다. 인민의 이익을 보호하는 것이 곧 정치적 정당성의 근거라고 규정한다. 다른 정치 세력
+                                들은 싫든 좋든 포퓰리스트들이 선점해버린 논쟁 구도 속으로 들어와야 한다. 포퓰리스트와 ‘선명성 경쟁’을
+                                벌여야 하는데, 이 싸움이 쉽지 않다.</p>
+                            <h3>&lt; 다 &gt;</h3>
+                            <p>민주주의는 모든 사람들에게 공평하고 정당하게 보이는 결과뿐만 아니라, 좀 더 합리적인 결정을 만들어
+                                내야 한다. 광범위한 사람들을 끌어안아야 하며, 평등한 사람들 사이의 자유롭고 상호적인, 이성적 토론에
+                                초점을 맞춰야 한다. 이러한 과정 속에서 어떤 논쟁거리라도 그에 대한 다양한 목소리를 들을 수 있다. 개인
+                                들은 다른 사람들이 받아들일 수 있을 만한 이성적 설명을 통해 자기 주장을 하도록 권장된다. 이런 토론과
+                                논쟁 과정을 통해 내려진 결정은 설령 합의가 안됐다 해도 정당한 것으로 간주된다. 이것들은 참가자 자신
+                                을 위한 협력과 상호 정당성을 추구한 과정의 산물이기 때문이다.<br>
+                                어떤 주어진 제도적·정치적 조건에서 개인들의 선호는 고정되어 있고 개인들은 자기가 더 선호하는 것들
+                                에 순서를 매길 수 있다는 것이 전통적인 선택 방식(투표, 여론조사 등)의 가정이다. 그러나 개인들이 복잡
+                                한 사회적·정치적 문제에 분명하고 일관된 선호나 의견을 갖고 있을 것이라는 가정은 오류다. 그런 판단은
+                                공개적이고 공정한 대중의 논의 과정을 통해서만 형성될 수 있다. 자유주의 경제학에서 말하는 개인들의 선
+                                호나 선호 순위라는 것은 정치적 조건이 만들어내는 변수일 뿐이다. 또한 자유주의 경제학은 사회 전체의
+                                행복이 개인들의 행복의 단순 합계라고 말하지만, 사실 그런 단순 합계는 불가능하다.<br>
+                                그 대신 민주주의는 공유된 이익이나 공유된 자원에 대한 합의의 형성을 추구해야 한다. 개인들은 이기적
+                                인 이익을 넘어서서 합의를 추구해야 하며, 사회는 이를 위한 제도적 조건을 만들어야 한다. 물론 민주적 논
+                                의 과정에서 개인들의 선호 체계가 바뀌고 개인들이 좀 더 강한 시민성을 갖게 된다고 확신할 수는 없다.
+                                하지만 모든 사람이 도덕적으로 받아들일 만한 방식으로 모두가 관심 있는 광범위한 주제에 대해 개인들이
+                                서로 마음을 열고 이야기할 수 있는 토론의 장, 모든 사람을 포괄하고 가능한 모든 정보가 제공되는 그런
+                                토론의 장이 있다면, 사람들이 애초의 의견을 변경해가며 합의를 형성할 가능성이 높아진다는 점은 분명하다.</p>
+                            </div>
+                        <div class="col-lg-6" style="margin: 0; float: left">
+                            <h4>&lt;가&gt; 헨릭 입센 (김석만 역), 『민중의 적』, 범우사, 2006(1882), 제5막, 96-99쪽을 발췌 후 재구성</h4>
+                            <p>제시문 &lt;가&gt;는 시민들에게 개발을 통해 부자로 만들어주겠다고 선동하는 시장과 주민들에 맞서
+                                이를 저지하려는 스토크만 박사의 이야기이다. 시장은 마을이 휴양지로서 국제적으로 이름이 나고, 학교가 들어서고 고속도로가 건설되며 주택단지가 새로 조성되면 마을 주민들이 부자가 될 것이라
+                                고 말한다. 이에 맞서 스토크만은 보고서를 들고 단상에 올라 온천이 오염되었다며 시장에 반대한
+                                다. 하지만 주민들과 신문기자들은 스토크만의 말을 저지하며, 시민들 다수가 원하는 일이기 때문
+                                에 당장 투표를 하자며 밀어붙인다. 스토크만은 소수의 권리를 주장하면서 자신의 의견을 굽히지
+                                않는다. 제시문 &lt;가&gt;는 이러한 상황을 통해 충분한 민주적 참여가 보장되지 못하고 소수자 권리
+                                가 침해되는 포퓰리즘 정치의 전형적인 문제점을 잘 보여주고 있다. </p>
+                            <h4>&lt;나&gt; 서병훈, 『포퓰리즘』, 책세상, 2008, 137-140쪽을 발췌 후 재구성</h4>
+                            <p>제시문&lt;나&gt;는 포퓰리스트의 특징을 정리하여 기술하고 있다. 포퓰리스트들은 직설적이고 단정
+                                적인 어투를 사용하며, 문제를 단순화시키고 간단하고 직접적인 해법을 제시한다. 또한 장기적인
+                                이익보다는 즉각적이고 가시적인 효과를 가져 오는 대안을 제시함으로써, 보통사람들이 쉽게 이해
+                                하고 따르게 된다. 포퓰리스트들은 이런 방식으로 정치적 논쟁을 선점해버리고 소수의 의견을 반
+                                인민적으로 규정함으로써 정치적 논쟁을 주도한다. 이런 과정을 통해 대중들이 현혹되고 민주적
+                                의사형성과정이 왜곡된다는 점이 중요하다.</p>
+                            <h4>&lt;다&gt; 존 개스틸, 피터 레빈 (장용창/ 허광진 역), 『시민의 이야기에 답이 있다』, 시그너처, 2018,
+                                58-59쪽을 발췌 후 재구성</h4>
+                            <p> 제시문 &lt;다&gt;는 민주주의가 보다 많은 사람들이 이성적인 토론에 자유롭게 참여하는 절차를 지
+                                향해야 한다고 주장하고 있다. 전통적인 민주주의의 방식인 투표나 여론조사는 개인들의 선호가
+                                고정되어 있다는 것을 전제하지만, 새로운 민주주의는 토론과 논쟁과정에서 변경될 수 있다는 점
+                                을 전제한다. 이 과정에서 공동의 이익과 자원에 대한 합의가 형성될 수 있으며, 이를 통해 내려진
+                                결정은 정당한 것으로 간주된다. 이것이 가능하도록 하는 토론의 장을 만들어 내는 제도적 조건을
+                                만드는 것이 민주주의를 위한 과제인 것이다.</p>
+                            <h4>[1회차 인문계열문항 1] 출제의도와 논제의 구성</h4>
+                            <p>
+                                - 문학작품과 포퓰리즘 이론을 통해 현대 민주주의의 문제를 파악할 수 있는지 평가함<br>
+                                - 자유롭고 이성적 토론을 통해 합의에 도달하는 현대 심의 민주주의의 대안적 가능성을 이해하고 있
+                                는지 평가함<br>
+                                논제는 시장의 선동에 시민, 언론사 기자들이 합세하면서 포퓰리즘 정치가 형성되는 &lt;가&gt;의 문제
+                                상황을, 포퓰리스트 정치의 특징이 기술된 &lt;나&gt;의 입장을 활용하여 분석하고, 심의민주주의를 제안하고 있는
+                                &lt;다&gt;의 관점에서 대안을 제시하도록 요구한다. 이 논제에 대한 답을 구성하기 위해서는 아래와 같은
+                                사고 과정을 거쳐 기술해야 한다.<br>
+                                - &lt;가&gt;의 문제 상황을 이해한다.<br>
+                                - &lt;나&gt;와 &lt;다&gt;의 논지를 이해한다.<br>
+                                - &lt;나&gt;의 논지를 바탕으로&lt;가&gt;의 문제 상황을 분석한다.<br>
+                                - &lt;다&gt;의 논지를 바탕으로 &lt;가&gt;와 &lt;나&gt;의 문제를 극복하고 대안을 제시한다.<br>
+                            </p>
+                            <h4>[1회차 인문계열문항 1] 답안 구성요소</h4>
+                            <p>■ 답안의 기본 요소 <br>
+                                - 내용이 질문의 요구사항을 충족하는가 <br>
+                                - 답안의 구성이 논리적인가 <br>
+                                - 언어 사용이 명확하고, 표현력이 있는가<br><br>
+                                ■ 논제에 대한 답안의 내용은 다음의 조건을 충족해야 한다.<br>
+                                ① 제시문 &lt;가&gt;의 문제 상황 이해<br>
+                                - 시장과 시민, 신문기자의 포퓰리즘 선동<br>
+                                - 스토크만의 소수 의견 묵살<br>
+                                ∙ Key Word : 부자 시민, 온천 수질 오염, 마을의 생명, 스토크만 보고서, 투표, 다수의 원칙, 다수의 민중, 다수의 의견, 소수의 권리<br>
+                                ② 제시문 &lt;나&gt;의 논지 파악<br>
+                                - 포퓰리스트의 특징: 직설적, 단정적 어투, 문제 단순화, 즉각적 가시적 효과가 있는 대안 제시, 소수의견을 반민인민적인 것으로 간주<br>
+                                ∙ Key Word : 직설적, 단정적 말투, 단순 정치, 이분법적 세계관, 이원화, 여기/지금, 즉각적인 일, 먼미래의 일, 간단명료하고 직접적인 대안, 인민의 진정한 대변자, 인민의 이익, 중장기적 과제, 타인의고통, 즉각적이고 가시적인 효과<br>
+                                ③ &lt;나&gt;의 입장을 활용하여 &lt;가&gt;의 문제 상황을 분석하여 기술<br>
+                                - &lt;가&gt;의 시장, 시민, 신문기자의 언행이 &lt;나&gt;의 포퓰리스트의 특징으로 설명될 수 있다는 점을 기술<br>
+                                (단순히 &lt;가&gt;와 &lt;나&gt;의 입장을 순서대로 요약하는 것은 감점함)<br>
+                                ④ &lt;다&gt;의 논지 파악<br>
+                                - 선호와 의견이 고정되어 있다고 전제하고 투표로 의사결정을 하는 것의 한계 지적<br>
+                                - 선호와 의견이 토론과 논쟁과정에서 변경될 수 있기 때문에 투표나 여론조사가 진정한 민주주의의방식이 아니라는 점을 비판<br>
+                                ∙ Key Word: 합리적인 결정, 자유롭고 상호적인 이성적 토론, 다양한 목소리, 이성적 설명, 협력과 상호정당성, 고정된, 분명한, 일관된 선호, 공유된 이익, 공유된 자원, 합의의 형성, 선호체계의 변경, 시민성, 토론의 장<br>
+                                ⑤ &lt;다&gt;의 논지를 바탕으로 &lt;가&gt;와 &lt;나&gt;의 문제 상황을 극복하는 대안을 제시<br>
+                                - 스토크만의 소수의견을 존중하고 토론과 논쟁을 해야 함<br>
+                                - 시민들의 의견이 토론과 논쟁과정에서 바뀔 수 있음<br>
+                                - 투표를 밀어붙이기보다 이성적인 토론을 통해 마을 공동의 이익을 위해서는 무엇이 옳은지 충분히 논의해야 함<br>
+                                - 진정한 민주주의를 위해서는 이러한 토론 절차를 제도화하는 것이 필요함<br>
+                                (단순히 &lt;다&gt;의 진술을 요약하는 것은 의미 없음)<br>
+                            </p>
+                            <h4>[1회차 인문계열문항 1] 모범답안 예시</h4>
+
+                            <p>
+                                &lt;가&gt;에서 시장은 시민들에게 부자 시민으로 만들어주겠다며 온천과 리조트 개발 사업을 추진하고 있고
+                                신문기자와 주민들도 이에 동조하고 있다. 이에 대해 스토크만 박사는 보고서를 근거로 온천 수질의 오염을 경고하며
+                                마을의 생명을 지키자고 주장하고 있으나, 스토크만의 소수의견은 시장과 주민들에 의해 묵살당하고 있다. 이러한
+                                모습이 &lt;나&gt;에서 제시된 포퓰리스트들의 행태로 설명될 수 있다. 스토크만은 수질 오염의 문제를 제시하지만,
+                                시장과 주민들은 중장기적 문제보다는 당장의 마을의 이익을 위해 개발 사업이 중단되어서는 안된다고 주장한다.
+                                그들은 찬성과 반대의 이분법 구도로 논점을몰고 가서, 즉각적이고 가시적인 인민의 이익을 내세워 투표를 밀어 붙이면서,
+                                스토크만의 문제제기를 제지한다. 그들은 스토크만의 반대는 반인민적인 것으로 간주하면서 민중의 당면한 이익을 위해서
+                                개발에 찬성해야 한다고 주장한다.<br> 이에 반해 제시문 &lt;다&gt;는 새로운 민주주의의 과제와 방향을 제시하고 있다.
+                                &lt;가&gt;에서는 스토크만박사가 수질 오염 문제를 제기하며 마을의 생명을 지키자고 호소하지만 시장과 주민들에 의해
+                                의견을개진할 기회조차 빼앗긴다. 하지만 민주주의에서는 여러 다양한 목소리들이 반영되어야 하며, 자유롭고 이성적인
+                                토론을 통해 합의를 형성해 나가야 한다. 이러한 협력적 과정을 통해서 나온 결정이 정당한 것으로 간주되어야 한다.<br>
+                                이러한 논의 과정에서 시민들이 애초에 가졌던 선호는 변경이 될 수 있다는 점이 중요하다. 제시문 &lt;가&gt;의 시민들이
+                                일단은 온천과 리조트 개발에 찬성하지만, 만약 충분한 정보가 제공되고 이성적인토론을 거친다면, 장기적으로 무엇이
+                                마을의 이익에 도움이 될 수 있는지 성찰할 수 있고 원래의 의견을 바꿀 수 있다는 것이다. 그러한 선호 변경의 가능성을
+                                봉쇄하고 투표를 밀어붙이는 것은 진정한 민주주의에 반하는 것이다. 시민들이 논쟁을 거듭하면서 더 나은 논거들이
+                                제시되고 공동의 이익을 위한합의에 도달할 수 있으며 한 논의 과정을 가능케 하는 제도적 조건을 마련하는 것이야말로
+                                민주주의의 과제라고 할 수 있다.
+                            </p>
+                        </div>
+                        <h4 class="mt-5">1. &lt;가&gt;의 문제 상황을 &lt;나&gt;의 입장을 활용하여 분석하고, &lt;다&gt;의 관점에서 대안을 제시하시오. (1,000±100자)</h4>
+                    </div>
+
+                    <div class="col-lg-12 mt-5" style="margin: 0; float: left">
+                        <div class="col-lg-6" style="margin: 0; float: left">
+                            <table>
+                                <tr><th><h3>스트레이트 기사</h3></th></tr>
+                                <tr><td>헤드라인</td></tr>
+                                <tr><td>헤드라인</td></tr>
+                                <tr><td>헤드라인</td></tr>
+                                <tr><td>헤드라인</td></tr>
+                                <tr><td>헤드라인</td></tr>
+                                <tr><td>헤드라인</td></tr>
+                                <tr><td>헤드라인</td></tr>
+                                <tr><td>헤드라인</td></tr>
+                                <tr><td>헤드라인</td></tr>
+                                <tr><td>헤드라인</td></tr>
+                            </table>
+                        </div>
+                        <div class="col-lg-6" style="margin: 0; float: left">
+                            <table>
+                                <tr><th><h3>칼럼, 사설</h3></th></tr>
+                                <tr><td>헤드라인</td></tr>
+                                <tr><td>헤드라인</td></tr>
+                                <tr><td>헤드라인</td></tr>
+                                <tr><td>헤드라인</td></tr>
+                                <tr><td>헤드라인</td></tr>
+                                <tr><td>헤드라인</td></tr>
+                                <tr><td>헤드라인</td></tr>
+                                <tr><td>헤드라인</td></tr>
+                                <tr><td>헤드라인</td></tr>
+                                <tr><td>헤드라인</td></tr>
+                            </table>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <div id="floating-bar">
+            <button style="margin-bottom: 5px; width: 100%; height: 33%; padding: 3px; border-radius: 7px;">기사<br>스크랩</button>
+            <button style="margin-bottom: 5px;width: 100%; height: 33%; padding: 3px; border-radius: 7px;">열람한<br>기사</button>
+            <button style="width: 100%; padding: 3px; height: 33%; border-radius: 7px;">Q&A</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <section id="footer">
+        <div class="container">
+            <header>
+                <h2>Questions or comments? <strong>Get in touch:</strong></h2>
+            </header>
+            <div class="row">
+                <div class="col-6 col-12-medium">
+                    <section>
+                        <form method="post" action="#">
+                            <div class="row gtr-50">
+                                <div class="col-6 col-12-small">
+                                    <input name="name" placeholder="Name" type="text" />
+                                </div>
+                                <div class="col-6 col-12-small">
+                                    <input name="email" placeholder="Email" type="text" />
+                                </div>
+                                <div class="col-12">
+                                    <textarea name="message" placeholder="Message"></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <a href="#" class="form-button-submit button icon fa-envelope">Send Message</a>
+                                </div>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+                <div class="col-6 col-12-medium">
+                    <section>
+                        <p>Erat lorem ipsum veroeros consequat magna tempus lorem ipsum consequat Phaselamet
+                            mollis tortor congue. Sed quis mauris sit amet magna accumsan tristique. Curabitur
+                            leo nibh, rutrum eu malesuada.</p>
+                        <div class="row">
+                            <div class="col-6 col-12-small">
+                                <ul class="icons">
+                                    <li class="icon fa-home">
+                                        1234 Somewhere Road<br />
+                                        Nashville, TN 00000<br />
+                                        USA
+                                    </li>
+                                    <li class="icon fa-phone">
+                                        (000) 000-0000
+                                    </li>
+                                    <li class="icon fa-envelope">
+                                        <a href="#">info@untitled.tld</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-6 col-12-small">
+                                <ul class="icons">
+                                    <li class="icon fa-twitter">
+                                        <a href="#">@untitled</a>
+                                    </li>
+                                    <li class="icon fa-instagram">
+                                        <a href="#">instagram.com/untitled</a>
+                                    </li>
+                                    <li class="icon fa-dribbble">
+                                        <a href="#">dribbble.com/untitled</a>
+                                    </li>
+                                    <li class="icon fa-facebook">
+                                        <a href="#">facebook.com/untitled</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <div id="copyright" class="container">
+            <ul class="links">
+                <li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+            </ul>
+        </div>
+    </section>
+
+</div>
+
+<!-- Scripts -->
+<script src="/js/jquery.min.js"></script>
+<script src="/js/jquery.dropotron.min.js"></script>
+<script src="/js/browser.min.js"></script>
+<script src="/js/breakpoints.min.js"></script>
+<script src="/js/util.js"></script>
+<script src="/js/main.js"></script>
+<script src="/webjars/jquery/2.2.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/4.2.1/js/bootstrap.bundle.js"></script>
+<script src="/webjars/handlebars/4.0.11-1/handlebars.js"></script>
+</body>
+</html>

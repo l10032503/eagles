@@ -12,4 +12,9 @@ public class UnivEssayController {
     public String sookmyung(){
         return "sookmyung";
     }
+
+    @GetMapping("/sookmyung-2019-01-01")
+    public String sookmyung_2019_01_01(){
+        return "sookmyung-2019-01-01";
+    }
 }
