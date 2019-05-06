@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/css/bootstrap.css"/>
+    <link rel="stylesheet" href="/css/bootstrap-grid.css"/>
+    <link rel="stylesheet" href="/css/bootstrap-reboot.css"/>
 
 </head>
 <body class="homepage is-preload">
@@ -59,7 +62,14 @@
         .combo-box{
             margin-top: 1%;
         }
-
+        #floating-bar {
+            width: 190px;
+            position: fixed;
+            left: 50%;
+            top: 90px;
+            margin: 0 0 0 110px;
+            padding: 10px;
+        }
     </style>
 
     <div class="login">
@@ -473,6 +483,11 @@
         </div>
     </section>
 
+    <div id="floating-bar">
+        <button style="margin-bottom: 5px; width: 100%">기사 스크랩</button>
+        <button style="margin-bottom: 5px">Q&A</button>
+        <button>열람한 기사</button>
+    </div>
 </div>
 
 <script src="/js/jquery.min.js"></script>
@@ -481,5 +496,7 @@
 <script src="/js/breakpoints.min.js"></script>
 <script src="/js/util.js"></script>
 <script src="/js/main.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/bootstrap.bundle.js"></script>
 </body>
 </html>
