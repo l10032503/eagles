@@ -14,7 +14,7 @@ public class UnivEssayController {
     }
 
     @GetMapping("/sookmyung-2019-01")
-    public String sookmyung_2019_01(){
-        return "sookmyung-2019-01";
+    public String sookmyung_2019_01_01(){
+        return "sookmyung-2019-01-01";
     }
 }
