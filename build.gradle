@@ -1,9 +1,18 @@
-plugins {
-    id 'org.springframework.boot' version '2.1.4.RELEASE'
-    id 'java'
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.1.0.RELEASE")
+        classpath "io.spring.gradle:dependency-management-plugin:1.0.4.RELEASE"
+    }
 }
 
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
+
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
@@ -18,6 +27,8 @@ configurations {
 repositories {
     mavenCentral()
 }
+
+
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
@@ -39,4 +50,9 @@ dependencies {
     compile("org.mybatis:mybatis")
     compile('org.apache.tomcat.embed:tomcat-embed-jasper')
     compile('javax.servlet:jstl:1.2')
+    
+    compile 'net.sf.json-lib:json-lib-ext-spring:1.0.2'
+    compile 'commons-collections:commons-collections:3.2'
+
 }
+
