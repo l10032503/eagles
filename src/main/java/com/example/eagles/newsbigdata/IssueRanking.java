@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class IssueRanking {
+public class    IssueRanking {
 
     public JSONObject makeIssue(String date, List<String> providerList){
         JSONObject sendObject = new JSONObject();

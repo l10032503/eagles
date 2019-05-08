@@ -2,7 +2,6 @@ package com.example.eagles.web;
 
 import com.example.eagles.newsbigdata.Bigkinds;
 import com.example.eagles.newsbigdata.IssueRanking;
-import com.example.eagles.newsbigdata.NewsSearch;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
