@@ -185,7 +185,7 @@
             <div class="col-lg-12" style="margin-top: 1.5%; margin-left: 2.7%">
                 <a id="table-btn" class="btn btn-outline-danger mb-2" style="width:80%;">상세검색 접기</a>
             </div>
-            <div id="table" class ="col-md-12 text-wrap mb-3">
+            <div id="table" class ="col-md-12 text-wrap mb-3" style="display: block">
                 <form name="sort-table">
                     <table class="table table-bordered" style="display: block" align = "center">
                         <tr>
@@ -310,22 +310,43 @@
             <header>
                 <h2>❝오늘의 <strong>키워드</strong>❞</h2><br>
             </header>
-
             <div class="row aln-center">
                 <div class="menubar">
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">이글스 : 펑펑 울었던 한화 이글스 어린이팬 “김회성 선수로 바뀌었어요”(데일리안)</a>
-                            <ul>
-                                <li><a href="#">카더가든 “차+정원=카(car)+더가든(the garden)…모모랜드 좋아”(쿠키뉴스)</a></li>
-                                <li><a href="#">안효섭 : 안효섭 'It's Gonna Be Rolling' 가사 "아따찌, 들리는 대로 적었다" (데일리한국)</a></li>
-                                <li><a href="#">이글스 : 펑펑 울었던 한화 이글스 어린이팬 “김회성 선수로 바뀌었어요”(데일리안)</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                    <div><a>{{topic0}}</a></div>
+                    <div><a>{{topic1}}</a></div>
+                    <div><a>{{topic2}}</a></div>
+                    <div><a>{{topic3}}</a></div>
+                    <div><a>{{topic4}}</a></div>
+                    <div><a>{{topic5}}</a></div>
+                    <div><a>{{topic6}}</a></div>
+                    <div><a>{{topic7}}</a></div>
+                    <div><a>{{topic8}}</a></div>
+                    <div><a>{{topic9}}</a></div>
                 </div>
                 <!-- 버튼 -->
-
+                <div class="col-12">
+                    <ul class="actions">
+                        <li><a href="#" class="button icon fa-file">Tell Me More</a></li>
+                    </ul>
+                </div>
+            </div>
+            <header>
+                <h2>❝올해의 <strong>키워드</strong>❞</h2><br>
+            </header>
+            <div class="row aln-center">
+                <div class="menubar">
+                    <div><a>{{yearkeyword0}}</a></div>
+                    <div><a>{{yearkeyword1}}</a></div>
+                    <div><a>{{yearkeyword2}}</a></div>
+                    <div><a>{{yearkeyword3}}</a></div>
+                    <div><a>{{yearkeyword4}}</a></div>
+                    <div><a>{{yearkeyword5}}</a></div>
+                    <div><a>{{yearkeyword6}}</a></div>
+                    <div><a>{{yearkeyword7}}</a></div>
+                    <div><a>{{yearkeyword8}}</a></div>
+                    <div><a>{{yearkeyword9}}</a></div>
+                </div>
+                <!-- 버튼 -->
                 <div class="col-12">
                     <ul class="actions">
                         <li><a href="#" class="button icon fa-file">Tell Me More</a></li>
@@ -537,6 +558,7 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
+    </div>
     <!-- Footer -->
     <section id="footer">
         <div class="container">

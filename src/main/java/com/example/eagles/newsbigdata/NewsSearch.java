@@ -81,13 +81,15 @@ public class NewsSearch {
                 argument.put("sort", sort);
 
                 argument.put("hilight", hilight);
-                argument.put("returnFrom", returnFrom);
-                argument.put("returnSize", returnSize);
+                argument.put("return_from", returnFrom);
+                argument.put("return_size", returnSize);
 
                 JSONArray fields = new JSONArray();
                 if(!fieldsList.isEmpty())
                     fields.addAll(fieldsList);
+
                 argument.put("fields", fields);
+
             sendObject.put("argument",argument);
         }catch(Exception e){
             e.printStackTrace();

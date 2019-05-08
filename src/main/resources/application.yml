@@ -9,3 +9,8 @@ spring:
   profiles: local
   jpa:
     show-sql: true
+
+spark:
+  app:
+    name:
+      Spring Spark
