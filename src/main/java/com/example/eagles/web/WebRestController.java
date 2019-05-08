@@ -1,4 +1,4 @@
-package com.example.eagles.web;
+/*package com.example.eagles.web;
 
 import com.example.eagles.newsbigdata.Bigkinds;
 import com.example.eagles.newsbigdata.IssueRanking;
@@ -110,7 +110,7 @@ public class WebRestController {
                 providerList,null,null, null, null,
                 null, null, null, null,
                 null, "date", "desc", 200, 0, 5, null).toString();*/
-        return nsjsontest;
+    /*    return nsjsontest;
     }
 
     @GetMapping("/test")
@@ -133,4 +133,4 @@ public class WebRestController {
 
         return listString;
     }
-}
+}*/

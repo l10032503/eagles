@@ -1,4 +1,4 @@
-package com.example.eagles.web;
+/*package com.example.eagles.web;
 
 import com.example.eagles.newsbigdata.IssueRanking;
 import com.example.eagles.newsbigdata.NewsSearch;
@@ -65,3 +65,4 @@ public class JsonTestController {
         return "jsontest";
     }
 }
+*/
