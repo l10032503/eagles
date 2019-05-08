@@ -152,6 +152,22 @@ public class WebRestController {
         return post;
     }
 
+    @GetMapping("/searchtest2")
+    public String searchtest2() {
+        NewsSearch newsSearch = new NewsSearch();
+        Bigkinds bigkinds = new Bigkinds();
+        List<String> news_id_List = new ArrayList<String>();
+        List<String> fields_List = new ArrayList<String>();
+        news_id_List.add("01100101.20190314120127001");
+        fields_List.add("title");
+        fields_List.add("published_at");
+        fields_List.add("provider");
+        String posttest = newsSearch.makeQuery(news_id_List,fields_List).toString();
+        System.out.println(posttest);
+        String post = bigkinds.postURL("http://tools.kinds.or.kr:8888/search/news",posttest);
+        return post;
+    }
+
 
     private List<String> ArrayToList (String[] array, List<String> listString){
         if(!array[0].equals("null")){

@@ -20,12 +20,16 @@
     <script src="/webjars/handlebars/4.0.11-1/handlebars.js"></script>
 </head>
 <style>
+    .columns{
+        columns: 3;
+    }
+
     #floating-bar {
-        height: 180px;
+        height: 220px;
         width: 80px;
         position: fixed;
         right: 3%;
-        top: 40%;
+        top: 35%;
         margin: 0 0 0 110px;
         padding: 5px;
     }
@@ -56,7 +60,23 @@
     <section id="essaytitle">
         <div class="container">
             <!-- Logo -->
-            <h1 id="logo"><a >임시 페이지</a></h1>
+            <h1 style="word-break: keep-all">{{title}}</h1>
+            <p style="text-align: center; margin-bottom: 2px">{{#if byline}}
+                {{byline}} /
+            {{/if}} {{provider}} / {{published_at}}</p>
+            <p style="text-align: center; margin-bottom: 2px"> 카테고리 > {{subject_info}}
+                {{#if subject_info1}}
+                    > {{subject_info1}}
+                {{/if}}
+                {{#if subject_info2}}
+                    > {{subject_info2}}
+                {{/if}}
+                {{#if subject_info3}}
+                    > {{subject_info3}}
+                {{/if}}
+                {{#if subject_info4}}
+                    > {{subject_info4}}
+                {{/if}}</p>
             <!-- Nav -->
             <nav id="nav">
                 <ul>
@@ -144,9 +164,6 @@
                             <li><a href="#">튜터링 신청</a></li>
                         </ul>
                     </li> <!-- 여기까지 세번째 상단바 메뉴 -->
-
-                    <li><a class="icon fa-retweet" href="example/right-sidebar.hbs"><span>Right Sidebar</span></a></li>
-                    <li><a class="icon fa-sitemap" href="example/no-sidebar.hbs"><span>No Sidebar</span></a></li>
                 </ul>
             </nav>
 
@@ -154,18 +171,17 @@
     </section>
 
     <!-- Main -->
-    <section id="main">
+    <section id="main" style="padding-top: 10px">
         <div class="container">
-            <div id="content" style="text-align: center">
-                <h2><a href="/">메인으로 돌아가기</a></h2>
+            <div id="content">
+                <!-- Post -->
+                <article class="box post">
+                    <img src="{{images}}" alt="">
+                    <p style="width:100%; word-break: normal; white-space: pre-line">{{content}}</p>
+                </article>
             </div>
         </div>
 
-        <div id="floating-bar">
-            <button style="margin-bottom: 5px; width: 100%; height: 33%; padding: 3px; border-radius: 7px;">기사<br>스크랩</button>
-            <button style="margin-bottom: 5px;width: 100%; height: 33%; padding: 3px; border-radius: 7px;">열람한<br>기사</button>
-            <button style="width: 100%; padding: 3px; height: 33%; border-radius: 7px;">Q&A</button>
-        </div>
     </section>
 
     <!-- Footer -->
@@ -243,7 +259,12 @@
             </ul>
         </div>
     </section>
-
+    <div id="floating-bar">
+        <button onclick="location.href='/'" style="margin-bottom: 5px; width: 100%; height: 25%; padding: 3px; border-radius: 7px;">Home</button>
+        <button style="margin-bottom: 5px; width: 100%; height: 25%; padding: 3px; border-radius: 7px;">기사<br>스크랩</button>
+        <button style="margin-bottom: 5px;width: 100%; height: 25%; padding: 3px; border-radius: 7px;">키워드<br>스크랩</button>
+        <button style="width: 100%; padding: 3px; height: 25%; border-radius: 7px;">Q&A</button>
+    </div>
 </div>
 
 <!-- Scripts -->

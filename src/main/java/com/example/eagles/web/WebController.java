@@ -24,7 +24,7 @@ import java.util.*;
 public class WebController {
     @Autowired
     WordCount service;
-    topicKeyword topickeyword;
+
 
     @GetMapping("/")
     public String main(Model model) {
@@ -39,23 +39,15 @@ public class WebController {
         String index = "topic";
         JSONObject result = new JSONObject();
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-        Date startDate = new Date();
-        Date endDate = new Date();
-        String year_topic_keyword_all = "";
-
-
+        Date today = new Date();
+        String todaystr = "";
         try{
-            startDate = formatter.parse("2018-11-15");
+            todaystr = formatter.format(today);
         } catch (Exception e){
             e.printStackTrace();
         }
-        Calendar start = Calendar.getInstance();
-        start.setTime(startDate);
-        Calendar end = Calendar.getInstance();
-        end.setTime(endDate);
-        end.add(Calendar.DATE, -1);
 
-        jsonObject = issueRanking.makeIssue("2019-01-01", providerList);
+        jsonObject = issueRanking.makeIssue(todaystr, providerList);
         String issueQuery = bigkinds.postURL("http://tools.kinds.or.kr:8888/issue_ranking",jsonObject.toString());
         System.out.println(issueQuery);
         try{
@@ -71,14 +63,6 @@ public class WebController {
                 topicElement = (JSONObject) topics.get(i);
                 model.addAttribute(index + i, topicElement.get("topic"));
             }
-
-            year_topic_keyword_all = topickeyword.make_year_topic_keyword_all(start, end, issueRanking, bigkinds, jsonParser, formatter);
-
-            List<String> wordList = Arrays.asList(year_topic_keyword_all.split(","));
-            result.putAll(service.getCount(wordList));
-            model.addAttribute("yearkeyword0",result.toString());
-
-
         } catch (ParseException e) {
             e.printStackTrace();
         }

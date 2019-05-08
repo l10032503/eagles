@@ -9,6 +9,34 @@ import java.util.List;
 @Repository
 public class NewsSearch {
 
+    public JSONObject makeQuery(List<String> news_idsList, List<String> fieldsList){
+        JSONObject sendObject = new JSONObject();
+        JSONObject argument = new JSONObject();
+        try{
+            sendObject.put("access_key", "42d3584e-0c65-4b25-802d-11697fe24e9c");
+
+            //argument
+            JSONArray news_ids = new JSONArray();
+            if(!news_idsList.isEmpty())
+                news_ids.addAll(news_idsList);
+            argument.put("news_ids",news_ids);
+
+            JSONArray fields = new JSONArray();
+            if(!fieldsList.isEmpty())
+                fields.addAll(fieldsList);
+            argument.put("fields",fields);
+
+            argument.put("fields", fields);
+            sendObject.put("argument",argument);
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+        return sendObject;
+    }
+
     public JSONObject makeQuery(String query, String dateFrom, String dateUntil, List<String> providerList,
                                 List<String> categoryList, List<String> category_incidentList, String byline,
                                 List<String> provider_subjectList, List<String> subject_infoList,
