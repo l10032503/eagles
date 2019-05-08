@@ -20,7 +20,6 @@ import java.util.*;
 public class YearKeyWordController {
     @Autowired
     WordCount service;
-    topicKeyword topickeyword;
 
     public String make_year_topic_keyword_all(Calendar start, Calendar end, IssueRanking issueRanking, Bigkinds bigkinds,
                                               JSONParser jsonParser, SimpleDateFormat formatter){
