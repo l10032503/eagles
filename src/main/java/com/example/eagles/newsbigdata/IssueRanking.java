@@ -1,4 +1,4 @@
-package com.example.eagles.newsbigdata;
+/*package com.example.eagles.newsbigdata;
 
 import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class IssueRanking {
+public class    IssueRanking {
 
     public JSONObject makeIssue(String date, List<String> providerList){
         JSONObject sendObject = new JSONObject();
@@ -41,3 +41,4 @@ public class IssueRanking {
         return sendObject;
     }
 }
+*/
