@@ -26,6 +26,7 @@ public class NewsPageController {
         List<String> fields_List = new ArrayList<String>();
         Bigkinds bigkinds = new Bigkinds();
         JSONObject documentsElement = new JSONObject();
+        JSONArray category = new JSONArray();
 
         news_ids_List.add(code_provider + "." + code_date);
         fields_List.add("title");
@@ -46,7 +47,11 @@ public class NewsPageController {
             model.addAttribute("byline", documentsElement.get("byline"));
             model.addAttribute("content", documentsElement.get("content"));
             model.addAttribute("images", documentsElement.get("images"));
-            model.addAttribute("category", documentsElement.get("category"));
+            category = (JSONArray) documentsElement.get("category");
+            for(int i = 0; i<category.size(); i++){
+                model.addAttribute("category" + i, category.get(i));
+            }
+
 
         } catch (Exception e) {
             e.printStackTrace();
