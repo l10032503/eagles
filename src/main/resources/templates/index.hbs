@@ -61,6 +61,13 @@
             margin: 0 0 0 110px;
             padding: 5px;
         }
+
+        .today-keyword{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            text-decoration: none;
+        }
+
     </style>
 
     <div class="login">
@@ -310,48 +317,93 @@
                 <h2>❝오늘의 <strong>키워드</strong>❞</h2><br>
             </header>
 
-            <!-- 이미지 슬라이더 시작 -->
-            <div class="col-lg-12">
-                <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner" role="listbox">
-                        <div class="carousel-item active">
-                            <a href="#">
-                                <img class="d-block img-fluid" src="/images/pic01.png" style="width:100%; margin-left: auto; margin-right: auto" alt="First slide" >
-                            </a>
-                        </div>
-                        <div class="carousel-item">
-                            <a href="#">
-                                <img class="d-block img-fluid" src="/images/pic02.png" style="width:100%; margin-left: auto; margin-right: auto"alt="Second slide">
-                            </a>
-                        </div>
-                        <div class="carousel-item">
-                            <a href="#">
-                                <img class="d-block img-fluid" src="/images/pic03.png" style="width:100%; margin-left: auto; margin-right: auto" alt="Third slide">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
 
+            <section>
+                <ul class="divided">
+                    <li>
+
+                        <!-- Excerpt -->
+                        <article class="box excerpt">
+                            <header>
+                                <span class="date">키워드 1위</span>
+                                <h3><a href="#">폼페이오 북한 단거리 발사체</a></h3>
+                            </header>
+                            <p>교도 “트럼프·아베, 오늘 밤 통화해 北 발사체 대응 논의”...
+                            </p> <a id="DownArrow1" class="icon fa-angle-double-down"></a>
+                            <div id="keytable1" class ="col-md-12 text-wrap mb-3">
+                                <form name="key-table">
+                                    <table class="table table-bordered" style="display: block" align = "center">
+                                        <tr>
+                                            <td>관련 기사1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>관련기사2</td>
+                                        </tr>
+                                    </table>
+                                </form>
+                            </div>
+
+                        </article>
+
+                    </li>
+                    <li>
+
+                        <!-- Excerpt -->
+                        <article class="box excerpt">
+                            <header>
+                                <span class="date">키워드 2위</span>
+                                <h3><a href="#">문무일 조정 수사권 경청 입장</a></h3>
+                            </header>
+                            <p>'경찰권 통제' 접점 찾은 靑·檢…수사권 파문, 해법 마련되나...
+                            </p><a id="DownArrow2" class="icon fa-angle-double-down"></a>
+                            <div id="keytable2" class ="col-md-12 text-wrap mb-3">
+                                <form name="key-table">
+                                    <table class="table table-bordered" style="display: block" align = "center">
+                                        <tr>
+                                            <td>관련 기사1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>관련기사2</td>
+                                        </tr>
+                                    </table>
+                                </form>
+                            </div>
+                        </article>
+
+                    </li>
+                    <li>
+
+                        <!-- Excerpt -->
+                        <article class="box excerpt">
+                            <header>
+                                <span class="date">키워드 3위</span>
+                                <h3><a href="#">트럼프 무역협상 중국 증시 관세</a></h3>
+                            </header>
+                            <p>트럼프 관세 위협에도 판 깨고 싶지 않은 中...외교부 "미·중 협력" 강조...
+                            </p><a id="DownArrow3" class="icon fa-angle-double-down"></a>
+                            <div id="keytable3" class ="col-md-12 text-wrap mb-3">
+                                <form name="key-table">
+                                    <table class="table table-bordered" style="display: block" align = "center">
+                                        <tr>
+                                            <td>관련 기사1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>관련기사2</td>
+                                        </tr>
+                                    </table>
+                                </form>
+                            </div>
+                        </article>
+
+                    </li>
+                </ul>
+            </section>
 
             <div class="row aln-center">
                     <!-- 버튼 -->
                     <div class="col-12">
                         <ul class="actions">
-                            <li><a href="#" class="button icon fa-file">Tell Me More</a></li>
+                            <li><a href="#" class="button icon fa-file">키워드 기사 더보기</a></li>
                         </ul>
                     </div>
             </div>
@@ -361,176 +413,55 @@
     <!-- Banner -->
     <section id="banner">
         <div class="container">
-            <p><a href="#">1. 카더가든 : 카더가든 “차+정원=카(car)+더가든(the garden)…모모랜드 좋아”(쿠키뉴스)</a><br />
-                <a href="#">2. 안효섭 : 안효섭 'It's Gonna Be Rolling' 가사 "아따찌, 들리는 대로 적었다" (데일리한국)</a><br />
-                <a href="#">3. 이글스 : 펑펑 울었던 한화 이글스 어린이팬 “김회성 선수로 바뀌었어요”(데일리안) </a></p>
+            <p><a href="#">유용한 정보가 들어갈 자리</a><br /></p>
         </div>
     </section>
 
-    <!-- Main -->
-    <section id="main">
-        <div class="container">
-            <div class="row">
 
-                <!-- Content -->
-                <div id="content" class="col-8 col-12-medium">
 
-                    <!-- Post -->
-                    <article class="box post">
-                        <header>
-                            <h2><a href="#">I don’t want to say <strong>it’s the aliens</strong> ...<br />
-                                but it’s the aliens.</a></h2>
-                        </header>
-                        <a href="#" class="image featured"><img src="/images/pic04.png" alt="" /></a>
-                        <h3>I mean isn't it possible?</h3>
-                        <p>Phasellus laoreet massa id justo mattis pharetra. Fusce suscipit
-                            ligula vel quam viverra sit amet mollis tortor congue. Sed quis mauris
-                            sit amet magna accumsan tristique. Curabitur leo nibh, rutrum eu malesuada
-                            in, tristique at erat lorem ipsum dolor sit amet lorem ipsum sed consequat
-                            magna tempus veroeros lorem sed tempus aliquam lorem ipsum veroeros
-                            consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id
-                            justo mattis pharetra. Fusce suscipit ligula vel quam viverra sit amet
-                            mollis tortor congue. Sed quis mauris sit amet magna accumsan tristique.
-                            Curabitur leo nibh, rutrum eu malesuada in tristique.</p>
-                        <ul class="actions">
-                            <li><a href="#" class="button icon fa-file">Continue Reading</a></li>
-                        </ul>
-                    </article>
-
-                    <!-- Post -->
-                    <article class="box post">
-                        <header>
-                            <h2><a href="#">By the way, many thanks to <strong>regularjane</strong>
-                                for these awesome demo photos</a></h2>
-                        </header>
-                        <a href="#" class="image featured"><img src="/images/pic05.png" alt="" /></a>
-                        <h3>You should probably check out her work</h3>
-                        <p>Phasellus laoreet massa id justo mattis pharetra. Fusce suscipit
-                            ligula vel quam viverra sit amet mollis tortor congue. Sed quis mauris
-                            sit amet magna accumsan tristique. Curabitur leo nibh, rutrum eu malesuada
-                            in, tristique at erat lorem ipsum dolor sit amet lorem ipsum sed consequat
-                            consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id
-                            in, tristique at erat lorem ipsum dolor sit amet lorem ipsum sed consequat
-                            magna tempus veroeros lorem sed tempus aliquam lorem ipsum veroeros
-                            consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id
-                            justo mattis pharetra. Fusce suscipit ligula vel quam viverra sit amet
-                            mollis tortor congue. Sed quis mauris sit amet magna accumsan tristique.
-                            Curabitur leo nibh, rutrum malesuada.</p>
-                        <p>Erat lorem ipsum veroeros consequat magna tempus lorem ipsum consequat
-                            Phasellus laoreet massa id justo mattis pharetra. Fusce suscipit ligula
-                            vel quam viverra sit amet mollis tortor congue. Sed quis mauris sit amet
-                            magna accumsan tristique. Curabitur leo nibh, rutrum eu malesuada in,
-                            tristique at erat. Curabitur leo nibh, rutrum eu malesuada  in, tristique
-                            at erat lorem ipsum dolor sit amet lorem ipsum sed consequat magna
-                            tempus veroeros lorem sed tempus aliquam lorem ipsum veroeros consequat
-                            magna tempus.</p>
-                        <ul class="actions">
-                            <li><a href="#" class="button icon fa-file">Continue Reading</a></li>
-                        </ul>
-                    </article>
-
+    <!-- 이미지 슬라이더 시작 -->
+    <div class="col-lg-12">
+        <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <div class="carousel-item active">
+                    <a href="#">
+                        <img class="d-block img-fluid" src="/images/pic01.png" style="width:70%; height:70%; margin-left: auto; margin-right: auto" alt="First slide" >
+                    </a>
                 </div>
-
-                <!-- Sidebar -->
-                <div id="sidebar" class="col-4 col-12-medium">
-
-                    <!-- Excerpts -->
-                    <section>
-                        <ul class="divided">
-                            <li>
-
-                                <!-- Excerpt -->
-                                <article class="box excerpt">
-                                    <header>
-                                        <span class="date">July 30</span>
-                                        <h3><a href="#">Just another post</a></h3>
-                                    </header>
-                                    <p>Lorem ipsum dolor odio facilisis convallis. Etiam non nunc vel est
-                                        suscipit convallis non id orci lorem ipsum sed magna consequat feugiat lorem dolore.</p>
-                                </article>
-
-                            </li>
-                            <li>
-
-                                <!-- Excerpt -->
-                                <article class="box excerpt">
-                                    <header>
-                                        <span class="date">July 28</span>
-                                        <h3><a href="#">And another post</a></h3>
-                                    </header>
-                                    <p>Lorem ipsum dolor odio facilisis convallis. Etiam non nunc vel est
-                                        suscipit convallis non id orci lorem ipsum sed magna consequat feugiat lorem dolore.</p>
-                                </article>
-
-                            </li>
-                            <li>
-
-                                <!-- Excerpt -->
-                                <article class="box excerpt">
-                                    <header>
-                                        <span class="date">July 24</span>
-                                        <h3><a href="#">One more post</a></h3>
-                                    </header>
-                                    <p>Lorem ipsum dolor odio facilisis convallis. Etiam non nunc vel est
-                                        suscipit convallis non id orci lorem ipsum sed magna consequat feugiat lorem dolore.</p>
-                                </article>
-
-                            </li>
-                        </ul>
-                    </section>
-
-                    <!-- Highlights -->
-                    <section>
-                        <ul class="divided">
-                            <li>
-
-                                <!-- Highlight -->
-                                <article class="box highlight">
-                                    <header>
-                                        <h3><a href="#">Something of note</a></h3>
-                                    </header>
-                                    <a href="#" class="image left"><img src="/images/pic06.png" alt="" /></a>
-                                    <p>Phasellus  sed laoreet massa id justo mattis pharetra. Fusce suscipit ligula vel quam
-                                        viverra sit amet mollis tortor congue magna lorem ipsum dolor et quisque ut odio facilisis
-                                        convallis. Etiam non nunc vel est suscipit convallis non id orci. Ut interdum tempus
-                                        facilisis convallis. Etiam non nunc vel est suscipit convallis non id orci.</p>
-                                    <ul class="actions">
-                                        <li><a href="#" class="button icon fa-file">Learn More</a></li>
-                                    </ul>
-                                </article>
-
-                            </li>
-                            <li>
-
-                                <!-- Highlight -->
-                                <article class="box highlight">
-                                    <header>
-                                        <h3><a href="#">Something of less note</a></h3>
-                                    </header>
-                                    <a href="#" class="image left"><img src="/images/pic07.png" alt="" /></a>
-                                    <p>Phasellus  sed laoreet massa id justo mattis pharetra. Fusce suscipit ligula vel quam
-                                        viverra sit amet mollis tortor congue magna lorem ipsum dolor et quisque ut odio facilisis
-                                        convallis. Etiam non nunc vel est suscipit convallis non id orci. Ut interdum tempus
-                                        facilisis convallis. Etiam non nunc vel est suscipit convallis non id orci.</p>
-                                    <ul class="actions">
-                                        <li><a href="#" class="button icon fa-file">Learn More</a></li>
-                                    </ul>
-                                </article>
-
-                            </li>
-                        </ul>
-                    </section>
-
+                <div class="carousel-item">
+                    <a href="#">
+                        <img class="d-block img-fluid" src="/images/pic02.png" style="width:70%; height:70%; margin-left: auto; margin-right: auto"alt="Second slide">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="#">
+                        <img class="d-block img-fluid" src="/images/pic03.png" style="width:70%; height:70%; margin-left: auto; margin-right: auto" alt="Third slide">
+                    </a>
                 </div>
             </div>
         </div>
-    </section>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+
 
     <!-- Footer -->
     <section id="footer">
         <div class="container">
             <header>
-                <h2>대학으로 비상하게 해줄 <strong>이글스</strong></h2>
+                <h2>내일의 꿈으로 비상하게 해줄 <strong>오늘의 ❝이글스❞</strong></h2>
             </header>
         </div>
         <div id="copyright" class="container">
@@ -558,6 +489,7 @@
 <script src="/webjars/jquery/2.2.1/jquery.min.js"></script>
 <script src="/webjars/bootstrap/4.2.1/js/bootstrap.bundle.js"></script>
 <script src="/webjars/handlebars/4.0.11-1/handlebars.js"></script>
+
 <script>
     $(document).ready(function () {
         console.log("test");
@@ -575,6 +507,62 @@
         })
     })
 </script>
+
+
+<script>
+    $(document).ready(function () {
+        console.log("test");
+        $("#keytable1").hide();
+        $("#DownArrow1").click(function () {
+            if($("#keytable1").is(":visible")){
+                console.log("hide");
+                $("#DownArrow1").html("");
+                $("#keytable1").slideUp();
+            }else{
+                console.log("show");
+                $("#DownArrow1").html("");
+                $("#keytable1").slideDown();
+            }
+        })
+    })
+</script>
+
+<script>
+    $(document).ready(function () {
+        console.log("test");
+        $("#keytable2").hide();
+        $("#DownArrow2").click(function () {
+            if($("#keytable2").is(":visible")){
+                console.log("hide");
+                $("#DownArrow2").html("");
+                $("#keytable2").slideUp();
+            }else{
+                console.log("show");
+                $("#DownArrow2").html("");
+                $("#keytable2").slideDown();
+            }
+        })
+    })
+</script>
+
+<script>
+    $(document).ready(function () {
+        console.log("test");
+        $("#keytable3").hide();
+        $("#DownArrow3").click(function () {
+            if($("#keytable3").is(":visible")){
+                console.log("hide");
+                $("#DownArrow3").html("");
+                $("#keytable3").slideUp();
+            }else{
+                console.log("show");
+                $("#DownArrow3").html("");
+                $("#keytable3").slideDown();
+            }
+        })
+    })
+</script>
+
 <!-- 전체 체크하는 스크립트 언론지 종류별로 -->
 <script>
     $( document ).ready( function() {
