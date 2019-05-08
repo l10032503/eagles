@@ -2,6 +2,11 @@
 
 import com.example.eagles.newsbigdata.Bigkinds;
 import com.example.eagles.newsbigdata.IssueRanking;
+<<<<<<< master
+=======
+import com.example.eagles.newsbigdata.NewsSearch;
+import org.springframework.beans.factory.annotation.Autowired;
+>>>>>>> master
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -133,4 +138,17 @@ public class WebRestController {
 
         return listString;
     }
-}*/
+<<<<<<< master
+}
+=======
+
+        @GetMapping("/wordcounttest")
+        public Map<String, Long> wordcounttest() {
+            String words = "Siddhant,Agnihotry,Technocrat,Siddhant,Sid";
+            List<String> wordList = Arrays.asList(words.split(","));
+            return service.getCount(wordList);
+        }
+    }
+>>>>>>> master
+
+     */
