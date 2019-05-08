@@ -7,25 +7,22 @@ import org.json.simple.parser.ParseException;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class DocumentElement {
+public class Document {
 
-    public JSONObject makeDoumentElement(String searchQuery){
+    public JSONArray makeDoumentElement(String searchQuery){
         JSONObject jsonObject = new JSONObject();
         JSONParser jsonParser = new JSONParser();
         JSONObject return_object = new JSONObject();
-        JSONArray documents = new JSONArray();
 
         try{
             Object obj = jsonParser.parse(searchQuery);
             jsonObject = (JSONObject) obj;
             return_object = (JSONObject) jsonObject.get("return_object");
-            documents = (JSONArray) return_object.get("documents");
-
 
         }catch (ParseException e){
             e.printStackTrace();
         }
 
-        return (JSONObject) documents.get(0);
+        return (JSONArray) return_object.get("documents");
     }
 }

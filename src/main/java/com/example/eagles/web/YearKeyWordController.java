@@ -1,9 +1,7 @@
 package com.example.eagles.web;
 
 import com.example.eagles.Spark.WordCount;
-import com.example.eagles.Spark.topicKeyword;
 import com.example.eagles.newsbigdata.Bigkinds;
-import com.example.eagles.newsbigdata.IssueRanking;
 import com.example.eagles.newsbigdata.NewsSearch;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -25,7 +23,7 @@ public class YearKeyWordController {
     public String make_title_all(String dateFrom){
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date today = new Date();
-        String year_topic_keyword_all = "";
+        String title_all = "";
         JSONObject jsonObject = new JSONObject();
         JSONParser jsonParser = new JSONParser();
         String resultString = "";
@@ -34,6 +32,7 @@ public class YearKeyWordController {
         JSONObject documentsElement = new JSONObject();
         NewsSearch newsSearch = new NewsSearch();
         Bigkinds bigkinds = new Bigkinds();
+
         List<String> providerList = new ArrayList<String>();
         List<String> category_List = new ArrayList<String>();
         List<String> category_incident_List = new ArrayList<String>();
@@ -49,7 +48,7 @@ public class YearKeyWordController {
         String queryString = newsSearch.makeQuery("", "2018-11-15", simpleDateFormat.format(today),
                 providerList,category_List,category_incident_List, "", provider_subject_List,
                 subject_info_List, subject_info1_List, subject_info2_List, subject_info3_List,
-                subject_info4_List, "date", "desc", 200, 0, 5, fields_List).toString();
+                subject_info4_List, "date", "desc", 200, 0, 1000, fields_List).toString();
         resultString = bigkinds.postURL("http://tools.kinds.or.kr:8888/search/news",queryString);
 
         try{
@@ -58,29 +57,28 @@ public class YearKeyWordController {
             JSONObject return_object = new JSONObject();
             return_object = (JSONObject) jsonObject.get("return_object");
 
-            documents = (JSONArray) return_object.get("document");
-            for(int i=0; i < 10 ;i++){
+            documents = (JSONArray) return_object.get("documents");
+            for(int i=0; i < documents.size() ;i++){
                 documentsElement = (JSONObject) documents.get(i);
+                title_all = title_all + documentsElement.get("title") + " ";
             }
         }catch (ParseException e){
             e.printStackTrace();
         }
 
-        return year_topic_keyword_all;
+        return title_all;
     }
 
     @GetMapping("/year-keyword")
     public String year_keyword(Model model){
-        JSONParser jsonParser = new JSONParser();
-        JSONObject result = new JSONObject();
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         String title_all = "";
 
-        title_all = make_title_all("2018-11-15");
+        title_all = make_title_all("2019-05-01");
 
-        List<String> wordList = Arrays.asList(title_all.split(" "));
-        result.putAll(service.getCount(wordList));
-        model.addAttribute("yearkeywordtest",result.toString());
+        //List<String> wordList = Arrays.asList(title_all.split(" "));
+        //result.putAll(service.getCount(wordList));
+        model.addAttribute("yearkeywordtest",title_all);
 
         return "year-keyword";
     }

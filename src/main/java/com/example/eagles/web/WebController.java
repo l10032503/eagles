@@ -3,7 +3,7 @@ package com.example.eagles.web;
 
 import com.example.eagles.Spark.WordCount;
 import com.example.eagles.newsbigdata.Bigkinds;
-import com.example.eagles.newsbigdata.DocumentElement;
+import com.example.eagles.newsbigdata.Document;
 import com.example.eagles.newsbigdata.IssueRanking;
 import com.example.eagles.newsbigdata.NewsSearch;
 import lombok.AllArgsConstructor;
@@ -48,7 +48,8 @@ public class WebController {
         String searchQuery = "";
         List<String> news_ids_List = new ArrayList<String>();
         List<String> fields_List = new ArrayList<String>();
-        DocumentElement documentElement = new DocumentElement();
+        Document document = new Document();
+        JSONArray documents = new JSONArray();
         JSONObject documentsElement = new JSONObject();
         fields_List.add("title");
 
@@ -58,7 +59,7 @@ public class WebController {
             e.printStackTrace();
         }
 
-        jsonObject = issueRanking.makeIssue(todaystr, providerList);
+        jsonObject = issueRanking.makeIssue("2019-05-08", providerList);
         String issueQuery = bigkinds.postURL("http://tools.kinds.or.kr:8888/issue_ranking",jsonObject.toString());
         System.out.println(issueQuery);
         try{
@@ -82,7 +83,8 @@ public class WebController {
                     searchQuery = bigkinds.postURL("http://tools.kinds.or.kr:8888/search/news",
                             newsSearch.makeQuery(news_ids_List,fields_List).toString());
                     news_ids_List.remove(news_id);
-                    documentsElement = documentElement.makeDoumentElement(searchQuery);
+                    documents = document.makeDoumentElement(searchQuery);
+                    documentsElement = (JSONObject) documents.get(0);
                     model.addAttribute("topic" + i + "title"+j, documentsElement.get("title"));
                 }
             }
