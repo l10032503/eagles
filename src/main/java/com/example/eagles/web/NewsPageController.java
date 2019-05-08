@@ -1,6 +1,7 @@
 package com.example.eagles.web;
 
 import com.example.eagles.newsbigdata.Bigkinds;
+import com.example.eagles.newsbigdata.DocumentElement;
 import com.example.eagles.newsbigdata.NewsSearch;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -22,13 +23,10 @@ public class NewsPageController {
                            @RequestParam(value = "codeprovider", required = false, defaultValue = "01500701")String code_provider,
                            @RequestParam(value = "codedate", required = false, defaultValue = "2015083110018412570")String code_date){
         NewsSearch newsSearch = new NewsSearch();
+        DocumentElement documentElement = new DocumentElement();
         List<String> news_ids_List = new ArrayList<String>();
         List<String> fields_List = new ArrayList<String>();
         Bigkinds bigkinds = new Bigkinds();
-        JSONObject jsonObject = new JSONObject();
-        JSONObject return_object = new JSONObject();
-        JSONArray documents = new JSONArray();
-        JSONParser jsonParser = new JSONParser();
         JSONObject documentsElement = new JSONObject();
 
         news_ids_List.add(code_provider + "." + code_date);
@@ -47,12 +45,7 @@ public class NewsPageController {
                 newsSearch.makeQuery(news_ids_List,fields_List).toString());
         System.out.println(searchQuery);
         try{
-            Object obj = jsonParser.parse(searchQuery);
-            jsonObject = (JSONObject) obj;
-            return_object = (JSONObject) jsonObject.get("return_object");
-            documents = (JSONArray) return_object.get("documents");
-
-            documentsElement = (JSONObject) documents.get(0);
+            documentsElement = documentElement.makeDoumentElement(searchQuery);
             model.addAttribute("title", documentsElement.get("title"));
             model.addAttribute("provider", documentsElement.get("provider"));
             model.addAttribute("published_at", documentsElement.get("published_at").toString().substring(0,10));
@@ -66,8 +59,7 @@ public class NewsPageController {
             model.addAttribute("subject_info3", documentsElement.get("subject_info3"));
             model.addAttribute("subject_info4", documentsElement.get("subject_info4"));
 
-
-        } catch (ParseException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 

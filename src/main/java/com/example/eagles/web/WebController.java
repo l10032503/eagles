@@ -4,7 +4,9 @@ package com.example.eagles.web;
 import com.example.eagles.Spark.WordCount;
 import com.example.eagles.Spark.topicKeyword;
 import com.example.eagles.newsbigdata.Bigkinds;
+import com.example.eagles.newsbigdata.DocumentElement;
 import com.example.eagles.newsbigdata.IssueRanking;
+import com.example.eagles.newsbigdata.NewsSearch;
 import lombok.AllArgsConstructor;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -30,6 +32,7 @@ public class WebController {
     public String main(Model model) {
         IssueRanking issueRanking = new IssueRanking();
         Bigkinds bigkinds = new Bigkinds();
+        NewsSearch newsSearch = new NewsSearch();
         JSONObject jsonObject = new JSONObject();
         List<String> providerList = new ArrayList<String>();
         JSONParser jsonParser = new JSONParser();
@@ -37,10 +40,19 @@ public class WebController {
         JSONArray topics = new JSONArray();
         JSONObject topicElement = new JSONObject();
         String index = "topic";
-        JSONObject result = new JSONObject();
+        JSONArray news_cluster = new JSONArray();
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         Date today = new Date();
         String todaystr = "";
+        String[] title = new String[3];
+        String news_id = "";
+        String searchQuery = "";
+        List<String> news_ids_List = new ArrayList<String>();
+        List<String> fields_List = new ArrayList<String>();
+        DocumentElement documentElement = new DocumentElement();
+        JSONObject documentsElement = new JSONObject();
+        fields_List.add("title");
+
         try{
             todaystr = formatter.format(today);
         } catch (Exception e){
@@ -62,6 +74,18 @@ public class WebController {
             for(int i=0; i < 10 ;i++) {
                 topicElement = (JSONObject) topics.get(i);
                 model.addAttribute(index + i, topicElement.get("topic"));
+                news_cluster = (JSONArray) topicElement.get("news_cluster");
+                for(int j=0; j<3; j++){
+                    news_id = (String) news_cluster.get(j);
+                    model.addAttribute("topic" + i + "provider"+j, news_id.substring(0,8));
+                    model.addAttribute("topic" + i + "date"+j, news_id.substring(9));
+                    news_ids_List.add(news_id);
+                    searchQuery = bigkinds.postURL("http://tools.kinds.or.kr:8888/search/news",
+                            newsSearch.makeQuery(news_ids_List,fields_List).toString());
+                    news_ids_List.remove(news_id);
+                    documentsElement = documentElement.makeDoumentElement(searchQuery);
+                    model.addAttribute("topic" + i + "title"+j, documentsElement.get("title"));
+                }
             }
         } catch (ParseException e) {
             e.printStackTrace();

@@ -9,6 +9,7 @@ import java.util.List;
 @Repository
 public class NewsSearch {
 
+
     public JSONObject makeQuery(List<String> news_idsList, List<String> fieldsList){
         JSONObject sendObject = new JSONObject();
         JSONObject argument = new JSONObject();
