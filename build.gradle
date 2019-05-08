@@ -1,4 +1,5 @@
 buildscript {
+    
     repositories {
         mavenCentral()
     }
@@ -51,10 +52,14 @@ dependencies {
     compile('org.apache.tomcat.embed:tomcat-embed-jasper')
     compile('javax.servlet:jstl:1.2')
     
-    compile 'net.sf.json-lib:json-lib-ext-spring:1.0.2'
     compile 'commons-collections:commons-collections:3.2'
 
     compile 'com.googlecode.json-simple:json-simple:1.1'
 
+    compile 'com.thoughtworks.paranamer:paranamer:2.8'
+    compile ('org.apache.spark:spark-core_2.11:2.1.0'){
+        exclude group: 'org.slf4j'
+    }
+    
 }
 

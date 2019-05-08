@@ -1,29 +1,25 @@
 /*package com.example.eagles.web;
 
+import com.example.eagles.Spark.WordCount;
 import com.example.eagles.newsbigdata.Bigkinds;
 import com.example.eagles.newsbigdata.IssueRanking;
-<<<<<<< master
-=======
 import com.example.eagles.newsbigdata.NewsSearch;
 import org.springframework.beans.factory.annotation.Autowired;
-<<<<<<< master
-=======
->>>>>>> master
->>>>>>> master
+
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 
 @RestController
 public class WebRestController {
+
+    @Autowired
+    WordCount service;
 
     @GetMapping("/irtest")
     public String irtest(Model model,
@@ -125,9 +121,51 @@ public class WebRestController {
     public String test() {
         IssueRanking issueRanking = new IssueRanking();
         Bigkinds bigkinds = new Bigkinds();
-        String hello = "hello world";
         String posttest = issueRanking.makeIssue("2016-01-18").toString();
         String post = bigkinds.postURL("http://tools.kinds.or.kr:8888/issue_ranking",posttest);
+        return post;
+    }
+
+    @GetMapping("/searchtest")
+    public String searchtest() {
+        NewsSearch newsSearch = new NewsSearch();
+        Bigkinds bigkinds = new Bigkinds();
+        List<String> providerList = new ArrayList<String>();
+        List<String> category_List = new ArrayList<String>();
+        List<String> category_incident_List = new ArrayList<String>();
+        List<String> provider_subject_List = new ArrayList<String>();
+        List<String> subject_info_List = new ArrayList<String>();
+        List<String> subject_info1_List = new ArrayList<String>();
+        List<String> subject_info2_List = new ArrayList<String>();
+        List<String> subject_info3_List = new ArrayList<String>();
+        List<String> subject_info4_List = new ArrayList<String>();
+        List<String> fields_List = new ArrayList<String>();
+        fields_List.add("title");
+        fields_List.add("news_id");
+        fields_List.add("hilight");
+        fields_List.add("provider");
+        String posttest = newsSearch.makeQuery("키워드", "2014-03-03", "2019-05-07",
+                providerList,category_List,category_incident_List, "", provider_subject_List,
+                subject_info_List, subject_info1_List, subject_info2_List, subject_info3_List,
+                subject_info4_List, "date", "desc", 200, 0, 5, fields_List).toString();
+        System.out.println(posttest);
+        String post = bigkinds.postURL("http://tools.kinds.or.kr:8888/search/news",posttest);
+        return post;
+    }
+
+    @GetMapping("/searchtest2")
+    public String searchtest2() {
+        NewsSearch newsSearch = new NewsSearch();
+        Bigkinds bigkinds = new Bigkinds();
+        List<String> news_id_List = new ArrayList<String>();
+        List<String> fields_List = new ArrayList<String>();
+        news_id_List.add("01100101.20190314120127001");
+        fields_List.add("title");
+        fields_List.add("published_at");
+        fields_List.add("provider");
+        String posttest = newsSearch.makeQuery(news_id_List,fields_List).toString();
+        System.out.println(posttest);
+        String post = bigkinds.postURL("http://tools.kinds.or.kr:8888/search/news",posttest);
         return post;
     }
 
@@ -141,19 +179,6 @@ public class WebRestController {
 
         return listString;
     }
-<<<<<<< master
-
-    @GetMapping("/wordcounttest")
-    public Map<String, Long> wordcounttest() {
-        String words = "Siddhant,Agnihotry,Technocrat,Siddhant,Sid";
-        List<String> wordList = Arrays.asList(words.split(","));
-        return service.getCount(wordList);
-    }
-=======
-<<<<<<< master
->>>>>>> master
-}
-=======
 
         @GetMapping("/wordcounttest")
         public Map<String, Long> wordcounttest() {
@@ -162,6 +187,4 @@ public class WebRestController {
             return service.getCount(wordList);
         }
     }
->>>>>>> master
 
-     */

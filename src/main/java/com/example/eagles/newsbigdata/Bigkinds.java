@@ -15,7 +15,6 @@ public class Bigkinds {
         String inputLine = null;
         StringBuffer outResult = new StringBuffer();
         try{
-            System.out.println("REST APT Start");
             URL url = new URL(sendUrl);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setDoOutput(true);
@@ -35,7 +34,6 @@ public class Bigkinds {
             }
 
             conn.disconnect();
-            System.out.println("REST API END");
         }catch(Exception e){
             System.out.println(e.getMessage());
             e.printStackTrace();
