@@ -9,10 +9,12 @@ import org.springframework.context.annotation.Configuration;
 public class Sparkconfig {
 
     //test
-    
+
     @Bean
     public SparkConf conf() {
-        return new SparkConf().setAppName("eagles").setMaster("local");
+        SparkConf conf = new SparkConf().setAppName("eagles").setMaster("local");
+
+        return conf.set("spark.testing.memory", "2147480000");
     }
 
     @Bean
