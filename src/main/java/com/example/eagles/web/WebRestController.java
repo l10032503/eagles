@@ -1,4 +1,4 @@
-/*package com.example.eagles.web;
+package com.example.eagles.web;
 
 import com.example.eagles.Spark.WordCount;
 import com.example.eagles.newsbigdata.Bigkinds;
@@ -110,11 +110,7 @@ public class WebRestController {
                 subject_info_List, subject_info1_List, subject_info2_List, subject_info3_List,
                 subject_info4_List, sortField, sortOrder, hilightInt, returnFromInt, returnSizeInt, fields_List).toString();
 
-        /*String nsjsontest = newsSearch.makeQuery("검색키워드", "2016-01-01", "2016-02-02",
-                providerList,null,null, null, null,
-                null, null, null, null,
-                null, "date", "desc", 200, 0, 5, null).toString();*/
-    /*    return nsjsontest;
+        return nsjsontest;
     }
 
     @GetMapping("/test")
@@ -187,4 +183,3 @@ public class WebRestController {
             return service.getCount(wordList);
         }
     }
-
