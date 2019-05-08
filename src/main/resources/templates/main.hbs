@@ -6,7 +6,7 @@
 -->
 <html>
 <head>
-    <title>이글스 | Easy하게 글써지는 뉴스</title>
+    <title>이글스(Easy하게 글써지는 뉴스)</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -61,6 +61,13 @@
             margin: 0 0 0 110px;
             padding: 5px;
         }
+
+        .today-keyword{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            text-decoration: none;
+        }
+
     </style>
 
     <div class="login">
@@ -80,7 +87,7 @@
             <!-- Nav -->
             <nav id="nav">
                 <ul>
-                    <li><a class="icon fa-align-center"><span>논술 기출</span></a>
+                    <li><a class="icon fa-align-center" href="index.html"><span>논술 기출</span></a>
                         <ul>
                             <li><a href="#">대학별 기출</a>
                                 <ul>
@@ -104,7 +111,7 @@
                                         <li><a href="#">성균관대</a></li>
                                         <li><a href="#">성신여대</a></li>
                                         <li><a href="#">세종대</a></li>
-                                        <li><a href="/sookmyung">숙명여대</a></li>
+                                        <li><a href="#">숙명여대</a></li>
                                         <li><a href="#">숭실대</a></li>
                                         <li><a href="#">아주대</a></li>
                                         <li><a href="#">연세대(서울)</a></li>
@@ -157,14 +164,13 @@
                         </ul>
                     </li> <!-- 여기까지 두번째 상단바 메뉴 -->
 
-                    <li><a class="icon fa-user" href="#"><span>함께 공부하기</span></a>
+                    <li><a class="icon fa-user" href="/left-sidebar"><span>함께 공부하기</span></a>
                         <ul>
                             <li><a href="#">스터디 • 모임</a></li>
                             <li><a href="#">학원 • 과외</a></li>
                             <li><a href="#">튜터링 신청</a></li>
                         </ul>
                     </li> <!-- 여기까지 세번째 상단바 메뉴 -->
-
                 </ul>
             </nav>
 
@@ -185,9 +191,9 @@
             <div class="col-lg-12" style="margin-top: 1.5%; margin-left: 2.7%">
                 <a id="table-btn" class="btn btn-outline-danger mb-2" style="width:80%;">상세검색 접기</a>
             </div>
-            <div id="table" class ="col-md-12 text-wrap mb-3" style="display: block">
+            <div id="table" class ="col-md-12 text-wrap mb-3" style="display: none">
                 <form name="sort-table">
-                    <table class="table table-bordered" style="display: block" align = "center">
+                    <table class="table table-bordered"  align = "center">
                         <tr>
                             <th nowrap="nowrap" style="width: 150px; text-align: center"; bgcolor="#FFAEA6" >기간</th>
                             <td>
@@ -310,219 +316,110 @@
             <header>
                 <h2>❝오늘의 <strong>키워드</strong>❞</h2><br>
             </header>
+
+
+            <section>
+                <ul class="divided">
+                    <li>
+
+                        <!-- Excerpt -->
+                        <article class="box excerpt">
+                            <header>
+                                <span class="date">키워드 1위</span>
+                                <h3><a href="#">{{topic0}}</a></h3>
+                            </header>
+                            <p>교도 “트럼프·아베, 오늘 밤 통화해 北 발사체 대응 논의”...
+                            </p> <a id="DownArrow1" class="icon fa-angle-double-down"></a>
+                            <div id="keytable1" class ="col-md-12 text-wrap mb-3">
+                                <form name="key-table">
+                                    <table class="table table-bordered" style="display: block" align = "center">
+                                        <tr>
+                                            <td>관련 기사1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>관련기사2</td>
+                                        </tr>
+                                    </table>
+                                </form>
+                            </div>
+
+                        </article>
+
+                    </li>
+                    <li>
+
+                        <!-- Excerpt -->
+                        <article class="box excerpt">
+                            <header>
+                                <span class="date">키워드 2위</span>
+                                <h3><a href="#">{{topic1}}</a></h3>
+                            </header>
+                            <p>'경찰권 통제' 접점 찾은 靑·檢…수사권 파문, 해법 마련되나...
+                            </p><a id="DownArrow2" class="icon fa-angle-double-down"></a>
+                            <div id="keytable2" class ="col-md-12 text-wrap mb-3">
+                                <form name="key-table">
+                                    <table class="table table-bordered" style="display: block" align = "center">
+                                        <tr>
+                                            <td>관련 기사1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>관련기사2</td>
+                                        </tr>
+                                    </table>
+                                </form>
+                            </div>
+                        </article>
+
+                    </li>
+                    <li>
+
+                        <!-- Excerpt -->
+                        <article class="box excerpt">
+                            <header>
+                                <span class="date">키워드 3위</span>
+                                <h3><a href="#">{{topic0}}</a></h3>
+                            </header>
+                            <p>트럼프 관세 위협에도 판 깨고 싶지 않은 中...외교부 "미·중 협력" 강조...
+                            </p><a id="DownArrow3" class="icon fa-angle-double-down"></a>
+                            <div id="keytable3" class ="col-md-12 text-wrap mb-3">
+                                <form name="key-table">
+                                    <table class="table table-bordered" style="display: block" align = "center">
+                                        <tr>
+                                            <td>관련 기사1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>관련기사2</td>
+                                        </tr>
+                                    </table>
+                                </form>
+                            </div>
+                        </article>
+
+                    </li>
+                </ul>
+            </section>
+
             <div class="row aln-center">
-                <div class="menubar">
-                    <div><a>{{topic0}}</a></div>
-                    <div><a>{{topic1}}</a></div>
-                    <div><a>{{topic2}}</a></div>
-                    <div><a>{{topic3}}</a></div>
-                    <div><a>{{topic4}}</a></div>
-                    <div><a>{{topic5}}</a></div>
-                    <div><a>{{topic6}}</a></div>
-                    <div><a>{{topic7}}</a></div>
-                    <div><a>{{topic8}}</a></div>
-                    <div><a>{{topic9}}</a></div>
-                </div>
                 <!-- 버튼 -->
                 <div class="col-12">
                     <ul class="actions">
-                        <li><a href="#" class="button icon fa-file">Tell Me More</a></li>
-                    </ul>
-                </div>
-            </div>
-            <header>
-                <h2>❝올해의 <strong>키워드</strong>❞</h2><br>
-            </header>
-            <div class="row aln-center">
-                <div class="menubar">
-                    <div><a>{{yearkeyword0}}</a></div>
-                    <div><a>{{yearkeyword1}}</a></div>
-                    <div><a>{{yearkeyword2}}</a></div>
-                    <div><a>{{yearkeyword3}}</a></div>
-                    <div><a>{{yearkeyword4}}</a></div>
-                    <div><a>{{yearkeyword5}}</a></div>
-                    <div><a>{{yearkeyword6}}</a></div>
-                    <div><a>{{yearkeyword7}}</a></div>
-                    <div><a>{{yearkeyword8}}</a></div>
-                    <div><a>{{yearkeyword9}}</a></div>
-                </div>
-                <!-- 버튼 -->
-                <div class="col-12">
-                    <ul class="actions">
-                        <li><a href="#" class="button icon fa-file">Tell Me More</a></li>
+                        <li><a href="#" class="button icon fa-file">키워드 기사 더보기</a></li>
                     </ul>
                 </div>
             </div>
         </div>
+
+        <p>{{yearkeyword0}}</p>
     </section>
 
     <!-- Banner -->
     <section id="banner">
         <div class="container">
-            <p><a href="#">1. 카더가든 : 카더가든 “차+정원=카(car)+더가든(the garden)…모모랜드 좋아”(쿠키뉴스)</a><br />
-                <a href="#">2. 안효섭 : 안효섭 'It's Gonna Be Rolling' 가사 "아따찌, 들리는 대로 적었다" (데일리한국)</a><br />
-                <a href="#">3. 이글스 : 펑펑 울었던 한화 이글스 어린이팬 “김회성 선수로 바뀌었어요”(데일리안) </a></p>
+            <p><a href="#">광고배너자리</a><br /></p>
         </div>
     </section>
 
-    <!-- Main -->
-    <section id="main">
-        <div class="container">
-            <div class="row">
 
-                <!-- Content -->
-                <div id="content" class="col-8 col-12-medium">
-
-                    <!-- Post -->
-                    <article class="box post">
-                        <header>
-                            <h2><a href="#">I don’t want to say <strong>it’s the aliens</strong> ...<br />
-                                but it’s the aliens.</a></h2>
-                        </header>
-                        <a href="#" class="image featured"><img src="/images/pic04.png" alt="" /></a>
-                        <h3>I mean isn't it possible?</h3>
-                        <p>Phasellus laoreet massa id justo mattis pharetra. Fusce suscipit
-                            ligula vel quam viverra sit amet mollis tortor congue. Sed quis mauris
-                            sit amet magna accumsan tristique. Curabitur leo nibh, rutrum eu malesuada
-                            in, tristique at erat lorem ipsum dolor sit amet lorem ipsum sed consequat
-                            magna tempus veroeros lorem sed tempus aliquam lorem ipsum veroeros
-                            consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id
-                            justo mattis pharetra. Fusce suscipit ligula vel quam viverra sit amet
-                            mollis tortor congue. Sed quis mauris sit amet magna accumsan tristique.
-                            Curabitur leo nibh, rutrum eu malesuada in tristique.</p>
-                        <ul class="actions">
-                            <li><a href="#" class="button icon fa-file">Continue Reading</a></li>
-                        </ul>
-                    </article>
-
-                    <!-- Post -->
-                    <article class="box post">
-                        <header>
-                            <h2><a href="#">By the way, many thanks to <strong>regularjane</strong>
-                                for these awesome demo photos</a></h2>
-                        </header>
-                        <a href="#" class="image featured"><img src="/images/pic05.png" alt="" /></a>
-                        <h3>You should probably check out her work</h3>
-                        <p>Phasellus laoreet massa id justo mattis pharetra. Fusce suscipit
-                            ligula vel quam viverra sit amet mollis tortor congue. Sed quis mauris
-                            sit amet magna accumsan tristique. Curabitur leo nibh, rutrum eu malesuada
-                            in, tristique at erat lorem ipsum dolor sit amet lorem ipsum sed consequat
-                            consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id
-                            in, tristique at erat lorem ipsum dolor sit amet lorem ipsum sed consequat
-                            magna tempus veroeros lorem sed tempus aliquam lorem ipsum veroeros
-                            consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id
-                            justo mattis pharetra. Fusce suscipit ligula vel quam viverra sit amet
-                            mollis tortor congue. Sed quis mauris sit amet magna accumsan tristique.
-                            Curabitur leo nibh, rutrum malesuada.</p>
-                        <p>Erat lorem ipsum veroeros consequat magna tempus lorem ipsum consequat
-                            Phasellus laoreet massa id justo mattis pharetra. Fusce suscipit ligula
-                            vel quam viverra sit amet mollis tortor congue. Sed quis mauris sit amet
-                            magna accumsan tristique. Curabitur leo nibh, rutrum eu malesuada in,
-                            tristique at erat. Curabitur leo nibh, rutrum eu malesuada  in, tristique
-                            at erat lorem ipsum dolor sit amet lorem ipsum sed consequat magna
-                            tempus veroeros lorem sed tempus aliquam lorem ipsum veroeros consequat
-                            magna tempus.</p>
-                        <ul class="actions">
-                            <li><a href="#" class="button icon fa-file">Continue Reading</a></li>
-                        </ul>
-                    </article>
-
-                </div>
-
-                <!-- Sidebar -->
-                <div id="sidebar" class="col-4 col-12-medium">
-
-                    <!-- Excerpts -->
-                    <section>
-                        <ul class="divided">
-                            <li>
-
-                                <!-- Excerpt -->
-                                <article class="box excerpt">
-                                    <header>
-                                        <span class="date">July 30</span>
-                                        <h3><a href="#">Just another post</a></h3>
-                                    </header>
-                                    <p>Lorem ipsum dolor odio facilisis convallis. Etiam non nunc vel est
-                                        suscipit convallis non id orci lorem ipsum sed magna consequat feugiat lorem dolore.</p>
-                                </article>
-
-                            </li>
-                            <li>
-
-                                <!-- Excerpt -->
-                                <article class="box excerpt">
-                                    <header>
-                                        <span class="date">July 28</span>
-                                        <h3><a href="#">And another post</a></h3>
-                                    </header>
-                                    <p>Lorem ipsum dolor odio facilisis convallis. Etiam non nunc vel est
-                                        suscipit convallis non id orci lorem ipsum sed magna consequat feugiat lorem dolore.</p>
-                                </article>
-
-                            </li>
-                            <li>
-
-                                <!-- Excerpt -->
-                                <article class="box excerpt">
-                                    <header>
-                                        <span class="date">July 24</span>
-                                        <h3><a href="#">One more post</a></h3>
-                                    </header>
-                                    <p>Lorem ipsum dolor odio facilisis convallis. Etiam non nunc vel est
-                                        suscipit convallis non id orci lorem ipsum sed magna consequat feugiat lorem dolore.</p>
-                                </article>
-
-                            </li>
-                        </ul>
-                    </section>
-
-                    <!-- Highlights -->
-                    <section>
-                        <ul class="divided">
-                            <li>
-
-                                <!-- Highlight -->
-                                <article class="box highlight">
-                                    <header>
-                                        <h3><a href="#">Something of note</a></h3>
-                                    </header>
-                                    <a href="#" class="image left"><img src="/images/pic06.png" alt="" /></a>
-                                    <p>Phasellus  sed laoreet massa id justo mattis pharetra. Fusce suscipit ligula vel quam
-                                        viverra sit amet mollis tortor congue magna lorem ipsum dolor et quisque ut odio facilisis
-                                        convallis. Etiam non nunc vel est suscipit convallis non id orci. Ut interdum tempus
-                                        facilisis convallis. Etiam non nunc vel est suscipit convallis non id orci.</p>
-                                    <ul class="actions">
-                                        <li><a href="#" class="button icon fa-file">Learn More</a></li>
-                                    </ul>
-                                </article>
-
-                            </li>
-                            <li>
-
-                                <!-- Highlight -->
-                                <article class="box highlight">
-                                    <header>
-                                        <h3><a href="#">Something of less note</a></h3>
-                                    </header>
-                                    <a href="#" class="image left"><img src="/images/pic07.png" alt="" /></a>
-                                    <p>Phasellus  sed laoreet massa id justo mattis pharetra. Fusce suscipit ligula vel quam
-                                        viverra sit amet mollis tortor congue magna lorem ipsum dolor et quisque ut odio facilisis
-                                        convallis. Etiam non nunc vel est suscipit convallis non id orci. Ut interdum tempus
-                                        facilisis convallis. Etiam non nunc vel est suscipit convallis non id orci.</p>
-                                    <ul class="actions">
-                                        <li><a href="#" class="button icon fa-file">Learn More</a></li>
-                                    </ul>
-                                </article>
-
-                            </li>
-                        </ul>
-                    </section>
-
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- 이미지 슬라이더 시작 -->
     <div class="col-lg-12">
@@ -535,17 +432,17 @@
             <div class="carousel-inner" role="listbox">
                 <div class="carousel-item active">
                     <a href="#">
-                        <img class="d-block img-fluid" src="/images/pic01.png" style="width:100%; margin-left: auto; margin-right: auto" alt="First slide" >
+                        <img class="d-block img-fluid" src="/images/pic01.png" style="width:70%; height:70%; margin-left: auto; margin-right: auto" alt="First slide" >
                     </a>
                 </div>
                 <div class="carousel-item">
                     <a href="#">
-                        <img class="d-block img-fluid" src="/images/pic02.png" style="width:100%; margin-left: auto; margin-right: auto"alt="Second slide">
+                        <img class="d-block img-fluid" src="/images/pic02.png" style="width:70%; height:70%; margin-left: auto; margin-right: auto"alt="Second slide">
                     </a>
                 </div>
                 <div class="carousel-item">
                     <a href="#">
-                        <img class="d-block img-fluid" src="/images/pic03.png" style="width:100%; margin-left: auto; margin-right: auto" alt="Third slide">
+                        <img class="d-block img-fluid" src="/images/pic03.png" style="width:70%; height:70%; margin-left: auto; margin-right: auto" alt="Third slide">
                     </a>
                 </div>
             </div>
@@ -559,11 +456,14 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
+
+
+
     <!-- Footer -->
     <section id="footer">
         <div class="container">
             <header>
-                <h2>대학으로 비상하게 해줄 <strong>이글스</strong></h2>
+                <h2>내일의 꿈으로 비상하게 해줄 <strong>오늘의 ❝이글스❞</strong></h2>
             </header>
         </div>
         <div id="copyright" class="container">
@@ -573,13 +473,12 @@
         </div>
     </section>
 
-        <div id="floating-bar">
-            <button onclick="location.href='/'" style="margin-bottom: 5px; width: 100%; height: 25%; padding: 3px; border-radius: 7px;">Home</button>
-            <button style="margin-bottom: 5px; width: 100%; height: 25%; padding: 3px; border-radius: 7px;">기사<br>스크랩</button>
-            <button style="margin-bottom: 5px;width: 100%; height: 25%; padding: 3px; border-radius: 7px;">키워드<br>스크랩</button>
-            <button style="width: 100%; padding: 3px; height: 25%; border-radius: 7px;">Q&A</button>
-        </div>
-
+    <div id="floating-bar">
+        <button onclick="location.href='/'" style="margin-bottom: 5px; width: 100%; height: 25%; padding: 3px; border-radius: 7px;">Home</button>
+        <button style="margin-bottom: 5px; width: 100%; height: 25%; padding: 3px; border-radius: 7px;">기사<br>스크랩</button>
+        <button style="margin-bottom: 5px;width: 100%; height: 25%; padding: 3px; border-radius: 7px;">키워드<br>스크랩</button>
+        <button style="width: 100%; padding: 3px; height: 25%; border-radius: 7px;">Q&A</button>
+    </div>
 </div>
 
 
@@ -592,10 +491,10 @@
 <script src="/webjars/jquery/2.2.1/jquery.min.js"></script>
 <script src="/webjars/bootstrap/4.2.1/js/bootstrap.bundle.js"></script>
 <script src="/webjars/handlebars/4.0.11-1/handlebars.js"></script>
+
 <script>
     $(document).ready(function () {
         console.log("test");
-        $("#table").hide();
         $("#table-btn").click(function () {
             if($("#table").is(":visible")){
                 console.log("hide");
@@ -609,6 +508,62 @@
         })
     })
 </script>
+
+
+<script>
+    $(document).ready(function () {
+        console.log("test");
+        $("#keytable1").hide();
+        $("#DownArrow1").click(function () {
+            if($("#keytable1").is(":visible")){
+                console.log("hide");
+                $("#DownArrow1").html("");
+                $("#keytable1").slideUp();
+            }else{
+                console.log("show");
+                $("#DownArrow1").html("");
+                $("#keytable1").slideDown();
+            }
+        })
+    })
+</script>
+
+<script>
+    $(document).ready(function () {
+        console.log("test");
+        $("#keytable2").hide();
+        $("#DownArrow2").click(function () {
+            if($("#keytable2").is(":visible")){
+                console.log("hide");
+                $("#DownArrow2").html("");
+                $("#keytable2").slideUp();
+            }else{
+                console.log("show");
+                $("#DownArrow2").html("");
+                $("#keytable2").slideDown();
+            }
+        })
+    })
+</script>
+
+<script>
+    $(document).ready(function () {
+        console.log("test");
+        $("#keytable3").hide();
+        $("#DownArrow3").click(function () {
+            if($("#keytable3").is(":visible")){
+                console.log("hide");
+                $("#DownArrow3").html("");
+                $("#keytable3").slideUp();
+            }else{
+                console.log("show");
+                $("#DownArrow3").html("");
+                $("#keytable3").slideDown();
+            }
+        })
+    })
+</script>
+
 <!-- 전체 체크하는 스크립트 언론지 종류별로 -->
 <script>
     $( document ).ready( function() {
