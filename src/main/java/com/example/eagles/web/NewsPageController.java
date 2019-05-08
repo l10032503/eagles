@@ -34,11 +34,7 @@ public class NewsPageController {
         fields_List.add("published_at");
         fields_List.add("images");
         fields_List.add("content");
-        fields_List.add("subject_info");
-        fields_List.add("subject_info1");
-        fields_List.add("subject_info2");
-        fields_List.add("subject_info3");
-        fields_List.add("subject_info4");
+        fields_List.add("category");
         String searchQuery = bigkinds.postURL("http://tools.kinds.or.kr:8888/search/news",
                 newsSearch.makeQuery(news_ids_List,fields_List).toString());
         System.out.println(searchQuery);
@@ -50,12 +46,7 @@ public class NewsPageController {
             model.addAttribute("byline", documentsElement.get("byline"));
             model.addAttribute("content", documentsElement.get("content"));
             model.addAttribute("images", documentsElement.get("images"));
-            JSONArray subject_info_Array = (JSONArray) documentsElement.get("subject_info");
-            model.addAttribute("subject_info", subject_info_Array.get(0));
-            model.addAttribute("subject_info1", documentsElement.get("subject_info1"));
-            model.addAttribute("subject_info2", documentsElement.get("subject_info2"));
-            model.addAttribute("subject_info3", documentsElement.get("subject_info3"));
-            model.addAttribute("subject_info4", documentsElement.get("subject_info4"));
+            model.addAttribute("category", documentsElement.get("category"));
 
         } catch (Exception e) {
             e.printStackTrace();
