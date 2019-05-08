@@ -2,6 +2,7 @@ package com.example.eagles.web;
 
 
 import com.example.eagles.Spark.WordCount;
+import com.example.eagles.Spark.topicKeyword;
 import com.example.eagles.newsbigdata.Bigkinds;
 import com.example.eagles.newsbigdata.IssueRanking;
 import lombok.AllArgsConstructor;
@@ -23,6 +24,7 @@ import java.util.*;
 public class WebController {
     @Autowired
     WordCount service;
+    topicKeyword topickeyword;
 
     @GetMapping("/")
     public String main(Model model) {
@@ -39,7 +41,8 @@ public class WebController {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         Date startDate = new Date();
         Date endDate = new Date();
-        String today_topic_keyword_all = "";
+        String year_topic_keyword_all = "";
+
 
         try{
             startDate = formatter.parse("2018-11-15");
@@ -69,20 +72,9 @@ public class WebController {
                 model.addAttribute(index + i, topicElement.get("topic"));
             }
 
-            for (Date date = start.getTime(); start.before(end); start.add(Calendar.DATE, 1), date = start.getTime()) {
-                jsonObject = issueRanking.makeIssue(formatter.format(date), providerList);
-                issueQuery = bigkinds.postURL("http://tools.kinds.or.kr:8888/issue_ranking",jsonObject.toString());
-                obj = jsonParser.parse(issueQuery);
-                jsonObject = (JSONObject) obj;
-                return_object = (JSONObject) jsonObject.get("return_object");
-                topics = (JSONArray) return_object.get("topics");
-                for(int i=0; i < 10 ;i++){
-                    topicElement = (JSONObject) topics.get(i);
-                    today_topic_keyword_all = today_topic_keyword_all + topicElement.get("topic_keyword") + ",";
-                }
-            }
+            year_topic_keyword_all = topickeyword.make_year_topic_keyword_all(start, end, issueRanking, bigkinds, jsonParser, formatter);
 
-            List<String> wordList = Arrays.asList(today_topic_keyword_all.split(","));
+            List<String> wordList = Arrays.asList(year_topic_keyword_all.split(","));
             result.putAll(service.getCount(wordList));
             model.addAttribute("yearkeyword0",result.toString());
 
