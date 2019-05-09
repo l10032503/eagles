@@ -91,6 +91,9 @@ public class SearchController {
         fields_List.add("byline");
         fields_List.add("published_at");
         fields_List.add("hilight");
+        fields_List.add("news_id");
+        String news_id = "";
+        String hilightFilter = "";
 
         JSONObject jsonObject = newsSearch.makeQuery(query, dateFrom, dateUntil,
                 providerList,category_List,category_incident_List, byline, provider_subject_List,
@@ -107,8 +110,12 @@ public class SearchController {
                 model.addAttribute("title" + i, documentsElement.get("title"));
                 model.addAttribute("title" + i + "provider", documentsElement.get("provider"));
                 model.addAttribute("title" + i + "published_at", documentsElement.get("published_at").toString().substring(0,10));
-                model.addAttribute("title" + i + "byline", documentsElement.get("byline"));
+                hilightFilter = (String) documentsElement.get("byline");
+                model.addAttribute("title" + i + "byline", hilightFilter);
                 model.addAttribute("title" + i + "hilight", documentsElement.get("hilight"));
+                news_id = (String) documentsElement.get("news_id");
+                model.addAttribute("title" + i + "codeprovider", news_id.substring(0,8));
+                model.addAttribute("title" + i + "codedate", news_id.substring(9));
             }
         } catch (Exception e){
             e.printStackTrace();
