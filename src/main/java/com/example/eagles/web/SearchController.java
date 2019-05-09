@@ -1,46 +1,26 @@
 package com.example.eagles.web;
 
-import com.example.eagles.Spark.WordCount;
 import com.example.eagles.newsbigdata.Bigkinds;
-import com.example.eagles.newsbigdata.IssueRanking;
+import com.example.eagles.newsbigdata.Document;
 import com.example.eagles.newsbigdata.NewsSearch;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 
+@Controller
+public class SearchController {
 
-@RestController
-public class WebRestController {
-
-    @Autowired
-    WordCount service;
-
-    @GetMapping("/irtest")
-    public String irtest(Model model,
-                         @RequestParam(value = "date", required = false, defaultValue = "null")String date,
-                         @RequestParam(value = "provider", required = false, defaultValue = "null")String[] provider) {
-        IssueRanking issueRanking = new IssueRanking();
-        List<String> providerList = new ArrayList<String>();
-        if(date.equals("null")){
-            Date today = new Date();
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-            date = simpleDateFormat.format(today);
-        }
-        providerList = ArrayToList(provider, providerList);
-
-        String issuerankingjsontest = issueRanking.makeIssue(date, providerList).toString();
-        return issuerankingjsontest;
-    }
-
-
-    @GetMapping("/nstest")
-    public String nstest(Model model,
-                         @RequestParam(value = "query", required = false)String query,
+    @GetMapping("/search")
+    public String search(Model model, @RequestParam(value = "query", required = false)String query,
                          @RequestParam(value = "dateFrom", required = false, defaultValue = "null")String dateFrom,
                          @RequestParam(value = "dateUntil", required = false, defaultValue = "null")String dateUntil,
                          @RequestParam(value = "provider", required = false, defaultValue = "null")String[] provider,
@@ -57,10 +37,10 @@ public class WebRestController {
                          @RequestParam(value = "sortOrder", required = false, defaultValue = "desc")String sortOrder,
                          @RequestParam(value = "hilight", required = false, defaultValue = "200")String hilight,
                          @RequestParam(value = "returnFrom", required = false, defaultValue = "0")String returnFrom,
-                         @RequestParam(value = "returnSize", required = false, defaultValue = "5")String returnSize,
-                         @RequestParam(value = "fields", required = false, defaultValue = "null")String[] fields
-                         ) {
+                         @RequestParam(value = "returnSize", required = false, defaultValue = "10")String returnSize,
+                         @RequestParam(value = "fields", required = false, defaultValue = "null")String[] fields){
         NewsSearch newsSearch = new NewsSearch();
+        Bigkinds bigkinds = new Bigkinds();
         List<String> providerList = new ArrayList<String>();
         List<String> category_List = new ArrayList<String>();
         List<String> category_incident_List = new ArrayList<String>();
@@ -84,6 +64,10 @@ public class WebRestController {
         int hilightInt = Integer.parseInt(hilight);
         int returnFromInt = Integer.parseInt(returnFrom);
         int returnSizeInt = Integer.parseInt(returnSize);
+        JSONArray documents = new JSONArray();
+        JSONObject documentsElement = new JSONObject();
+        Document document = new Document();
+        //default값을 1년동안으로 설정
         if(dateFrom.equals("null")){
             Date today = new Date();
             SimpleDateFormat yyyyMMdd = new SimpleDateFormat("yyyyMMdd");
@@ -96,77 +80,43 @@ public class WebRestController {
             SimpleDateFormat yyyy_MM_dd = new SimpleDateFormat("yyyy-MM-dd");
             dateFrom = yyyy_MM_dd.format(cal.getTime());
         }
+        //default값을 1년동안으로 설정
         if(dateUntil.equals("null")){
             Date today = new Date();
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
             dateUntil = simpleDateFormat.format(today);
         }
+        fields_List.add("title");
+        fields_List.add("provider");
+        fields_List.add("byline");
+        fields_List.add("published_at");
+        fields_List.add("hilight");
 
-        String nsjsontest = newsSearch.makeQuery(query, dateFrom, dateUntil,
+        JSONObject jsonObject = newsSearch.makeQuery(query, dateFrom, dateUntil,
                 providerList,category_List,category_incident_List, byline, provider_subject_List,
                 subject_info_List, subject_info1_List, subject_info2_List, subject_info3_List,
-                subject_info4_List, sortField, sortOrder, hilightInt, returnFromInt, returnSizeInt, fields_List).toString();
+                subject_info4_List, sortField, sortOrder, hilightInt, returnFromInt, returnSizeInt, fields_List);
 
-        /*String nsjsontest = newsSearch.makeQuery("검색키워드", "2016-01-01", "2016-02-02",
-                providerList,null,null, null, null,
-                null, null, null, null,
-                null, "date", "desc", 200, 0, 5, null).toString();*/
-        return nsjsontest;
+        String searchQuery = bigkinds.postURL("http://tools.kinds.or.kr:8888/search/news",
+               jsonObject.toString());
+
+        try{
+            documents = document.makeDoumentElement(searchQuery);
+            for(int i=0; i<documents.size(); i++){
+                documentsElement = (JSONObject) documents.get(i);
+                model.addAttribute("title" + i, documentsElement.get("title"));
+                model.addAttribute("title" + i + "provider", documentsElement.get("provider"));
+                model.addAttribute("title" + i + "published_at", documentsElement.get("published_at").toString().substring(0,10));
+                model.addAttribute("title" + i + "byline", documentsElement.get("byline"));
+                model.addAttribute("title" + i + "hilight", documentsElement.get("hilight"));
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+        return "search";
     }
-
-    @GetMapping("/test")
-    public String test() {
-        IssueRanking issueRanking = new IssueRanking();
-        Bigkinds bigkinds = new Bigkinds();
-        String posttest = issueRanking.makeIssue("2016-01-18").toString();
-        String post = bigkinds.postURL("http://tools.kinds.or.kr:8888/issue_ranking",posttest);
-        return post;
-    }
-
-    @GetMapping("/searchtest")
-    public String searchtest() {
-        NewsSearch newsSearch = new NewsSearch();
-        Bigkinds bigkinds = new Bigkinds();
-        List<String> providerList = new ArrayList<String>();
-        List<String> category_List = new ArrayList<String>();
-        List<String> category_incident_List = new ArrayList<String>();
-        List<String> provider_subject_List = new ArrayList<String>();
-        List<String> subject_info_List = new ArrayList<String>();
-        List<String> subject_info1_List = new ArrayList<String>();
-        List<String> subject_info2_List = new ArrayList<String>();
-        List<String> subject_info3_List = new ArrayList<String>();
-        List<String> subject_info4_List = new ArrayList<String>();
-        List<String> fields_List = new ArrayList<String>();
-        fields_List.add("title");
-        fields_List.add("news_id");
-        fields_List.add("hilight");
-        fields_List.add("provider");
-        category_List.add("정치");
-        String posttest = newsSearch.makeQuery("키워드", "2019-01-01", "2019-05-07",
-                providerList,category_List,category_incident_List, "", provider_subject_List,
-                subject_info_List, subject_info1_List, subject_info2_List, subject_info3_List,
-                subject_info4_List, "date", "desc", 200, 0, 5, fields_List).toString();
-        System.out.println(posttest);
-        String post = bigkinds.postURL("http://tools.kinds.or.kr:8888/search/news",posttest);
-        return post;
-    }
-
-    @GetMapping("/searchtest2")
-    public String searchtest2() {
-        NewsSearch newsSearch = new NewsSearch();
-        Bigkinds bigkinds = new Bigkinds();
-        List<String> news_id_List = new ArrayList<String>();
-        List<String> fields_List = new ArrayList<String>();
-        news_id_List.add("01100101.20190314120127001");
-        fields_List.add("title");
-        fields_List.add("published_at");
-        fields_List.add("provider");
-        String posttest = newsSearch.makeQuery(news_id_List,fields_List).toString();
-        System.out.println(posttest);
-        String post = bigkinds.postURL("http://tools.kinds.or.kr:8888/search/news",posttest);
-        return post;
-    }
-
 
     private List<String> ArrayToList (String[] array, List<String> listString){
         if(!array[0].equals("null")){
@@ -176,12 +126,5 @@ public class WebRestController {
         }
 
         return listString;
-    }
-
-    @GetMapping("/wordcounttest")
-    public Map<String, Long> wordcounttest() {
-        String words = "Siddhant,Agnihotry,Technocrat,Siddhant,Sid";
-        List<String> wordList = Arrays.asList(words.split(","));
-        return service.getCount(wordList);
     }
 }

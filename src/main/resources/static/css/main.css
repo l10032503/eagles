@@ -1537,7 +1537,7 @@ input::-moz-focus-inner {
 			margin: 0.75em 0 0.75em 0;
 		}
 
-			ul li:first-child {
+			li:first-child {
 				margin-top: 0;
 			}
 

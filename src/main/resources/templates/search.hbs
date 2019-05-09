@@ -52,6 +52,7 @@
         font-size: 3em;
         letter-spacing: 13px;
     }
+
 </style>
 <body class="no-sidebar is-preload">
 <div id="page-wrapper">
@@ -60,21 +61,7 @@
     <section id="essaytitle">
         <div class="container">
             <!-- Logo -->
-            <h1 style="word-break: keep-all">{{title}}</h1>
-            <p style="text-align: center; margin-bottom: 2px">
-                {{#if category0}} {{category0}} {{/if}}
-                {{#if category1}} / {{category1}} {{/if}}
-                {{#if category2}} / {{category2}} {{/if}}
-                {{#if category3}} / {{category3}} {{/if}}
-                {{#if category4}} / {{category4}} {{/if}}
-                {{#if category5}} / {{category5}} {{/if}}
-                {{#if category6}} / {{category6}} {{/if}}
-                {{#if category7}} / {{category7}} {{/if}}
-                {{#if category8}} / {{category8}} {{/if}}
-            </p>
-            <p style="text-align: center; margin-bottom: 2px">{{#if byline}}
-                {{byline}} /
-            {{/if}} {{provider}} / {{published_at}}</p>
+            <h1 style="word-break: keep-all">검색 결과</h1>
             <!-- Nav -->
             <nav id="nav">
                 <ul>
@@ -168,129 +155,89 @@
         </div>
     </section>
 
-    <section id="features" style="padding-top: 30px">
-        <article class="box excerpt" style="text-align: left">
-            <h3><a href="/newspage?codeprovider={{title0provider}}&codedate={{title0date}}">{{title0}}</a></h3>
-            <p >{{title0hilight}}</p>
-            <p style="text-align: left">{{title0provider}} / {{title0published_at}}</p>
-        </article>
-        <article class="box excerpt" style="text-align: left">
-            <h3><a href="/newspage?codeprovider={{title1provider}}&codedate={{title1date}}">{{title1}}</a></h3>
-            <p >{{title0hilight}}</p>
-            <p style="text-align: left">{{title0provider}} / {{title0published_at}}</p>
-        </article>
-        <article class="box excerpt" style="text-align: left">
-            <h3><a href="/newspage?codeprovider={{title0provider}}&codedate={{title0date}}">{{title0}}</a></h3>
-            <p >{{title0hilight}}</p>
-            <p style="text-align: left">{{title0provider}} / {{title0published_at}}</p>
-        </article>
-        <article class="box excerpt" style="text-align: left">
-            <h3><a href="/newspage?codeprovider={{title0provider}}&codedate={{title0date}}">{{title0}}</a></h3>
-            <p >{{title0hilight}}</p>
-            <p style="text-align: left">{{title0provider}} / {{title0published_at}}</p>
-        </article>
-        <article class="box excerpt" style="text-align: left">
-            <h3><a href="/newspage?codeprovider={{title0provider}}&codedate={{title0date}}">{{title0}}</a></h3>
-            <p >{{title0hilight}}</p>
-            <p style="text-align: left">{{title0provider}} / {{title0published_at}}</p>
-        </article>
-        <article class="box excerpt" style="text-align: left">
-            <h3><a href="/newspage?codeprovider={{title0provider}}&codedate={{title0date}}">{{title0}}</a></h3>
-            <p >{{title0hilight}}</p>
-            <p style="text-align: left">{{title0provider}} / {{title0published_at}}</p>
-        </article>
-        <article class="box excerpt" style="text-align: left">
-            <h3><a href="/newspage?codeprovider={{title0provider}}&codedate={{title0date}}">{{title0}}</a></h3>
-            <p >{{title0hilight}}</p>
-            <p style="text-align: left">{{title0provider}} / {{title0published_at}}</p>
-        </article>
-        <article class="box excerpt" style="text-align: left">
-            <h3><a href="/newspage?codeprovider={{title0provider}}&codedate={{title0date}}">{{title0}}</a></h3>
-            <p >{{title0hilight}}</p>
-            <p style="text-align: left">{{title0provider}} / {{title0published_at}}</p>
-        </article>
-        <article class="box excerpt" style="text-align: left">
-            <h3><a href="/newspage?codeprovider={{title0provider}}&codedate={{title0date}}">{{title0}}</a></h3>
-            <p >{{title0hilight}}</p>
-            <p style="text-align: left">{{title0provider}} / {{title0published_at}}</p>
-        </article>
+    <section id="main" style="padding-top: 10px">
+        <div class="container">
+            <div id="content">
+                <article class="box excerpt" style="text-align: left; padding: 30px; margin: 10px">
+                    <h3><a href="/newspage?codeprovider={{title0provider}}&codedate={{title0date}}">{{title0}}</a></h3>
+                    <p >{{title0hilight}}</p>
+                    <p style="text-align: left">{{title0provider}} / {{title0published_at}}</p>
+                </article>
+                <article class="box excerpt" style="text-align: left; padding: 30px; margin: 10px">
+                    <h3><a href="/newspage?codeprovider={{title1provider}}&codedate={{title1date}}">{{title1}}</a></h3>
+                    <p >{{title1hilight}}</p>
+                    <p style="text-align: left">{{title1provider}} / {{title1published_at}}</p>
+                </article>
+                <article class="box excerpt" style="text-align: left; padding: 30px; margin: 10px">
+                    <h3><a href="/newspage?codeprovider={{title2provider}}&codedate={{title2date}}">{{title2}}</a></h3>
+                    <p >{{title2hilight}}</p>
+                    <p style="text-align: left">{{title2provider}} / {{title2published_at}}</p>
+                </article>
+                <article class="box excerpt" style="text-align: left; padding: 30px; margin: 10px">
+                    <h3><a href="/newspage?codeprovider={{title3provider}}&codedate={{title3date}}">{{title3}}</a></h3>
+                    <p >{{title3hilight}}</p>
+                    <p style="text-align: left">{{title3provider}} / {{title3published_at}}</p>
+                </article>
+                <article class="box excerpt" style="text-align: left; padding: 30px; margin: 10px">
+                    <h3><a href="/newspage?codeprovider={{title4provider}}&codedate={{title4date}}">{{title4}}</a></h3>
+                    <p >{{title4hilight}}</p>
+                    <p style="text-align: left">{{title4provider}} / {{title4published_at}}</p>
+                </article>
+                <article class="box excerpt" style="text-align: left; padding: 30px; margin: 10px">
+                    <h3><a href="/newspage?codeprovider={{title5provider}}&codedate={{title5date}}">{{title5}}</a></h3>
+                    <p >{{title5hilight}}</p>
+                    <p style="text-align: left">{{title5provider}} / {{title5published_at}}</p>
+                </article>
+                <article class="box excerpt" style="text-align: left; padding: 30px; margin: 10px">
+                    <h3><a href="/newspage?codeprovider={{title6provider}}&codedate={{title6date}}">{{title6}}</a></h3>
+                    <p >{{title6hilight}}</p>
+                    <p style="text-align: left">{{title6provider}} / {{title6published_at}}</p>
+                </article>
+                <article class="box excerpt" style="text-align: left; padding: 30px; margin: 10px">
+                    <h3><a href="/newspage?codeprovider={{title7provider}}&codedate={{title7date}}">{{title7}}</a></h3>
+                    <p >{{title7hilight}}</p>
+                    <p style="text-align: left">{{title7provider}} / {{title7published_at}}</p>
+                </article>
+                <article class="box excerpt" style="text-align: left; padding: 30px; margin: 10px">
+                    <h3><a href="/newspage?codeprovider={{title8provider}}&codedate={{title8date}}">{{title8}}</a></h3>
+                    <p >{{title8hilight}}</p>
+                    <p style="text-align: left">{{title8provider}} / {{title8published_at}}</p>
+                </article>
+                <article class="box excerpt" style="text-align: left; padding: 30px; margin: 10px">
+                    <h3><a href="/newspage?codeprovider={{title9provider}}&codedate={{title9date}}">{{title9}}</a></h3>
+                    <p >{{title9hilight}}</p>
+                    <p style="text-align: left">{{title9provider}} / {{title9published_at}}</p>
+                </article>
+            </div>
+        </div>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item" style="margin: 0.75em 0 0.75em 0;">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">이전</span>
+                    </a>
+                </li>
+                <li class="page-item">
+                    <div class="page-link" onclick="nextpage(0)">다음</div>
+                </li>
+            </ul>
+        </nav>
     </section>
 
     <!-- Footer -->
     <section id="footer">
         <div class="container">
             <header>
-                <h2>Questions or comments? <strong>Get in touch:</strong></h2>
+                <h2>내일의 꿈으로 비상하게 해줄 <strong>오늘의 ❝이글스❞</strong></h2>
             </header>
-            <div class="row">
-                <div class="col-6 col-12-medium">
-                    <section>
-                        <form method="post" action="#">
-                            <div class="row gtr-50">
-                                <div class="col-6 col-12-small">
-                                    <input name="name" placeholder="Name" type="text" />
-                                </div>
-                                <div class="col-6 col-12-small">
-                                    <input name="email" placeholder="Email" type="text" />
-                                </div>
-                                <div class="col-12">
-                                    <textarea name="message" placeholder="Message"></textarea>
-                                </div>
-                                <div class="col-12">
-                                    <a href="#" class="form-button-submit button icon fa-envelope">Send Message</a>
-                                </div>
-                            </div>
-                        </form>
-                    </section>
-                </div>
-                <div class="col-6 col-12-medium">
-                    <section>
-                        <p>Erat lorem ipsum veroeros consequat magna tempus lorem ipsum consequat Phaselamet
-                            mollis tortor congue. Sed quis mauris sit amet magna accumsan tristique. Curabitur
-                            leo nibh, rutrum eu malesuada.</p>
-                        <div class="row">
-                            <div class="col-6 col-12-small">
-                                <ul class="icons">
-                                    <li class="icon fa-home">
-                                        1234 Somewhere Road<br />
-                                        Nashville, TN 00000<br />
-                                        USA
-                                    </li>
-                                    <li class="icon fa-phone">
-                                        (000) 000-0000
-                                    </li>
-                                    <li class="icon fa-envelope">
-                                        <a href="#">info@untitled.tld</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col-6 col-12-small">
-                                <ul class="icons">
-                                    <li class="icon fa-twitter">
-                                        <a href="#">@untitled</a>
-                                    </li>
-                                    <li class="icon fa-instagram">
-                                        <a href="#">instagram.com/untitled</a>
-                                    </li>
-                                    <li class="icon fa-dribbble">
-                                        <a href="#">dribbble.com/untitled</a>
-                                    </li>
-                                    <li class="icon fa-facebook">
-                                        <a href="#">facebook.com/untitled</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-            </div>
         </div>
         <div id="copyright" class="container">
             <ul class="links">
-                <li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                <li>&copy; 한와. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
             </ul>
         </div>
     </section>
+
     <div id="floating-bar">
         <button onclick="location.href='/'" style="margin-bottom: 5px; width: 100%; height: 25%; padding: 3px; border-radius: 7px;">Home</button>
         <button style="margin-bottom: 5px; width: 100%; height: 25%; padding: 3px; border-radius: 7px;">기사<br>스크랩</button>
