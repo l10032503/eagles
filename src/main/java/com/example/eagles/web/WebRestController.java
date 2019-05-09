@@ -1,8 +1,9 @@
-/*package com.example.eagles.web;
+package com.example.eagles.web;
 
 import com.example.eagles.Spark.WordCount;
 import com.example.eagles.newsbigdata.Bigkinds;
 import com.example.eagles.newsbigdata.IssueRanking;
+import com.example.eagles.newsbigdata.KeywordExtract;
 import com.example.eagles.newsbigdata.NewsSearch;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -82,8 +83,6 @@ public class WebRestController {
         subject_info3_List = ArrayToList(subject_info, subject_info3_List);
         subject_info4_List = ArrayToList(subject_info, subject_info4_List);
         fields_List = ArrayToList(fields, fields_List);
-
-
         int hilightInt = Integer.parseInt(hilight);
         int returnFromInt = Integer.parseInt(returnFrom);
         int returnSizeInt = Integer.parseInt(returnSize);
@@ -110,11 +109,7 @@ public class WebRestController {
                 subject_info_List, subject_info1_List, subject_info2_List, subject_info3_List,
                 subject_info4_List, sortField, sortOrder, hilightInt, returnFromInt, returnSizeInt, fields_List).toString();
 
-        /*String nsjsontest = newsSearch.makeQuery("검색키워드", "2016-01-01", "2016-02-02",
-                providerList,null,null, null, null,
-                null, null, null, null,
-                null, "date", "desc", 200, 0, 5, null).toString();*/
-    /*    return nsjsontest;
+        return nsjsontest;
     }
 
     @GetMapping("/test")
@@ -144,7 +139,8 @@ public class WebRestController {
         fields_List.add("news_id");
         fields_List.add("hilight");
         fields_List.add("provider");
-        String posttest = newsSearch.makeQuery("키워드", "2014-03-03", "2019-05-07",
+        category_List.add("정치");
+        String posttest = newsSearch.makeQuery("키워드", "2019-01-01", "2019-05-07",
                 providerList,category_List,category_incident_List, "", provider_subject_List,
                 subject_info_List, subject_info1_List, subject_info2_List, subject_info3_List,
                 subject_info4_List, "date", "desc", 200, 0, 5, fields_List).toString();
@@ -163,9 +159,25 @@ public class WebRestController {
         fields_List.add("title");
         fields_List.add("published_at");
         fields_List.add("provider");
+        fields_List.add("category");
+        fields_List.add("subject_info");
+        fields_List.add("subject_info1");
+        fields_List.add("subject_info2");
+        fields_List.add("subject_info3");
+        fields_List.add("subject_info4");
         String posttest = newsSearch.makeQuery(news_id_List,fields_List).toString();
         System.out.println(posttest);
         String post = bigkinds.postURL("http://tools.kinds.or.kr:8888/search/news",posttest);
+        return post;
+    }
+
+    @GetMapping("/keywordextracttest")
+    public String keywordextract(){
+        Bigkinds bigkinds = new Bigkinds();
+        KeywordExtract keywordExtract = new KeywordExtract();
+        String queryString = keywordExtract.makeQuery("태풍 솔릭'에 항공기 대규모 결항…오후 10시까지 총 532편 결항","","태풍 솔릭'에 항공기 대규모 결항…오후 10시까지 총 532편 결항").toString();
+        System.out.println(queryString);
+        String post = bigkinds.postURL("http://tools.kinds.or.kr:8888/keyword", queryString);
         return post;
     }
 
@@ -188,4 +200,3 @@ public class WebRestController {
         }
     }
 
-*/

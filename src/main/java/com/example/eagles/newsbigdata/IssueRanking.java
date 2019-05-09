@@ -1,4 +1,4 @@
-/*package com.example.eagles.newsbigdata;
+package com.example.eagles.newsbigdata;
 
 import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
@@ -41,4 +41,3 @@ public class    IssueRanking {
         return sendObject;
     }
 }
-*/
