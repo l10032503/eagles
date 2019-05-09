@@ -5,6 +5,7 @@ import com.example.eagles.newsbigdata.Bigkinds;
 import com.example.eagles.newsbigdata.IssueRanking;
 import com.example.eagles.newsbigdata.NewsSearch;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -107,10 +108,6 @@ public class WebRestController {
                 subject_info_List, subject_info1_List, subject_info2_List, subject_info3_List,
                 subject_info4_List, sortField, sortOrder, hilightInt, returnFromInt, returnSizeInt, fields_List).toString();
 
-        /*String nsjsontest = newsSearch.makeQuery("검색키워드", "2016-01-01", "2016-02-02",
-                providerList,null,null, null, null,
-                null, null, null, null,
-                null, "date", "desc", 200, 0, 5, null).toString();*/
         return nsjsontest;
     }
 
@@ -178,10 +175,10 @@ public class WebRestController {
         return listString;
     }
 
-    @GetMapping("/wordcounttest")
-    public Map<String, Long> wordcounttest() {
-        String words = "Siddhant,Agnihotry,Technocrat,Siddhant,Sid";
-        List<String> wordList = Arrays.asList(words.split(","));
-        return service.getCount(wordList);
+        @GetMapping("/wordcounttest")
+        public Map<String, Long> wordcounttest() {
+            String words = "Siddhant,Agnihotry,Technocrat,Siddhant,Sid";
+            List<String> wordList = Arrays.asList(words.split(","));
+            return service.getCount(wordList);
+        }
     }
-}
