@@ -61,15 +61,13 @@ public class WebController {
 
         jsonObject = issueRanking.makeIssue("2019-05-08", providerList);
         String issueQuery = bigkinds.postURL("http://tools.kinds.or.kr:8888/issue_ranking",jsonObject.toString());
-        System.out.println(issueQuery);
+
         try{
             Object obj = jsonParser.parse(issueQuery);
             jsonObject = (JSONObject) obj;
             return_object = (JSONObject) jsonObject.get("return_object");
 
-            System.out.println(return_object);
             topics = (JSONArray) return_object.get("topics");
-            System.out.println(topics);
 
             for(int i=0; i < 10 ;i++) {
                 topicElement = (JSONObject) topics.get(i);
