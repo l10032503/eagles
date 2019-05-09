@@ -35,7 +35,7 @@ public class SearchController {
                          @RequestParam(value = "subject-info4", required = false, defaultValue = "null")String[] subject_info4,
                          @RequestParam(value = "sortField", required = false, defaultValue = "date")String sortField,
                          @RequestParam(value = "sortOrder", required = false, defaultValue = "desc")String sortOrder,
-                         @RequestParam(value = "hilight", required = false, defaultValue = "200")String hilight,
+                         @RequestParam(value = "hilight", required = false, defaultValue = "100")String hilight,
                          @RequestParam(value = "returnFrom", required = false, defaultValue = "0")String returnFrom,
                          @RequestParam(value = "returnSize", required = false, defaultValue = "10")String returnSize,
                          @RequestParam(value = "fields", required = false, defaultValue = "null")String[] fields){
@@ -93,6 +93,8 @@ public class SearchController {
         fields_List.add("hilight");
         fields_List.add("news_id");
         String news_id = "";
+        String titlestr = "";
+        String bylinestr = "";
         String hilightFilter = "";
 
         JSONObject jsonObject = newsSearch.makeQuery(query, dateFrom, dateUntil,
@@ -107,6 +109,11 @@ public class SearchController {
             documents = document.makeDoumentElement(searchQuery);
             for(int i=0; i<documents.size(); i++){
                 documentsElement = (JSONObject) documents.get(i);
+                titlestr = (String) documentsElement.get("title");
+                bylinestr = (String) documentsElement.get("byline");
+                if(bylinestr == null)
+                    bylinestr = "";
+
                 model.addAttribute("title" + i, documentsElement.get("title"));
                 model.addAttribute("title" + i + "provider", documentsElement.get("provider"));
                 model.addAttribute("title" + i + "published_at", documentsElement.get("published_at").toString().substring(0,10));

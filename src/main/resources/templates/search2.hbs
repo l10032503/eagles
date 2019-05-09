@@ -1,0 +1,586 @@
+<!DOCTYPE HTML>
+<!--
+	Strongly Typed by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    <title>이글스 | Easy하게 글써지는 뉴스</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/webjars/bootstrap/4.2.1/css/bootstrap.css">
+    <link rel="stylesheet" href="/webjars/bootstrap/4.2.1/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="/webjars/bootstrap/4.2.1/css/bootstrap-reboot.css">
+    <script src="/webjars/jquery/2.2.1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/4.2.1/js/bootstrap.bundle.js"></script>
+    <script src="/webjars/handlebars/4.0.11-1/handlebars.js"></script>
+</head>
+<style>
+    .columns{
+        columns: 3;
+    }
+
+    .search-box-grid{
+        margin-top: 5%;
+        margin-right: 7%;
+        display: grid;
+        grid-template-columns: 1fr 5fr 1fr;
+    }
+
+    .search-box-margin {
+        margin-top: 0.2%;
+    }
+
+    #checkbox{
+        -webkit-appearance: checkbox;
+    }
+
+    #radio{
+        -webkit-appearance: radio;
+    }
+
+    #floating-bar {
+        height: 220px;
+        width: 80px;
+        position: fixed;
+        right: 3%;
+        top: 35%;
+        margin: 0 0 0 110px;
+        padding: 5px;
+    }
+    #essaytitle{
+        position: relative;
+        background: #fff;
+        text-align: center;
+    }
+    #essaytitle > .container {
+        padding: 7em 0 3em 0;
+        border-bottom: solid 2px #e5e5e5;
+        box-shadow: inset 0px -8px 0px 0px #fff, inset 0px -10px 0px 0px #e5e5e5;
+        text-align: center;
+    }
+
+    #essaytitle h1 {
+        font-weight: 700;
+        color: #ed786a;
+        text-shadow: 0.05em 0.075em 0 rgba(0, 0, 0, 0.1);
+        font-size: 3em;
+        letter-spacing: 13px;
+    }
+
+</style>
+<body class="no-sidebar is-preload">
+<div id="page-wrapper">
+
+    <!-- Header -->
+    <section id="essaytitle">
+        <div class="container">
+            <!-- Logo -->
+            <h1 style="word-break: keep-all">검색 결과</h1>
+            <!-- Nav -->
+            <nav id="nav">
+                <ul>
+                    <li><a class="icon fa-align-center"><span>논술 기출</span></a>
+                        <ul>
+                            <li><a href="#">대학별 기출</a>
+                                <ul>
+                                    <div class="columns">
+                                        <li><a href="#">가톨릭대(경기)</a></li>
+                                        <li><a href="#">가톨릭대(서울)</a></li>
+                                        <li><a href="#">건국대(서울)</a></li>
+                                        <li><a href="#">경기대(경기)</a></li>
+                                        <li><a href="#">경기대(서울)</a></li>
+                                        <li><a href="#">경북대</a></li>
+                                        <li><a href="#">경희대</a></li>
+                                        <li><a href="#">광운대</a></li>
+                                        <li><a href="#">단국대</a></li>
+                                        <li><a href="#">덕성여대</a></li>
+                                        <li><a href="#">동국대(서울)</a></li>
+                                        <li><a href="#">부산대</a></li>
+                                        <li><a href="#">서강대</a></li>
+                                        <li><a href="#">서울과기대</a></li>
+                                        <li><a href="#">서울시립대</a></li>
+                                        <li><a href="#">서울여대</a></li>
+                                        <li><a href="#">성균관대</a></li>
+                                        <li><a href="#">성신여대</a></li>
+                                        <li><a href="#">세종대</a></li>
+                                        <li><a href="/sookmyung">숙명여대</a></li>
+                                        <li><a href="#">숭실대</a></li>
+                                        <li><a href="#">아주대</a></li>
+                                        <li><a href="#">연세대(서울)</a></li>
+                                        <li><a href="#">연세대(원주)</a></li>
+                                        <li><a href="#">인하대</a></li>
+                                        <li><a href="#">중앙대(서울)</a></li>
+                                        <li><a href="#">중앙대(안성)</a></li>
+                                        <li><a href="#">한국기술교육대</a></li>
+                                        <li><a href="#">한국산업기술대</a></li>
+                                        <li><a href="#">한국외대</a></li>
+                                        <li><a href="#">한양대(서울)</a></li>
+                                        <li><a href="#">한양대(ERICA)</a></li>
+                                        <li><a href="#">홍익대</a></li>
+                                    </div>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">영역별 기출</a>
+                                <ul>
+                                    <li><a href="#">경상</a></li>
+                                    <li><a href="#">예체능</a></li>
+                                    <li><a href="#">인문(사회)</a></li>
+                                    <li><a href="#">영어</a></li>
+                                    <li><a href="#">통계도표</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li> <!-- 여기까지 첫번째 상단바 메뉴 -->
+
+                    <li>
+                        <a href="#" class="icon fa-info"><span>입시정보</span></a>
+                        <ul>
+                            <li>
+                                <a href="#">보도자료</a>
+                                <ul>
+                                    <li><a href="#">대학별 보도</a></li>
+                                    <li><a href="#">교육업체 • 학원</a></li>
+                                    <li><a href="#">정부 • 공공기관</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">대학소식</a>
+                                <ul>
+                                    <li><a href="#">논술전형 공지</a></li>
+                                    <li><a href="#">논술 가이드</a></li>
+                                    <li><a href="#">모의논술 공지</a></li>
+                                    <li><a href="#">수능최저등급 기준</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li> <!-- 여기까지 두번째 상단바 메뉴 -->
+
+                    <li><a class="icon fa-user" href="/left-sidebar"><span>함께 공부하기</span></a>
+                        <ul>
+                            <li><a href="#">스터디 • 모임</a></li>
+                            <li><a href="#">학원 • 과외</a></li>
+                            <li><a href="#">튜터링 신청</a></li>
+                        </ul>
+                    </li> <!-- 여기까지 세번째 상단바 메뉴 -->
+                </ul>
+            </nav>
+            <div class="search-box-grid">
+                <div></div>
+                <div class="search-box-margin">
+                    <form method="post" action="#">
+                        <input type="text" placeholder=" 검색어를 입력해주세요.">
+                    </form>
+                </div>
+                <div>
+                    <a href="#" class="button icon fa-search" style="word-break: keep-all">검색</a>
+                </div>
+            </div>
+
+            <!--상세검색-->
+            <div class="col-lg-12" style="margin-top: 1.5%; margin-left: 2.7%">
+                <a id="table-btn" class="btn btn-outline-danger mb-2" style="width:80%;">상세검색 접기</a>
+            </div>
+            <div id="table" class ="col-md-12 text-wrap mb-3" style="display: none">
+                <form name="sort-table">
+                    <table class="table table-bordered"  align = "center">
+                        <tr>
+                            <th nowrap="nowrap" style="width: 150px; text-align: center"; bgcolor="#FFAEA6" >기간</th>
+                            <td>
+                                <input id="radio" type="radio" name="term" value = "전체" checked><strong>전체</strong>&nbsp&nbsp&nbsp
+                                <input id="radio" type="radio" name="term" value = "1일">1일&nbsp&nbsp&nbsp
+                                <input id="radio" type="radio" name="term" value = "1주">1주&nbsp&nbsp&nbsp
+                                <input id="radio" type="radio" name="term" value = "1개월">1개월&nbsp&nbsp&nbsp
+                                <input id="radio" type="radio" name="term" value = "3개월">3개월&nbsp&nbsp&nbsp
+                                <input id="radio" type="radio" name="term" value = "6개월">6개월&nbsp&nbsp&nbsp
+                                <input id="radio" type="radio" name="term" value = "1년">1년&nbsp&nbsp&nbsp
+                            </td>
+                        </tr>
+                        <tr>
+                            <th style="text-align: center"; bgcolor="#FFAEA6">통합분류</th>
+                            <TD>
+                                <input id="checkbox" type="checkbox" name="sort" class="check-all" value = "전체"><strong>전체</strong>&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="sort" class="ab" value = "정치"> 정치&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="sort" class="ab" value = "경제"> 경제&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="sort" class="ab" value = "사회"> 사회&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="sort" class="ab" value = "문화"> 문화&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="sort" class="ab" value = "국제"> 국제&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="sort" class="ab" value = "지역"> 지역&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="sort" class="ab" value = "스포츠"> 스포츠&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="sort" class="ab" value = "IT_과학"> IT_과학&nbsp&nbsp&nbsp&nbsp
+                            </TD>
+                        </tr>
+                        <td colspan="2" align = "center" bgcolor="#FFAEA6"><strong>언론사</strong></td>
+                        <tr>
+                            <th style="text-align: center">중앙지</th>
+                            <TD>
+                                <input id="checkbox" type="checkbox" name="paper" class="check-all-center" value = "전체"><strong>전체</strong>&nbsp&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="center" value = "경향신문"> 경향신문&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="center" value = "국민일보"> 국민일보&nbsp&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="center" value = "내일신문"> 내일신문&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="center" value = "동아일보"> 동아일보&nbsp&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="center" value = "문화일보"> 문화일보&nbsp&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="center" value = "서울신문"> 서울신문&nbsp&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="center" value = "세계일보"> 세계일보&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="center" value = "조선일보"> 조선일보&nbsp&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="center" value = "중앙일보"> 중앙일보&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="center" value = "한겨례"> 한겨례&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="center" value = "한국일보"> 한국일보&nbsp&nbsp&nbsp&nbsp
+                            </TD>
+                        </tr>
+                        <tr>
+                            <th style="text-align: center">경제지</th>
+                            <TD>
+                                <input id="checkbox" type="checkbox" name="paper" class="check-all-eco" value = "전체"><strong>전체</strong>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="eco" value = "매일경제"> 매일경제&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="eco" value = "머니투데이"> 머니투데이&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="eco" value = "서울경제"> 서울경제&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="eco" value = "아시아경제"> 아시아경제&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="eco" value = "아주경제"> 아주경제&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="eco" value = "파이낸셜뉴스"> 파이낸셜뉴스&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="eco" value = "한국경제"> 한국경제&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="eco" value = "헤럴드경제"> 헤럴드경제&nbsp&nbsp&nbsp&nbsp
+
+                            </TD>
+                        </tr>
+                        <tr>
+                            <th style="text-align: center">지역종합지</th>
+                            <TD>
+                                <input id="checkbox" type="checkbox" name="paper" class="check-all-country" value = "전체"><strong>전체</strong>&nbsp&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="country" value = "강원도민일보"> 강원도민일보&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="country" value = "강원일보"> 강원일보&nbsp&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="country" value = "경기일보"> 경기일보&nbsp&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="country" value = "경남도민일보"> 경남도민일보&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="country" value = "경남신문"> 경남신문&nbsp&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="country" value = "경상일보"> 경상일보&nbsp&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="country" value = "경인일보"> 경인일보&nbsp&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="country" value = "광주매일신문"> 광주매일신문&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="country" value = "광주일보"> 광주일보&nbsp&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="country" value = "국제신문"> 국제신문&nbsp&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="country" value = "대구일보"> 대구일보&nbsp&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="country" value = "대전일보"> 대전일보&nbsp&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="country" value = "매일신문"> 매일신문&nbsp&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="country" value = "무등일보"> 무등일보&nbsp&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="country" value = "부산일보"> 부산일보&nbsp&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="country" value = "영남일보"> 영남일보&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="country" value = "울산매일"> 울산매일&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="country" value = "전남일보"> 전남일보&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="country" value = "전북도민일보"> 전북도민일보&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="country" value = "전북일보"> 전북일보&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="country" value = "제민일보"> 제민일보&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="country" value = "중도일보"> 중도일보&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="country" value = "중부매일"> 중부매일&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="country" value = "중부일보"> 중부일보&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="country" value = "충북일보"> 충북일보&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="country" value = "충청일보"> 충청일보&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="country" value = "충청투데이"> 충청투데이&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="country" value = "한라일보"> 한라일보&nbsp&nbsp&nbsp&nbsp
+                            </TD>
+                        </tr>
+                        <tr>
+                            <th style="text-align: center">방송사</th>
+                            <TD>
+                                <input id="checkbox" type="checkbox" name="paper" class="check-all-broad" value = "전체"><strong>전체</strong>&nbsp&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="broad" value = "MBC"> MBC&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="broad" value = "OBS"> OBS&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="broad" value = "SBS"> SBS&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="broad" value = "YTN"> YTN&nbsp&nbsp&nbsp&nbsp
+                            </TD>
+                        </tr>
+                        <tr>
+                            <th style="text-align: center">전문지</th>
+                            <TD>
+                                <input id="checkbox" type="checkbox" name="paper" class="check-all-pro" value = "전체"><strong>전체</strong>&nbsp&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="pro" value = "디지털타임스"> 디지털타임스&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="pro" value = "전자신문"> 전자신문&nbsp&nbsp&nbsp&nbsp
+                            </TD>
+                        </tr>
+                    </table>
+                </form>
+            </div> <!-- 테이블 -->
+        </div>
+    </section>
+
+    <section id="main" style="padding-top: 10px">
+        <div class="container">
+            <div id="content">
+                <div class="col-lg-6">
+                    <h3>스트레이트 기사</h3>
+                    <h5><a style="text-align: center; text-decoration:none!important" href="/newspage?codeprovider={{straight0provider}}&codedate={{straight0date}}">{{straight0title}}</a></h5>
+                    <p >{{straight0hilight}}</p>
+                    <p style="text-align: left">{{straight0provider}} / {{straight0published_at}}</p>
+                    <hr class="mb-5" style="width: 100%">
+
+                    <h5><a style="text-align: center; text-decoration:none!important" href="/newspage?codeprovider={{straight1provider}}&codedate={{straight1date}}">{{straight1title}}</a></h5>
+                    <p >{{straight1hilight}}</p>
+                    <p style="text-align: left">{{straight1provider}} / {{straight1published_at}}</p>
+                    <hr class="mb-5" style="width: 100%">
+
+                    <h5><a style="text-align: center; text-decoration:none!important" href="/newspage?codeprovider={{straight2provider}}&codedate={{straight2date}}">{{straight2title}}</a></h5>
+                    <p >{{straight2hilight}}</p>
+                    <p style="text-align: left">{{straight2provider}} / {{straight2published_at}}</p>
+                    <hr class="mb-5" style="width: 100%">
+
+                    <h5><a style="text-align: center; text-decoration:none!important" href="/newspage?codeprovider={{straight3provider}}&codedate={{straight3date}}">{{straight3title}}</a></h5>
+                    <p >{{straight3hilight}}</p>
+                    <p style="text-align: left">{{straight3provider}} / {{straight3published_at}}</p>
+                    <hr class="mb-5" style="width: 100%">
+
+                    <h5><a style="text-align: center; text-decoration:none!important" href="/newspage?codeprovider={{straight4provider}}&codedate={{straight4date}}">{{straight4title}}</a></h5>
+                    <p >{{straight4hilight}}</p>
+                    <p style="text-align: left">{{straight4provider}} / {{straight4published_at}}</p>
+                    <hr class="mb-5" style="width: 100%">
+
+                    <h5><a style="text-align: center; text-decoration:none!important" href="/newspage?codeprovider={{straight5provider}}&codedate={{straight5date}}">{{straight5title}}</a></h5>
+                    <p >{{straight5hilight}}</p>
+                    <p style="text-align: left">{{straight5provider}} / {{straight5published_at}}</p>
+                    <hr class="mb-5" style="width: 100%">
+
+                    <h5><a style="text-align: center; text-decoration:none!important" href="/newspage?codeprovider={{straight6provider}}&codedate={{straight6date}}">{{straight6title}}</a></h5>
+                    <p >{{straight6hilight}}</p>
+                    <p style="text-align: left">{{straight6provider}} / {{straight6published_at}}</p>
+                    <hr class="mb-5" style="width: 100%">
+
+                    <h5><a style="text-align: center; text-decoration:none!important" href="/newspage?codeprovider={{straight7provider}}&codedate={{straight7date}}">{{straight7title}}</a></h5>
+                    <p >{{straight7hilight}}</p>
+                    <p style="text-align: left">{{straight7provider}} / {{straight7published_at}}</p>
+                    <hr class="mb-5" style="width: 100%">
+
+                    <h5><a style="text-align: center; text-decoration:none!important" href="/newspage?codeprovider={{straight8provider}}&codedate={{straight8date}}">{{straight8title}}</a></h5>
+                    <p >{{straight8hilight}}</p>
+                    <p style="text-align: left">{{straight8provider}} / {{straight8published_at}}</p>
+                    <hr class="mb-5" style="width: 100%">
+
+                    <h5><a style="text-align: center; text-decoration:none!important" href="/newspage?codeprovider={{straight9provider}}&codedate={{straight9date}}">{{straight9title}}</a></h5>
+                    <p >{{straight9hilight}}</p>
+                    <p style="text-align: left">{{straight9provider}} / {{straight9published_at}}</p>
+                </div>
+
+                <div class="col-lg-6">
+                    <h3>스트레이트 기사</h3>
+                    <h5><a style="text-align: center; text-decoration:none!important" href="/newspage?codeprovider={{edit0provider}}&codedate={{edit0date}}">{{edit0title}}</a></h5>
+                    <p >{{edit0hilight}}</p>
+                    <p style="text-align: left">{{edit0provider}} / {{edit0published_at}}</p>
+                    <hr class="mb-5" style="width: 100%">
+
+                    <h5><a style="text-align: center; text-decoration:none!important" href="/newspage?codeprovider={{edit1provider}}&codedate={{edit1date}}">{{edit1title}}</a></h5>
+                    <p >{{edit1hilight}}</p>
+                    <p style="text-align: left">{{edit1provider}} / {{edit1published_at}}</p>
+                    <hr class="mb-5" style="width: 100%">
+
+                    <h5><a style="text-align: center; text-decoration:none!important" href="/newspage?codeprovider={{edit2provider}}&codedate={{edit2date}}">{{edit2title}}</a></h5>
+                    <p >{{edit2hilight}}</p>
+                    <p style="text-align: left">{{edit2provider}} / {{edit2published_at}}</p>
+                    <hr class="mb-5" style="width: 100%">
+
+                    <h5><a style="text-align: center; text-decoration:none!important" href="/newspage?codeprovider={{edit3provider}}&codedate={{edit3date}}">{{edit3title}}</a></h5>
+                    <p >{{edit3hilight}}</p>
+                    <p style="text-align: left">{{edit3provider}} / {{edit3published_at}}</p>
+                    <hr class="mb-5" style="width: 100%">
+
+                    <h5><a style="text-align: center; text-decoration:none!important" href="/newspage?codeprovider={{edit4provider}}&codedate={{edit4date}}">{{edit4title}}</a></h5>
+                    <p >{{edit4hilight}}</p>
+                    <p style="text-align: left">{{edit4provider}} / {{edit4published_at}}</p>
+                    <hr class="mb-5" style="width: 100%">
+
+                    <h5><a style="text-align: center; text-decoration:none!important" href="/newspage?codeprovider={{edit5provider}}&codedate={{edit5date}}">{{edit5title}}</a></h5>
+                    <p >{{edit5hilight}}</p>
+                    <p style="text-align: left">{{edit5provider}} / {{edit5published_at}}</p>
+                    <hr class="mb-5" style="width: 100%">
+
+                    <h5><a style="text-align: center; text-decoration:none!important" href="/newspage?codeprovider={{edit6provider}}&codedate={{edit6date}}">{{edit6title}}</a></h5>
+                    <p >{{edit6hilight}}</p>
+                    <p style="text-align: left">{{edit6provider}} / {{edit6published_at}}</p>
+                    <hr class="mb-5" style="width: 100%">
+
+                    <h5><a style="text-align: center; text-decoration:none!important" href="/newspage?codeprovider={{edit7provider}}&codedate={{edit7date}}">{{edit7title}}</a></h5>
+                    <p >{{edit7hilight}}</p>
+                    <p style="text-align: left">{{edit7provider}} / {{edit7published_at}}</p>
+                    <hr class="mb-5" style="width: 100%">
+
+                    <h5><a style="text-align: center; text-decoration:none!important" href="/newspage?codeprovider={{edit8provider}}&codedate={{edit8date}}">{{edit8title}}</a></h5>
+                    <p >{{edit8hilight}}</p>
+                    <p style="text-align: left">{{edit8provider}} / {{edit8published_at}}</p>
+                    <hr class="mb-5" style="width: 100%">
+
+                    <h5><a style="text-align: center; text-decoration:none!important" href="/newspage?codeprovider={{edit9provider}}&codedate={{edit9date}}">{{edit9title}}</a></h5>
+                    <p >{{edit9hilight}}</p>
+                    <p style="text-align: left">{{edit9provider}} / {{edit9published_at}}</p>
+                </div>
+            </div>
+        </div>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item" style="margin: 0.75em 0 0.75em 0;">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">이전</span>
+                    </a>
+                </li>
+                <li class="page-item">
+                    <div class="page-link" onclick="nextpage(0)">다음</div>
+                </li>
+            </ul>
+        </nav>
+    </section>
+
+    <!-- Footer -->
+    <section id="footer">
+        <div class="container">
+            <header>
+                <h2>내일의 꿈으로 비상하게 해줄 <strong>오늘의 ❝이글스❞</strong></h2>
+            </header>
+        </div>
+        <div id="copyright" class="container">
+            <ul class="links">
+                <li>&copy; 한와. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <div id="floating-bar">
+        <button onclick="location.href='/'" style="margin-bottom: 5px; width: 100%; height: 25%; padding: 3px; border-radius: 7px;">Home</button>
+        <button style="margin-bottom: 5px; width: 100%; height: 25%; padding: 3px; border-radius: 7px;">기사<br>스크랩</button>
+        <button style="margin-bottom: 5px;width: 100%; height: 25%; padding: 3px; border-radius: 7px;">키워드<br>스크랩</button>
+        <button style="width: 100%; padding: 3px; height: 25%; border-radius: 7px;">Q&A</button>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="/js/jquery.min.js"></script>
+<script src="/js/jquery.dropotron.min.js"></script>
+<script src="/js/browser.min.js"></script>
+<script src="/js/breakpoints.min.js"></script>
+<script src="/js/util.js"></script>
+<script src="/js/main.js"></script>
+<script src="/webjars/jquery/2.2.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/4.2.1/js/bootstrap.bundle.js"></script>
+<script src="/webjars/handlebars/4.0.11-1/handlebars.js"></script>
+
+<script>
+    $(document).ready(function () {
+        console.log("test");
+        $("#table-btn").click(function () {
+            if($("#table").is(":visible")){
+                console.log("hide");
+                $("#table-btn").html("상세검색 펼치기");
+                $("#table").slideUp();
+            }else{
+                console.log("show");
+                $("#table-btn").html("상세검색 접기");
+                $("#table").slideDown();
+            }
+        })
+    })
+</script>
+
+
+<script>
+    $(document).ready(function () {
+        console.log("test");
+        $("#keytable1").hide();
+        $("#DownArrow1").click(function () {
+            if($("#keytable1").is(":visible")){
+                console.log("hide");
+                $("#DownArrow1").html("");
+                $("#keytable1").slideUp();
+            }else{
+                console.log("show");
+                $("#DownArrow1").html("");
+                $("#keytable1").slideDown();
+            }
+        })
+    })
+</script>
+
+<script>
+    $(document).ready(function () {
+        console.log("test");
+        $("#keytable2").hide();
+        $("#DownArrow2").click(function () {
+            if($("#keytable2").is(":visible")){
+                console.log("hide");
+                $("#DownArrow2").html("");
+                $("#keytable2").slideUp();
+            }else{
+                console.log("show");
+                $("#DownArrow2").html("");
+                $("#keytable2").slideDown();
+            }
+        })
+    })
+</script>
+
+<script>
+    $(document).ready(function () {
+        console.log("test");
+        $("#keytable3").hide();
+        $("#DownArrow3").click(function () {
+            if($("#keytable3").is(":visible")){
+                console.log("hide");
+                $("#DownArrow3").html("");
+                $("#keytable3").slideUp();
+            }else{
+                console.log("show");
+                $("#DownArrow3").html("");
+                $("#keytable3").slideDown();
+            }
+        })
+    })
+</script>
+
+<!-- 전체 체크하는 스크립트 언론지 종류별로 -->
+<script>
+    $( document ).ready( function() {
+        $( '.check-all' ).click( function() {
+            $( '.ab' ).prop( 'checked', this.checked );
+        } );
+    } );
+</script>
+
+<script>
+    $( document ).ready( function() {
+        $( '.check-all-center' ).click( function() {
+            $( '.center' ).prop( 'checked', this.checked );
+        } );
+    } );
+</script>
+
+<script>
+    $( document ).ready( function() {
+        $( '.check-all-eco' ).click( function() {
+            $( '.eco' ).prop( 'checked', this.checked );
+        } );
+    } );
+</script>
+
+<script>
+    $( document ).ready( function() {
+        $( '.check-all-country' ).click( function() {
+            $( '.country' ).prop( 'checked', this.checked );
+        } );
+    } );
+</script>
+
+<script>
+    $( document ).ready( function() {
+        $( '.check-all-broad' ).click( function() {
+            $( '.broad' ).prop( 'checked', this.checked );
+        } );
+    } );
+</script>
+
+<script>
+    $( document ).ready( function() {
+        $( '.check-all-pro' ).click( function() {
+            $( '.pro' ).prop( 'checked', this.checked );
+        } );
+    } );
+</script>
+
+</body>
+</html>
