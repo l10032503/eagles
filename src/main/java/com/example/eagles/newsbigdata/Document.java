@@ -1,4 +1,4 @@
-/*package com.example.eagles.newsbigdata;
+package com.example.eagles.newsbigdata;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -26,4 +26,3 @@ public class Document {
         return (JSONArray) return_object.get("documents");
     }
 }
-*/

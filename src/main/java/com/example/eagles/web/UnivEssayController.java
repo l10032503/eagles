@@ -1,13 +1,13 @@
 package com.example.eagles.web;
 
 import com.example.eagles.newsbigdata.Bigkinds;
-/*import com.example.eagles.newsbigdata.Document;
+import com.example.eagles.newsbigdata.Document;
 import com.example.eagles.newsbigdata.NewsSearch;
 import lombok.AllArgsConstructor;
 import org.apache.hadoop.yarn.webapp.hamlet.Hamlet;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;*/
+import org.json.simple.parser.JSONParser;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,7 +36,7 @@ public class UnivEssayController {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date today = new Date();
         String title_all = "";
-       /* JSONObject jsonObject = new JSONObject();
+        JSONObject jsonObject = new JSONObject();
         JSONParser jsonParser = new JSONParser();
         String resultString = "";
         Object obj = new Object();
@@ -44,7 +44,7 @@ public class UnivEssayController {
         JSONObject documentsElement = new JSONObject();
         NewsSearch newsSearch = new NewsSearch();
         Bigkinds bigkinds = new Bigkinds();
-        Document document = new Document();*/
+        Document document = new Document();
 
         List<String> providerList = new ArrayList<String>();
         List<String> category_List = new ArrayList<String>();
@@ -260,7 +260,7 @@ public class UnivEssayController {
 
         }catch (Exception e){
             e.printStackTrace();
-        }*/
+        }
 
         return "seogang-2019-mock-test";
     }
