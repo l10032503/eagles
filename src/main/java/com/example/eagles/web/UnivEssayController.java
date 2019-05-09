@@ -262,6 +262,6 @@ public class UnivEssayController {
             e.printStackTrace();
         }
 
-        return "seogang-2019-mock-test";
+        return "seogang-2019-01-01";
     }
 }
