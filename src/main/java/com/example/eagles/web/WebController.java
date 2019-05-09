@@ -1,16 +1,16 @@
 package com.example.eagles.web;
 
 
-import com.example.eagles.Spark.WordCount;
+//import com.example.eagles.Spark.WordCount;
 import com.example.eagles.newsbigdata.Bigkinds;
-import com.example.eagles.newsbigdata.Document;
-import com.example.eagles.newsbigdata.IssueRanking;
-import com.example.eagles.newsbigdata.NewsSearch;
+//import com.example.eagles.newsbigdata.Document;
+//import com.example.eagles.newsbigdata.IssueRanking;
+//import com.example.eagles.newsbigdata.NewsSearch;
 import lombok.AllArgsConstructor;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
+//import org.json.simple.JSONArray;
+//import org.json.simple.JSONObject;
+//import org.json.simple.parser.JSONParser;
+//import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,11 +23,11 @@ import java.util.*;
 @Controller
 @AllArgsConstructor
 public class WebController {
-    @Autowired
-    WordCount service;
+    //@Autowired
+    //WordCount service;
 
 
-    @GetMapping("/")
+    /*@GetMapping("/")
     public String main(Model model) {
         IssueRanking issueRanking = new IssueRanking();
         Bigkinds bigkinds = new Bigkinds();
@@ -90,7 +90,7 @@ public class WebController {
             e.printStackTrace();
         }
         return "main";
-    }
+    }*/
 
     @GetMapping("/index")
     public String index(){

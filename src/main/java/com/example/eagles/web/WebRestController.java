@@ -199,3 +199,4 @@ public class WebRestController {
             return service.getCount(wordList);
         }
     }
+
