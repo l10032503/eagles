@@ -20,6 +20,8 @@ public class KeywordExtract {
             argument.put("title",title);
             argument.put("sub_title",sub_title);
             argument.put("content",content);
+
+            sendObject.put("argument",argument);
         } catch (Exception e){
             e.printStackTrace();
         }

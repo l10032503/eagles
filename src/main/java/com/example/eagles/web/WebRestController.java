@@ -3,6 +3,7 @@ package com.example.eagles.web;
 import com.example.eagles.Spark.WordCount;
 import com.example.eagles.newsbigdata.Bigkinds;
 import com.example.eagles.newsbigdata.IssueRanking;
+import com.example.eagles.newsbigdata.KeywordExtract;
 import com.example.eagles.newsbigdata.NewsSearch;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -158,9 +159,25 @@ public class WebRestController {
         fields_List.add("title");
         fields_List.add("published_at");
         fields_List.add("provider");
+        fields_List.add("category");
+        fields_List.add("subject_info");
+        fields_List.add("subject_info1");
+        fields_List.add("subject_info2");
+        fields_List.add("subject_info3");
+        fields_List.add("subject_info4");
         String posttest = newsSearch.makeQuery(news_id_List,fields_List).toString();
         System.out.println(posttest);
         String post = bigkinds.postURL("http://tools.kinds.or.kr:8888/search/news",posttest);
+        return post;
+    }
+
+    @GetMapping("/keywordextracttest")
+    public String keywordextract(){
+        Bigkinds bigkinds = new Bigkinds();
+        KeywordExtract keywordExtract = new KeywordExtract();
+        String queryString = keywordExtract.makeQuery("태풍 솔릭'에 항공기 대규모 결항…오후 10시까지 총 532편 결항","","태풍 솔릭'에 항공기 대규모 결항…오후 10시까지 총 532편 결항").toString();
+        System.out.println(queryString);
+        String post = bigkinds.postURL("http://tools.kinds.or.kr:8888/keyword", queryString);
         return post;
     }
 
