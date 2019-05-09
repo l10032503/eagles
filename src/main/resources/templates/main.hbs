@@ -200,7 +200,6 @@
                         <tr>
                             <th nowrap="nowrap" style="width: 150px; text-align: center"; bgcolor="#FFAEA6" >기간 선택</th>
                             <td>
-                                <input id="radio" type="radio" name="term" value = "전체" checked><strong>전체</strong>&nbsp&nbsp&nbsp
                                 <input id="radio" type="radio" name="term" value = "1일">1일&nbsp&nbsp&nbsp
                                 <input id="radio" type="radio" name="term" value = "1주">1주&nbsp&nbsp&nbsp
                                 <input id="radio" type="radio" name="term" value = "1개월">1개월&nbsp&nbsp&nbsp
@@ -212,8 +211,8 @@
                         <tr>
                             <th nowrap="nowrap" style="width: 150px; text-align: center"; bgcolor="#FFAEA6" >직접 입력</th>
                             <td>
-                                <input id="direct" type="text" placeholder="시작" class="col-lg-6">
-                                <input id="direct" type="text" placeholder="끝" class="col-lg-6">
+                                <input id="directFrom" name="directterm" type="text" placeholder="시작" style="width: 45%">
+                                <input id="directUntil" name="directterm" type="text" placeholder="끝" style="width: 45%">
                             </td>
                         </tr>
                         <tr>
@@ -601,13 +600,127 @@
 
 <script language="javascript">
     var selection = "전체";
+    var queryString = "";
+
     function buttonClicked() {
         var keyword = document.getElementById("keywordtext").value;
+        var dateFrom = document.getElementById("directFrom").value;
+        var dateUntil = document.getElementById("directUntil").value;
         var radio = document.getElementById("radio").value;
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth()+1; //January is 0!
+        var yyyy = today.getFullYear();
+        $("input[name=term]:checked").each(function () {
+            if($(this).val() == "1일"){
+                console.log($(this).val());
+                if(dd<10) {
+                    dd='0'+dd
+                }
+                if(mm<10) {
+                    mm='0'+mm
+                }
+                dateUntil = yyyy + "-" + mm + "-" + dd;
+                dd = dd - 1;
+                if(dd<10) {
+                    dd='0'+dd
+                }
+                dateFrom = yyyy + "-" + mm + "-" + dd;
+            }else if($(this).val() == "1주"){
+                console.log($(this).val());
+                if(dd<10) {
+                    dd='0'+dd
+                }
+                if(mm<10) {
+                    mm='0'+mm
+                }
+                dateUntil = yyyy + "-" + mm + "-" + dd;
+                dd = dd - 7;
+                if(dd<10) {
+                    dd='0'+dd
+                }
+                dateFrom = yyyy + "-" + mm + "-" + dd;
+            }else if($(this).val() == "1개월"){
+                console.log($(this).val());
+                if(dd<10) {
+                    dd='0'+dd
+                }
+                if(mm<10) {
+                    mm='0'+mm
+                }
+                dateUntil = yyyy + "-" + mm + "-" + dd;
+                mm = mm - 1;
+                if(mm<10) {
+                    mm='0'+mm
+                }
+                dateFrom = yyyy + "-" + mm + "-" + dd;
+            }else if($(this).val() == "3개월"){
+                console.log($(this).val());
+                if(dd<10) {
+                    dd='0'+dd
+                }
+                if(mm<10) {
+                    mm='0'+mm
+                }
+                dateUntil = yyyy + "-" + mm + "-" + dd;
+                mm = mm - 3;
+                if(mm<10) {
+                    mm='0'+mm
+                }
+                dateFrom = yyyy + "-" + mm + "-" + dd;
+            }else if($(this).val() == "6개월"){
+                console.log($(this).val());
+                if(dd<10) {
+                    dd='0'+dd
+                }
+                if(mm<10) {
+                    mm='0'+mm
+                }
+                dateUntil = yyyy + "-" + mm + "-" + dd;
+                if(mm<6) {
+                    mm = 11;
+                    yyyy = yyyy - 1;
+                }else{
+                    mm = mm - 6;
+                    if(mm<6) {
+                        mm='0'+mm
+                    }
+                }
+                dateFrom = yyyy + "-" + mm + "-" + dd;
+            }else if($(this).val() == "1년"){
+                console.log($(this).val());
+                if(dd<10) {
+                    dd='0'+dd
+                }
+                if(mm<10) {
+                    mm='0'+mm
+                }
+                dateUntil = yyyy + "-" + mm + "-" + dd;
+                yyyy = yyyy - 1;
+                dateFrom = yyyy + "-" + mm + "-" + dd;
+            }
+        });
+
+
+        $("input[name=sort]:checked").each(function () {
+            queryString = queryString + "category=" + $(this).val() + "&";
+            console.log(queryString);
+        });
+        $("input[name=paper]:checked").each(function () {
+            queryString = queryString + "provider=" + $(this).val() + "&";
+            console.log(queryString);
+        });
+        if(dateFrom)
+            queryString = queryString + "datefrom=" + dateFrom + "&";
+        if(dateUntil)
+            queryString = queryString + "dateuntil=" + dateUntil;
+
+        alert(queryString);
+
         if (!keyword) {
             alert("검색어를 입력해주세요.");
         }else {
-            {window.location.href = "/search?query=" + keyword;}
+            {window.location.href = "/search?query=" + keyword + "&" + queryString;}
         }
     }
 </script>

@@ -21,8 +21,8 @@ public class SearchController {
 
     @GetMapping("/search")
     public String search(Model model, @RequestParam(value = "query", required = false)String query,
-                         @RequestParam(value = "dateFrom", required = false, defaultValue = "null")String dateFrom,
-                         @RequestParam(value = "dateUntil", required = false, defaultValue = "null")String dateUntil,
+                         @RequestParam(value = "datefrom", required = false, defaultValue = "null")String dateFrom,
+                         @RequestParam(value = "dateuntil", required = false, defaultValue = "null")String dateUntil,
                          @RequestParam(value = "provider", required = false, defaultValue = "null")String[] provider,
                          @RequestParam(value = "category", required = false, defaultValue = "null")String[] category,
                          @RequestParam(value = "category-incident", required = false, defaultValue = "null")String[] category_incident,

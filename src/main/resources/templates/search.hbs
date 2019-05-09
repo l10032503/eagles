@@ -309,56 +309,76 @@
     <section id="main" style="padding-top: 10px">
         <div class="container">
             <div id="content">
-                <article class="box excerpt" style="text-align: left; padding: 30px; margin: 10px">
-                    <h3><a href="/newspage?codeprovider={{title0codeprovider}}&codedate={{title0codedate}}">{{title0}}</a></h3>
-                    <p >{{title0hilight}}</p>
-                    <p style="text-align: left">{{title0provider}} / {{title0published_at}}</p>
-                </article>
-                <article class="box excerpt" style="text-align: left; padding: 30px; margin: 10px">
-                    <h3><a href="/newspage?codeprovider={{title1codeprovider}}&codedate={{title1codedate}}">{{title1}}</a></h3>
-                    <p >{{title1hilight}}</p>
-                    <p style="text-align: left">{{title1provider}} / {{title1published_at}}</p>
-                </article>
-                <article class="box excerpt" style="text-align: left; padding: 30px; margin: 10px">
-                    <h3><a href="/newspage?codeprovider={{title2codeprovider}}&codedate={{title2codedate}}">{{title2}}</a></h3>
-                    <p >{{title2hilight}}</p>
-                    <p style="text-align: left">{{title2provider}} / {{title2published_at}}</p>
-                </article>
-                <article class="box excerpt" style="text-align: left; padding: 30px; margin: 10px">
-                    <h3><a href="/newspage?codeprovider={{title3codeprovider}}&codedate={{title3codedate}}">{{title3}}</a></h3>
-                    <p >{{title3hilight}}</p>
-                    <p style="text-align: left">{{title3provider}} / {{title3published_at}}</p>
-                </article>
-                <article class="box excerpt" style="text-align: left; padding: 30px; margin: 10px">
-                    <h3><a href="/newspage?codeprovider={{title4codeprovider}}&codedate={{title4codedate}}">{{title4}}</a></h3>
-                    <p >{{title4hilight}}</p>
-                    <p style="text-align: left">{{title4provider}} / {{title4published_at}}</p>
-                </article>
-                <article class="box excerpt" style="text-align: left; padding: 30px; margin: 10px">
-                    <h3><a href="/newspage?codeprovider={{title5codeprovider}}&codedate={{title5codedate}}">{{title5}}</a></h3>
-                    <p >{{title5hilight}}</p>
-                    <p style="text-align: left">{{title5provider}} / {{title5published_at}}</p>
-                </article>
-                <article class="box excerpt" style="text-align: left; padding: 30px; margin: 10px">
-                    <h3><a href="/newspage?codeprovider={{title6codeprovider}}&codedate={{title6codedate}}">{{title6}}</a></h3>
-                    <p >{{title6hilight}}</p>
-                    <p style="text-align: left">{{title6provider}} / {{title6published_at}}</p>
-                </article>
-                <article class="box excerpt" style="text-align: left; padding: 30px; margin: 10px">
-                    <h3><a href="/newspage?codeprovider={{title7codeprovider}}&codedate={{title7codedate}}">{{title7}}</a></h3>
-                    <p >{{title7hilight}}</p>
-                    <p style="text-align: left">{{title7provider}} / {{title7published_at}}</p>
-                </article>
-                <article class="box excerpt" style="text-align: left; padding: 30px; margin: 10px">
-                    <h3><a href="/newspage?codeprovider={{title8codeprovider}}&codedate={{title8codedate}}">{{title8}}</a></h3>
-                    <p >{{title8hilight}}</p>
-                    <p style="text-align: left">{{title8provider}} / {{title8published_at}}</p>
-                </article>
-                <article class="box excerpt" style="text-align: left; padding: 30px; margin: 10px">
-                    <h3><a href="/newspage?codeprovider={{title9codeprovider}}&codedate={{title9codedate}}">{{title9}}</a></h3>
-                    <p >{{title9hilight}}</p>
-                    <p style="text-align: left">{{title9provider}} / {{title9published_at}}</p>
-                </article>
+                {{#if title0}}
+                    <article class="box excerpt" style="text-align: left; padding: 30px; margin: 10px">
+                        <h3><a href="/newspage?codeprovider={{title0codeprovider}}&codedate={{title0codedate}}">{{title0}}</a></h3>
+                        <p >{{title0hilight}}</p>
+                        <p style="text-align: left">{{title0provider}} / {{title0published_at}}</p>
+                    </article>
+                {{/if}}
+                {{#if title1}}
+                    <article class="box excerpt" style="text-align: left; padding: 30px; margin: 10px">
+                        <h3><a href="/newspage?codeprovider={{title1codeprovider}}&codedate={{title1codedate}}">{{title1}}</a></h3>
+                        <p >{{title1hilight}}</p>
+                        <p style="text-align: left">{{title1provider}} / {{title1published_at}}</p>
+                    </article>
+                {{/if}}
+                {{#if title2}}
+                    <article class="box excerpt" style="text-align: left; padding: 30px; margin: 10px">
+                        <h3><a href="/newspage?codeprovider={{title2codeprovider}}&codedate={{title2codedate}}">{{title2}}</a></h3>
+                        <p >{{title2hilight}}</p>
+                        <p style="text-align: left">{{title2provider}} / {{title2published_at}}</p>
+                    </article>
+                {{/if}}
+                {{#if title3}}
+                    <article class="box excerpt" style="text-align: left; padding: 30px; margin: 10px">
+                        <h3><a href="/newspage?codeprovider={{title3codeprovider}}&codedate={{title3codedate}}">{{title3}}</a></h3>
+                        <p >{{title3hilight}}</p>
+                        <p style="text-align: left">{{title3provider}} / {{title3published_at}}</p>
+                    </article>
+                {{/if}}
+                {{#if title4}}
+                    <article class="box excerpt" style="text-align: left; padding: 30px; margin: 10px">
+                        <h3><a href="/newspage?codeprovider={{title4codeprovider}}&codedate={{title4codedate}}">{{title4}}</a></h3>
+                        <p >{{title4hilight}}</p>
+                        <p style="text-align: left">{{title4provider}} / {{title4published_at}}</p>
+                    </article>
+                {{/if}}
+                {{#if title5}}
+                    <article class="box excerpt" style="text-align: left; padding: 30px; margin: 10px">
+                        <h3><a href="/newspage?codeprovider={{title5codeprovider}}&codedate={{title5codedate}}">{{title5}}</a></h3>
+                        <p >{{title5hilight}}</p>
+                        <p style="text-align: left">{{title5provider}} / {{title5published_at}}</p>
+                    </article>
+                {{/if}}
+                {{#if title6}}
+                    <article class="box excerpt" style="text-align: left; padding: 30px; margin: 10px">
+                        <h3><a href="/newspage?codeprovider={{title6codeprovider}}&codedate={{title6codedate}}">{{title6}}</a></h3>
+                        <p >{{title6hilight}}</p>
+                        <p style="text-align: left">{{title6provider}} / {{title6published_at}}</p>
+                    </article>
+                {{/if}}
+                {{#if title7}}
+                    <article class="box excerpt" style="text-align: left; padding: 30px; margin: 10px">
+                        <h3><a href="/newspage?codeprovider={{title7codeprovider}}&codedate={{title7codedate}}">{{title7}}</a></h3>
+                        <p >{{title7hilight}}</p>
+                        <p style="text-align: left">{{title7provider}} / {{title7published_at}}</p>
+                    </article>
+                {{/if}}
+                {{#if title8}}
+                    <article class="box excerpt" style="text-align: left; padding: 30px; margin: 10px">
+                        <h3><a href="/newspage?codeprovider={{title8codeprovider}}&codedate={{title8codedate}}">{{title8}}</a></h3>
+                        <p >{{title8hilight}}</p>
+                        <p style="text-align: left">{{title8provider}} / {{title8published_at}}</p>
+                    </article>
+                {{/if}}
+                {{#if title9}}
+                    <article class="box excerpt" style="text-align: left; padding: 30px; margin: 10px">
+                        <h3><a href="/newspage?codeprovider={{title9codeprovider}}&codedate={{title9codedate}}">{{title9}}</a></h3>
+                        <p >{{title9hilight}}</p>
+                        <p style="text-align: left">{{title9provider}} / {{title9published_at}}</p>
+                    </article>
+                {{/if}}
             </div>
         </div>
         <nav aria-label="Page navigation example">
