@@ -182,11 +182,11 @@
                 <div></div>
                 <div class="search-box-margin">
                     <form method="post" action="#">
-                        <input type="text" placeholder=" 검색어를 입력해주세요.">
+                        <input id="keywordtext" type="text" placeholder=" 검색어를 입력해주세요.">
                     </form>
                 </div>
                 <div>
-                    <a href="#" class="button icon fa-search" style="word-break: keep-all">검색</a>
+                    <input style="word-break: keep-all" type="submit" class="button icon fa-search" onclick="buttonClicked(); return false;" value="검색"/>
                 </div>
             </div>
 
@@ -198,7 +198,7 @@
                 <form name="sort-table">
                     <table class="table table-bordered"  align = "center">
                         <tr>
-                            <th nowrap="nowrap" style="width: 150px; text-align: center"; bgcolor="#FFAEA6" >기간</th>
+                            <th nowrap="nowrap" style="width: 150px; text-align: center"; bgcolor="#FFAEA6" >기간 선택</th>
                             <td>
                                 <input id="radio" type="radio" name="term" value = "전체" checked><strong>전체</strong>&nbsp&nbsp&nbsp
                                 <input id="radio" type="radio" name="term" value = "1일">1일&nbsp&nbsp&nbsp
@@ -207,6 +207,13 @@
                                 <input id="radio" type="radio" name="term" value = "3개월">3개월&nbsp&nbsp&nbsp
                                 <input id="radio" type="radio" name="term" value = "6개월">6개월&nbsp&nbsp&nbsp
                                 <input id="radio" type="radio" name="term" value = "1년">1년&nbsp&nbsp&nbsp
+                            </td>
+                        </tr>
+                        <tr>
+                            <th nowrap="nowrap" style="width: 150px; text-align: center"; bgcolor="#FFAEA6" >직접 입력</th>
+                            <td>
+                                <input id="direct" type="text"  value = "datefrom" checked><strong>전체</strong>&nbsp&nbsp&nbsp
+                                <input id="direct" type="text" value = "dateuntil">1일&nbsp&nbsp&nbsp
                             </td>
                         </tr>
                         <tr>
@@ -591,6 +598,20 @@
         } );
     } );
 </script>
+
+<script language="javascript">
+    var selection = "전체";
+    function buttonClicked() {
+        var keyword = document.getElementById("keywordtext").value;
+        var radio = document.getElementById("radio").value;
+        if (!keyword) {
+            alert("검색어를 입력해주세요.");
+        }else {
+            {window.location.href = "/search?query=" + keyword;}
+        }
+    }
+</script>
+
 
 </body>
 </html>
