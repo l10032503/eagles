@@ -1,13 +1,13 @@
 package com.example.eagles.web;
 
 import com.example.eagles.newsbigdata.Bigkinds;
-import com.example.eagles.newsbigdata.Document;
+/*import com.example.eagles.newsbigdata.Document;
 import com.example.eagles.newsbigdata.NewsSearch;
 import lombok.AllArgsConstructor;
 import org.apache.hadoop.yarn.webapp.hamlet.Hamlet;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.JSONParser;*/
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +18,7 @@ import java.util.Date;
 import java.util.List;
 
 @Controller
-@AllArgsConstructor
+///@AllArgsConstructor
 public class UnivEssayController {
 
     @GetMapping("/sookmyung")
@@ -31,7 +31,7 @@ public class UnivEssayController {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date today = new Date();
         String title_all = "";
-        JSONObject jsonObject = new JSONObject();
+       /* JSONObject jsonObject = new JSONObject();
         JSONParser jsonParser = new JSONParser();
         String resultString = "";
         Object obj = new Object();
@@ -39,7 +39,7 @@ public class UnivEssayController {
         JSONObject documentsElement = new JSONObject();
         NewsSearch newsSearch = new NewsSearch();
         Bigkinds bigkinds = new Bigkinds();
-        Document document = new Document();
+        Document document = new Document();*/
 
         List<String> providerList = new ArrayList<String>();
         List<String> category_List = new ArrayList<String>();
@@ -62,7 +62,7 @@ public class UnivEssayController {
         int editIndex = 0;
         int straightIndex = 0;
 
-        String queryString = newsSearch.makeQuery("민주주의", "2018-11-15", simpleDateFormat.format(today),
+       /* String queryString = newsSearch.makeQuery("민주주의", "2018-11-15", simpleDateFormat.format(today),
                 providerList,category_List,category_incident_List, "", provider_subject_List,
                 subject_info_List, subject_info1_List, subject_info2_List, subject_info3_List,
                 subject_info4_List, "date", "desc", 200, 0, 1000, fields_List).toString();
@@ -100,7 +100,7 @@ public class UnivEssayController {
 
         }catch (Exception e){
             e.printStackTrace();
-        }
+        }*/
 
         return "sookmyung-2019-01-01";
     }

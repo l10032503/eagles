@@ -1,4 +1,4 @@
-package com.example.eagles.Spark;
+/*package com.example.eagles.Spark;
 
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaSparkContext;
@@ -22,3 +22,4 @@ public class Sparkconfig {
         return new JavaSparkContext(conf());
     }
 }
+*/

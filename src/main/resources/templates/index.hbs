@@ -52,12 +52,22 @@
             -webkit-appearance: radio;
         }
 
-        #floating-bar {
-            height: 220px;
-            width: 80px;
+        #floating-bar-linear {
+            height: 230px;
+            width: 90px;
             position: fixed;
             right: 3%;
             top: 35%;
+            margin: 0 0 0 110px;
+            padding: 5px;
+        }
+
+        #floating-bar-horizon {
+            height: 230px;
+            width: 90px;
+            position: fixed;
+            right: 50%;
+            top: 60%;
             margin: 0 0 0 110px;
             padding: 5px;
         }
@@ -430,17 +440,17 @@
             <div class="carousel-inner" role="listbox">
                 <div class="carousel-item active">
                     <a href="#">
-                        <img class="d-block img-fluid" src="/images/1.png" style="width:60%; height:60%; margin-left: auto; margin-right: auto" alt="First slide" >
+                        <img class="d-block img-fluid" src="/images/1.PNG" style="width:60%; height:60%; margin-left: auto; margin-right: auto" alt="First slide" >
                     </a>
                 </div>
                 <div class="carousel-item">
                     <a href="#">
-                        <img class="d-block img-fluid" src="/images/2.png" style="width:60%; height:60%; margin-left: auto; margin-right: auto"alt="Second slide">
+                        <img class="d-block img-fluid" src="/images/2.PNG" style="width:60%; height:60%; margin-left: auto; margin-right: auto"alt="Second slide">
                     </a>
                 </div>
                 <div class="carousel-item">
                     <a href="#">
-                        <img class="d-block img-fluid" src="/images/3.png" style="width:60%; height:60%; margin-left: auto; margin-right: auto" alt="Third slide">
+                        <img class="d-block img-fluid" src="/images/3.PNG" style="width:60%; height:60%; margin-left: auto; margin-right: auto" alt="Third slide">
                     </a>
                 </div>
             </div>
@@ -471,12 +481,21 @@
         </div>
     </section>
 
-    <div id="floating-bar">
+    <div id="floating-bar-linear">
         <button onclick="location.href='/'" style="margin-bottom: 5px; width: 100%; height: 25%; padding: 3px; border-radius: 7px;">Home</button>
         <button style="margin-bottom: 5px; width: 100%; height: 25%; padding: 3px; border-radius: 7px;">기사<br>스크랩</button>
         <button style="margin-bottom: 5px;width: 100%; height: 25%; padding: 3px; border-radius: 7px;">키워드<br>스크랩</button>
         <button style="width: 100%; padding: 3px; height: 25%; border-radius: 7px;">Q&A</button>
     </div>
+
+
+    <div id="floating-bar-horizon">
+        <button onclick="location.href='/'" style="margin-bottom: 5px; width: 100%; height: 25%; padding: 3px; border-radius: 7px;">Home</button>
+        <button style="margin-bottom: 5px; width: 100%; height: 25%; padding: 3px; border-radius: 7px;">기사<br>스크랩</button>
+        <button style="margin-bottom: 5px;width: 100%; height: 25%; padding: 3px; border-radius: 7px;">키워드<br>스크랩</button>
+        <button style="width: 100%; padding: 3px; height: 25%; border-radius: 7px;">Q&A</button>
+    </div>
+
 </div>
 
 
