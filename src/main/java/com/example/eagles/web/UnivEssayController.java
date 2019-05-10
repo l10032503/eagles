@@ -105,9 +105,8 @@ public class UnivEssayController {
                 "2010-01-01", simpleDateFormat.format(today),
                 providerList,category_List,category_incident_List, "", provider_subject_List,
                 subject_info_List, subject_info1_List, subject_info2_List, subject_info3_List,
-                subject_info4_List, "date", "desc", 200, 0, 500, fields_List).toString();
+                subject_info4_List, "date", "desc", 200, 0, 1000, fields_List).toString();
         resultString = bigkinds.postURL("http://tools.kinds.or.kr:8888/search/news",queryString);
-        System.out.println(resultString);
         try{
             documents = document.makeDoumentElement(resultString);
             System.out.println(documents.toString());

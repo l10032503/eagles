@@ -103,7 +103,7 @@
                                         <li><a href="#">덕성여대</a></li>
                                         <li><a href="#">동국대(서울)</a></li>
                                         <li><a href="#">부산대</a></li>
-                                        <li><a href="#">서강대</a></li>
+                                        <li><a href="/seogang">서강대</a></li>
                                         <li><a href="#">서울과기대</a></li>
                                         <li><a href="#">서울시립대</a></li>
                                         <li><a href="#">서울여대</a></li>
@@ -176,7 +176,7 @@
                 <div></div>
                 <div class="search-box-margin">
                     <form method="post" action="#">
-                        <input type="text" placeholder=" 검색어를 입력해주세요.">
+                        <input id="keywordtext" type="text" placeholder=" 검색어를 입력해주세요." onkeydown="Enter_Check(); return false">
                     </form>
                 </div>
                 <div>
@@ -681,6 +681,12 @@
 <script language="javascript">
     var selection = "전체";
     var queryString = "";
+    function Enter_Check(){
+        if(event.keyCode == 13){
+            alert("enter");
+            buttonClicked();  // 실행할 이벤트
+        }
+    }
 
     function buttonClicked() {
         var keyword = document.getElementById("keywordtext").value;

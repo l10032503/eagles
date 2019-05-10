@@ -42,7 +42,7 @@ public class SearchController {
                          @RequestParam(value = "sortOrder", required = false, defaultValue = "desc")String sortOrder,
                          @RequestParam(value = "hilight", required = false, defaultValue = "100")String hilight,
                          @RequestParam(value = "returnFrom", required = false, defaultValue = "0")String returnFrom,
-                         @RequestParam(value = "returnSize", required = false, defaultValue = "500")String returnSize,
+                         @RequestParam(value = "returnSize", required = false, defaultValue = "1000")String returnSize,
                          @RequestParam(value = "fields", required = false, defaultValue = "null")String[] fields){
         NewsSearch newsSearch = new NewsSearch();
         Bigkinds bigkinds = new Bigkinds();
@@ -156,7 +156,6 @@ public class SearchController {
                         titlestr.contains("주석") || bylinestr.contains("주석") ||
                         titlestr.contains("논설위원") || bylinestr.contains("논설위원")){
                     if(editIndex < 10){
-                        System.out.println(editIndex);
                         model.addAttribute("edit" + editIndex + "title", documentsElement.get("title"));
                         model.addAttribute("edit" + editIndex + "provider", news_id.substring(0,8));
                         model.addAttribute("edit" + editIndex + "date", news_id.substring(9));
