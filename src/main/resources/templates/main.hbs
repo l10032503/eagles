@@ -211,14 +211,14 @@
                         <tr>
                             <th nowrap="nowrap" style="width: 150px; text-align: center"; bgcolor="#FFAEA6" >직접 입력</th>
                             <td>
-                                <input id="directFrom" name="directterm" type="text" placeholder="시작" style="width: 45%">
-                                <input id="directUntil" name="directterm" type="text" placeholder="끝" style="width: 45%">
+                                <input id="directFrom" name="directterm" type="text" placeholder="시작" class="col-lg-6" style="float: left">
+                                <input id="directUntil" name="directterm" type="text" placeholder="끝" class="col-lg-6" style="float: left">
                             </td>
                         </tr>
                         <tr>
                             <th style="text-align: center"; bgcolor="#FFAEA6">통합분류</th>
                             <TD>
-                                <input id="checkbox" type="checkbox" name="sort" class="check-all" value = "전체"><strong>전체</strong>&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="sort" class="check-all"><strong>전체</strong>&nbsp&nbsp&nbsp&nbsp
                                 <input id="checkbox" type="checkbox" name="sort" class="ab" value = "정치"> 정치&nbsp&nbsp&nbsp&nbsp
                                 <input id="checkbox" type="checkbox" name="sort" class="ab" value = "경제"> 경제&nbsp&nbsp&nbsp&nbsp
                                 <input id="checkbox" type="checkbox" name="sort" class="ab" value = "사회"> 사회&nbsp&nbsp&nbsp&nbsp
@@ -233,7 +233,7 @@
                         <tr>
                             <th style="text-align: center">중앙지</th>
                             <TD>
-                                <input id="checkbox" type="checkbox" name="paper" class="check-all-center" value = "전체"><strong>전체</strong>&nbsp&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="check-all-center"><strong>전체</strong>&nbsp&nbsp&nbsp&nbsp&nbsp
                                 <input id="checkbox" type="checkbox" name="paper" class="center" value = "경향신문"> 경향신문&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                                 <input id="checkbox" type="checkbox" name="paper" class="center" value = "국민일보"> 국민일보&nbsp&nbsp&nbsp&nbsp&nbsp
                                 <input id="checkbox" type="checkbox" name="paper" class="center" value = "내일신문"> 내일신문&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
@@ -337,7 +337,7 @@
                                 <span class="date">토픽 1위</span>
                                 <h3><a>{{topic0}}</a></h3>
                             </header>
-                            <a id="DownArrow1" class="icon fa-angle-double-down"></a>
+                            <a id="DownArrow1" class="icon fa-angle-double-down fa-2x"></a>
                             <div id="keytable1" class ="col-md-12 text-wrap mb-3">
                                 <h5><a style="text-align: center; " href="/newspage?codeprovider={{topic0provider0}}&codedate={{topic0date0}}">{{topic0title0}}</a></h5>
                                 <h5><a style="text-align: center; " href="/newspage?codeprovider={{topic0provider1}}&codedate={{topic0date1}}">{{topic0title1}}</a></h5>
@@ -355,7 +355,7 @@
                                 <span class="date">토픽 2위</span>
                                 <h3><a>{{topic1}}</a></h3>
                             </header>
-                            <a id="DownArrow2" class="icon fa-angle-double-down"></a>
+                            <a id="DownArrow2" class="icon fa-angle-double-down fa-2x"></a>
                             <div id="keytable2" class ="col-md-12 text-wrap mb-3">
                                 <h5><a style="text-align: center; " href="/newspage?codeprovider={{topic1provider0}}&codedate={{topic1date0}}">{{topic1title0}}</a></h5>
                                 <h5><a style="text-align: center; " href="/newspage?codeprovider={{topic1provider1}}&codedate={{topic1date1}}">{{topic1title1}}</a></h5>
@@ -372,7 +372,7 @@
                                 <span class="date">토픽 3위</span>
                                 <h3><a>{{topic3}}</a></h3>
                             </header>
-                            <a id="DownArrow3" class="icon fa-angle-double-down"></a>
+                            <a id="DownArrow3" class="icon fa-angle-double-down fa-2x"></a>
                             <div id="keytable3" class ="col-md-12 text-wrap mb-3">
                                 <h5><a style="text-align: center; " href="/newspage?codeprovider={{topic2provider0}}&codedate={{topic2date0}}">{{topic2title0}}</a></h5>
                                 <h5><a style="text-align: center; " href="/newspage?codeprovider={{topic2provider1}}&codedate={{topic2date1}}">{{topic2title1}}</a></h5>
@@ -714,8 +714,6 @@
             queryString = queryString + "datefrom=" + dateFrom + "&";
         if(dateUntil)
             queryString = queryString + "dateuntil=" + dateUntil;
-
-        alert(queryString);
 
         if (!keyword) {
             alert("검색어를 입력해주세요.");

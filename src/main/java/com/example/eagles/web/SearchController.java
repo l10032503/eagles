@@ -92,10 +92,13 @@ public class SearchController {
         fields_List.add("published_at");
         fields_List.add("hilight");
         fields_List.add("news_id");
+
         String news_id = "";
         String titlestr = "";
         String bylinestr = "";
-        String hilightFilter = "";
+        String published_at = "";
+        int editIndex = 0;
+        int straightIndex = 0;
 
         JSONObject jsonObject = newsSearch.makeQuery(query, dateFrom, dateUntil,
                 providerList,category_List,category_incident_List, byline, provider_subject_List,
@@ -104,9 +107,53 @@ public class SearchController {
 
         String searchQuery = bigkinds.postURL("http://tools.kinds.or.kr:8888/search/news",
                jsonObject.toString());
-
+        System.out.println(dateFrom);
         try{
             documents = document.makeDoumentElement(searchQuery);
+
+            for(int i = 0; i<documents.size(); i++){
+                documentsElement = (JSONObject) documents.get(i);
+                titlestr = (String) documentsElement.get("title");
+                bylinestr = (String) documentsElement.get("byline");
+                if(bylinestr == null)
+                    bylinestr = "";
+                news_id = (String) documentsElement.get("news_id");
+
+                if(titlestr.contains("사설") || bylinestr.contains("사설") ||
+                        titlestr.contains("칼럼") || bylinestr.contains("칼럼") ||
+                        titlestr.contains("논설") || bylinestr.contains("논설") ||
+                        titlestr.contains("논평") || bylinestr.contains("논평") ||
+                        titlestr.contains("시평") || bylinestr.contains("시평") ||
+                        titlestr.contains("시론") || bylinestr.contains("시론") ||
+                        titlestr.contains("주석") || bylinestr.contains("주석") ||
+                        titlestr.contains("논설위원") || bylinestr.contains("논설위원")){
+                    if(editIndex < 10){
+                        System.out.println(editIndex);
+                        model.addAttribute("edit" + editIndex + "title", documentsElement.get("title"));
+                        model.addAttribute("edit" + editIndex + "provider", news_id.substring(0,8));
+                        model.addAttribute("edit" + editIndex + "date", news_id.substring(9));
+                        model.addAttribute("edit" + editIndex + "newsprovider", documentsElement.get("provider"));
+                        published_at = (String)documentsElement.get("published_at");
+                        model.addAttribute("edit" + editIndex + "published_at", published_at.substring(0,10));
+                        editIndex++;
+                    }
+                } else if (straightIndex < 10 ){
+                    model.addAttribute("straight" + straightIndex + "title", documentsElement.get("title"));
+                    model.addAttribute("straight" + straightIndex + "provider", news_id.substring(0,8));
+                    model.addAttribute("straight" + straightIndex + "date", news_id.substring(9));
+                    model.addAttribute("straight" + editIndex + "newsprovider", documentsElement.get("provider"));
+                    published_at = (String)documentsElement.get("published_at");
+                    model.addAttribute("straight" + editIndex + "published_at", published_at.substring(0,10));
+                    straightIndex++;
+                } else if (editIndex>=10) {
+                    break;
+                }
+
+            }
+
+
+
+            /*
             for(int i=0; i<documents.size(); i++){
                 documentsElement = (JSONObject) documents.get(i);
                 titlestr = (String) documentsElement.get("title");
@@ -122,14 +169,14 @@ public class SearchController {
                 model.addAttribute("title" + i + "hilight", documentsElement.get("hilight"));
                 news_id = (String) documentsElement.get("news_id");
                 model.addAttribute("title" + i + "codeprovider", news_id.substring(0,8));
-                model.addAttribute("title" + i + "codedate", news_id.substring(9));
-            }
+                model.addAttribute("title" + i + "codedate", news_id.substring(9));*/
+
         } catch (Exception e){
             e.printStackTrace();
         }
 
 
-        return "search";
+        return "search2";
     }
 
     private List<String> ArrayToList (String[] array, List<String> listString){
