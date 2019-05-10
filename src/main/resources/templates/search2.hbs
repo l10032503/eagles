@@ -190,9 +190,8 @@
                 <form name="sort-table">
                     <table class="table table-bordered"  align = "center">
                         <tr>
-                            <th nowrap="nowrap" style="width: 150px; text-align: center"; bgcolor="#FFAEA6" >기간</th>
+                            <th nowrap="nowrap" style="width: 150px; text-align: center"; bgcolor="#FFAEA6" >기간 선택</th>
                             <td>
-                                <input id="radio" type="radio" name="term" value = "전체" checked><strong>전체</strong>&nbsp&nbsp&nbsp
                                 <input id="radio" type="radio" name="term" value = "1일">1일&nbsp&nbsp&nbsp
                                 <input id="radio" type="radio" name="term" value = "1주">1주&nbsp&nbsp&nbsp
                                 <input id="radio" type="radio" name="term" value = "1개월">1개월&nbsp&nbsp&nbsp
@@ -202,9 +201,16 @@
                             </td>
                         </tr>
                         <tr>
+                            <th nowrap="nowrap" style="width: 150px; text-align: center"; bgcolor="#FFAEA6" >직접 입력</th>
+                            <td>
+                                <input id="directFrom" name="directterm" type="text" placeholder="시작" class="col-lg-6" style="float: left">
+                                <input id="directUntil" name="directterm" type="text" placeholder="끝" class="col-lg-6" style="float: left">
+                            </td>
+                        </tr>
+                        <tr>
                             <th style="text-align: center"; bgcolor="#FFAEA6">통합분류</th>
                             <TD>
-                                <input id="checkbox" type="checkbox" name="sort" class="check-all" value = "전체"><strong>전체</strong>&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="sort" class="check-all"><strong>전체</strong>&nbsp&nbsp&nbsp&nbsp
                                 <input id="checkbox" type="checkbox" name="sort" class="ab" value = "정치"> 정치&nbsp&nbsp&nbsp&nbsp
                                 <input id="checkbox" type="checkbox" name="sort" class="ab" value = "경제"> 경제&nbsp&nbsp&nbsp&nbsp
                                 <input id="checkbox" type="checkbox" name="sort" class="ab" value = "사회"> 사회&nbsp&nbsp&nbsp&nbsp
@@ -219,7 +225,7 @@
                         <tr>
                             <th style="text-align: center">중앙지</th>
                             <TD>
-                                <input id="checkbox" type="checkbox" name="paper" class="check-all-center" value = "전체"><strong>전체</strong>&nbsp&nbsp&nbsp&nbsp&nbsp
+                                <input id="checkbox" type="checkbox" name="paper" class="check-all-center"><strong>전체</strong>&nbsp&nbsp&nbsp&nbsp&nbsp
                                 <input id="checkbox" type="checkbox" name="paper" class="center" value = "경향신문"> 경향신문&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                                 <input id="checkbox" type="checkbox" name="paper" class="center" value = "국민일보"> 국민일보&nbsp&nbsp&nbsp&nbsp&nbsp
                                 <input id="checkbox" type="checkbox" name="paper" class="center" value = "내일신문"> 내일신문&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
@@ -539,6 +545,7 @@
 <script src="/webjars/bootstrap/4.2.1/js/bootstrap.bundle.js"></script>
 <script src="/webjars/handlebars/4.0.11-1/handlebars.js"></script>
 
+
 <script>
     $(document).ready(function () {
         console.log("test");
@@ -658,6 +665,131 @@
             $( '.pro' ).prop( 'checked', this.checked );
         } );
     } );
+</script>
+
+<script language="javascript">
+    var selection = "전체";
+    var queryString = "";
+
+    function buttonClicked() {
+        var keyword = document.getElementById("keywordtext").value;
+        var dateFrom = document.getElementById("directFrom").value;
+        var dateUntil = document.getElementById("directUntil").value;
+        var radio = document.getElementById("radio").value;
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth()+1; //January is 0!
+        var yyyy = today.getFullYear();
+        $("input[name=term]:checked").each(function () {
+            if($(this).val() == "1일"){
+                console.log($(this).val());
+                if(dd<10) {
+                    dd='0'+dd
+                }
+                if(mm<10) {
+                    mm='0'+mm
+                }
+                dateUntil = yyyy + "-" + mm + "-" + dd;
+                dd = dd - 1;
+                if(dd<10) {
+                    dd='0'+dd
+                }
+                dateFrom = yyyy + "-" + mm + "-" + dd;
+            }else if($(this).val() == "1주"){
+                console.log($(this).val());
+                if(dd<10) {
+                    dd='0'+dd
+                }
+                if(mm<10) {
+                    mm='0'+mm
+                }
+                dateUntil = yyyy + "-" + mm + "-" + dd;
+                dd = dd - 7;
+                if(dd<10) {
+                    dd='0'+dd
+                }
+                dateFrom = yyyy + "-" + mm + "-" + dd;
+            }else if($(this).val() == "1개월"){
+                console.log($(this).val());
+                if(dd<10) {
+                    dd='0'+dd
+                }
+                if(mm<10) {
+                    mm='0'+mm
+                }
+                dateUntil = yyyy + "-" + mm + "-" + dd;
+                mm = mm - 1;
+                if(mm<10) {
+                    mm='0'+mm
+                }
+                dateFrom = yyyy + "-" + mm + "-" + dd;
+            }else if($(this).val() == "3개월"){
+                console.log($(this).val());
+                if(dd<10) {
+                    dd='0'+dd
+                }
+                if(mm<10) {
+                    mm='0'+mm
+                }
+                dateUntil = yyyy + "-" + mm + "-" + dd;
+                mm = mm - 3;
+                if(mm<10) {
+                    mm='0'+mm
+                }
+                dateFrom = yyyy + "-" + mm + "-" + dd;
+            }else if($(this).val() == "6개월"){
+                console.log($(this).val());
+                if(dd<10) {
+                    dd='0'+dd
+                }
+                if(mm<10) {
+                    mm='0'+mm
+                }
+                dateUntil = yyyy + "-" + mm + "-" + dd;
+                if(mm<6) {
+                    mm = 11;
+                    yyyy = yyyy - 1;
+                }else{
+                    mm = mm - 6;
+                    if(mm<6) {
+                        mm='0'+mm
+                    }
+                }
+                dateFrom = yyyy + "-" + mm + "-" + dd;
+            }else if($(this).val() == "1년"){
+                console.log($(this).val());
+                if(dd<10) {
+                    dd='0'+dd
+                }
+                if(mm<10) {
+                    mm='0'+mm
+                }
+                dateUntil = yyyy + "-" + mm + "-" + dd;
+                yyyy = yyyy - 1;
+                dateFrom = yyyy + "-" + mm + "-" + dd;
+            }
+        });
+
+
+        $("input[name=sort]:checked").each(function () {
+            queryString = queryString + "category=" + $(this).val() + "&";
+            console.log(queryString);
+        });
+        $("input[name=paper]:checked").each(function () {
+            queryString = queryString + "provider=" + $(this).val() + "&";
+            console.log(queryString);
+        });
+        if(dateFrom)
+            queryString = queryString + "datefrom=" + dateFrom + "&";
+        if(dateUntil)
+            queryString = queryString + "dateuntil=" + dateUntil;
+
+        if (!keyword) {
+            alert("검색어를 입력해주세요.");
+        }else {
+            {window.location.href = "/search?query=" + keyword + "&" + queryString;}
+        }
+    }
 </script>
 
 </body>

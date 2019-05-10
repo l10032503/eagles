@@ -37,7 +37,7 @@ public class SearchController {
                          @RequestParam(value = "sortOrder", required = false, defaultValue = "desc")String sortOrder,
                          @RequestParam(value = "hilight", required = false, defaultValue = "100")String hilight,
                          @RequestParam(value = "returnFrom", required = false, defaultValue = "0")String returnFrom,
-                         @RequestParam(value = "returnSize", required = false, defaultValue = "10")String returnSize,
+                         @RequestParam(value = "returnSize", required = false, defaultValue = "1000")String returnSize,
                          @RequestParam(value = "fields", required = false, defaultValue = "null")String[] fields){
         NewsSearch newsSearch = new NewsSearch();
         Bigkinds bigkinds = new Bigkinds();
@@ -108,6 +108,7 @@ public class SearchController {
         String searchQuery = bigkinds.postURL("http://tools.kinds.or.kr:8888/search/news",
                jsonObject.toString());
         System.out.println(dateFrom);
+        System.out.println(dateFrom);
         try{
             documents = document.makeDoumentElement(searchQuery);
 
@@ -115,6 +116,8 @@ public class SearchController {
                 documentsElement = (JSONObject) documents.get(i);
                 titlestr = (String) documentsElement.get("title");
                 bylinestr = (String) documentsElement.get("byline");
+                System.out.println(titlestr);
+                System.out.println(bylinestr);
                 if(bylinestr == null)
                     bylinestr = "";
                 news_id = (String) documentsElement.get("news_id");
