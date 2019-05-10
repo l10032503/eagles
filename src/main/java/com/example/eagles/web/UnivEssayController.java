@@ -1,4 +1,4 @@
-package com.example.eagles.web;
+/*package com.example.eagles.web;
 
 import com.example.eagles.newsbigdata.Bigkinds;
 import com.example.eagles.newsbigdata.Document;
@@ -25,6 +25,7 @@ public class UnivEssayController {
     public String sookmyung(){
         return "sookmyung";
     }
+
 
     @GetMapping("/seogang")
     public String seogang(){
@@ -265,3 +266,4 @@ public class UnivEssayController {
         return "seogang-2019-01-01";
     }
 }
+*/

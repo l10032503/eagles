@@ -1,4 +1,4 @@
-package com.example.eagles.web;
+/*package com.example.eagles.web;
 
 import com.example.eagles.newsbigdata.Bigkinds;
 import com.example.eagles.newsbigdata.Document;
@@ -217,3 +217,4 @@ public class SearchController {
         return listString;
     }
 }
+*/
