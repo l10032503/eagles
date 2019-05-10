@@ -18,10 +18,7 @@ import java.util.*;
 @RestController
 public class WebRestController {
 
-    /*@Autowired
-    WordCount service;
-
-    @GetMapping("/irtest")
+    /*@GetMapping("/irtest")
     public String irtest(Model model,
                          @RequestParam(value = "date", required = false, defaultValue = "null")String date,
                          @RequestParam(value = "provider", required = false, defaultValue = "null")String[] provider) {
@@ -196,6 +193,6 @@ public class WebRestController {
             String words = "Siddhant,Agnihotry,Technocrat,Siddhant,Sid";
             List<String> wordList = Arrays.asList(words.split(","));
             return service.getCount(wordList);
+
         }*/
 }
-

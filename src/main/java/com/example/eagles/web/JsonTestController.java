@@ -1,4 +1,4 @@
-package com.example.eagles.web;
+/*package com.example.eagles.web;
 
 import com.example.eagles.newsbigdata.Bigkinds;
 import com.example.eagles.newsbigdata.IssueRanking;
@@ -19,8 +19,6 @@ import java.util.*;
 @Controller
 @AllArgsConstructor
 public class JsonTestController {
-/*
-
     @GetMapping("/todaytopic")
     public String todaytopic(Model model){
         IssueRanking issueRanking = new IssueRanking();
@@ -137,5 +135,5 @@ public class JsonTestController {
 
 
         return "jsontest";
-    }*/
-}
+    }
+}*/
