@@ -3,8 +3,13 @@ package com.example.eagles.web;
 import com.example.eagles.newsbigdata.Bigkinds;
 import com.example.eagles.newsbigdata.Document;
 import com.example.eagles.newsbigdata.NewsSearch;
+import com.example.eagles.newsbigdata.WordCloud;
+
+import jdk.nashorn.internal.runtime.ParserException;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.ParseException;
+import org.json.simple.parser.JSONParser;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,10 +42,12 @@ public class SearchController {
                          @RequestParam(value = "sortOrder", required = false, defaultValue = "desc")String sortOrder,
                          @RequestParam(value = "hilight", required = false, defaultValue = "100")String hilight,
                          @RequestParam(value = "returnFrom", required = false, defaultValue = "0")String returnFrom,
-                         @RequestParam(value = "returnSize", required = false, defaultValue = "1000")String returnSize,
+                         @RequestParam(value = "returnSize", required = false, defaultValue = "100")String returnSize,
                          @RequestParam(value = "fields", required = false, defaultValue = "null")String[] fields){
         NewsSearch newsSearch = new NewsSearch();
         Bigkinds bigkinds = new Bigkinds();
+        WordCloud wordCloud = new WordCloud();
+        JSONParser jsonParser = new JSONParser();
         List<String> providerList = new ArrayList<String>();
         List<String> category_List = new ArrayList<String>();
         List<String> category_incident_List = new ArrayList<String>();
@@ -67,6 +74,8 @@ public class SearchController {
         JSONArray documents = new JSONArray();
         JSONObject documentsElement = new JSONObject();
         Document document = new Document();
+        JSONObject return_object =  new JSONObject();
+        JSONArray nodes = new JSONArray();
         //default값을 1년동안으로 설정
         if(dateFrom.equals("null")){
             Date today = new Date();
@@ -99,25 +108,41 @@ public class SearchController {
         String published_at = "";
         int editIndex = 0;
         int straightIndex = 0;
-
-        JSONObject jsonObject = newsSearch.makeQuery(query, dateFrom, dateUntil,
-                providerList,category_List,category_incident_List, byline, provider_subject_List,
-                subject_info_List, subject_info1_List, subject_info2_List, subject_info3_List,
-                subject_info4_List, sortField, sortOrder, hilightInt, returnFromInt, returnSizeInt, fields_List);
-
-        String searchQuery = bigkinds.postURL("http://tools.kinds.or.kr:8888/search/news",
-               jsonObject.toString());
-        System.out.println(dateFrom);
-        System.out.println(dateFrom);
         try{
+
+            JSONObject jsonObject = wordCloud.makeQuery(query, dateFrom, dateUntil,
+                    providerList,category_List,category_incident_List, byline, provider_subject_List);
+
+            String searchQuery = bigkinds.postURL("http://tools.kinds.or.kr:8888/word_cloud",
+                    jsonObject.toString());
+
+            Object obj = jsonParser.parse(searchQuery);
+            jsonObject = (JSONObject) obj;
+            return_object = (JSONObject) jsonObject.get("return_object");
+            nodes = (JSONArray) return_object.get("nodes");
+            System.out.println(nodes);
+
+            for(int i = 0; i<nodes.size(); i++){
+                documentsElement = (JSONObject) nodes.get(i);
+                model.addAttribute("keyword"+i, documentsElement.get("name"));
+            }
+
+
+            jsonObject = newsSearch.makeQuery(query, dateFrom, dateUntil,
+                    providerList,category_List,category_incident_List, byline, provider_subject_List,
+                    subject_info_List, subject_info1_List, subject_info2_List, subject_info3_List,
+                    subject_info4_List, sortField, sortOrder, hilightInt, returnFromInt, returnSizeInt, fields_List);
+
+            searchQuery = bigkinds.postURL("http://tools.kinds.or.kr:8888/search/news",
+                    jsonObject.toString());
+
             documents = document.makeDoumentElement(searchQuery);
 
             for(int i = 0; i<documents.size(); i++){
                 documentsElement = (JSONObject) documents.get(i);
                 titlestr = (String) documentsElement.get("title");
                 bylinestr = (String) documentsElement.get("byline");
-                System.out.println(titlestr);
-                System.out.println(bylinestr);
+
                 if(bylinestr == null)
                     bylinestr = "";
                 news_id = (String) documentsElement.get("news_id");
@@ -174,7 +199,7 @@ public class SearchController {
                 model.addAttribute("title" + i + "codeprovider", news_id.substring(0,8));
                 model.addAttribute("title" + i + "codedate", news_id.substring(9));*/
 
-        } catch (Exception e){
+        } catch (ParseException e){
             e.printStackTrace();
         }
 
