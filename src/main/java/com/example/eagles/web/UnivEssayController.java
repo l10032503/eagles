@@ -4,7 +4,6 @@ import com.example.eagles.newsbigdata.Bigkinds;
 import com.example.eagles.newsbigdata.Document;
 import com.example.eagles.newsbigdata.NewsSearch;
 import lombok.AllArgsConstructor;
-import org.apache.hadoop.yarn.webapp.hamlet.Hamlet;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -18,7 +17,7 @@ import java.util.Date;
 import java.util.List;
 
 @Controller
-///@AllArgsConstructor
+@AllArgsConstructor
 public class UnivEssayController {
 
     @GetMapping("/sookmyung")

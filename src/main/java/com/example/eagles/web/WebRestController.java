@@ -1,6 +1,5 @@
 package com.example.eagles.web;
 
-import com.example.eagles.Spark.WordCount;
 import com.example.eagles.newsbigdata.Bigkinds;
 import com.example.eagles.newsbigdata.IssueRanking;
 import com.example.eagles.newsbigdata.KeywordExtract;
@@ -19,7 +18,7 @@ import java.util.*;
 @RestController
 public class WebRestController {
 
-    @Autowired
+    /*@Autowired
     WordCount service;
 
     @GetMapping("/irtest")
@@ -197,6 +196,6 @@ public class WebRestController {
             String words = "Siddhant,Agnihotry,Technocrat,Siddhant,Sid";
             List<String> wordList = Arrays.asList(words.split(","));
             return service.getCount(wordList);
-        }
-    }
+        }*/
+}
 

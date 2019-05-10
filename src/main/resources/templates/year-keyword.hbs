@@ -24,6 +24,17 @@
         columns: 3;
     }
 
+    .search-box-grid{
+        margin-top: 5%;
+        margin-right: 7%;
+        display: grid;
+        grid-template-columns: 1fr 5fr 1fr;
+    }
+
+    .search-box-margin {
+        margin-top: 0.2%;
+    }
+
     #floating-bar {
         height: 220px;
         width: 80px;
@@ -43,6 +54,10 @@
         border-bottom: solid 2px #e5e5e5;
         box-shadow: inset 0px -8px 0px 0px #fff, inset 0px -10px 0px 0px #e5e5e5;
         text-align: center;
+    }
+
+    #checkbox{
+        -webkit-appearance: checkbox;
     }
 
     #essaytitle h1 {
@@ -429,5 +444,252 @@
 <script src="/webjars/jquery/2.2.1/jquery.min.js"></script>
 <script src="/webjars/bootstrap/4.2.1/js/bootstrap.bundle.js"></script>
 <script src="/webjars/handlebars/4.0.11-1/handlebars.js"></script>
+
+<script>
+    $(document).ready(function () {
+        console.log("test");
+        $("#table-btn").click(function () {
+            if($("#table").is(":visible")){
+                console.log("hide");
+                $("#table-btn").html("상세검색 펼치기");
+                $("#table").slideUp();
+            }else{
+                console.log("show");
+                $("#table-btn").html("상세검색 접기");
+                $("#table").slideDown();
+            }
+        })
+    })
+</script>
+
+
+<script>
+    $(document).ready(function () {
+        console.log("test");
+        $("#keytable1").hide();
+        $("#DownArrow1").click(function () {
+            if($("#keytable1").is(":visible")){
+                console.log("hide");
+                $("#DownArrow1").html("");
+                $("#keytable1").slideUp();
+            }else{
+                console.log("show");
+                $("#DownArrow1").html("");
+                $("#keytable1").slideDown();
+            }
+        })
+    })
+</script>
+
+<script>
+    $(document).ready(function () {
+        console.log("test");
+        $("#keytable2").hide();
+        $("#DownArrow2").click(function () {
+            if($("#keytable2").is(":visible")){
+                console.log("hide");
+                $("#DownArrow2").html("");
+                $("#keytable2").slideUp();
+            }else{
+                console.log("show");
+                $("#DownArrow2").html("");
+                $("#keytable2").slideDown();
+            }
+        })
+    })
+</script>
+
+<script>
+    $(document).ready(function () {
+        console.log("test");
+        $("#keytable3").hide();
+        $("#DownArrow3").click(function () {
+            if($("#keytable3").is(":visible")){
+                console.log("hide");
+                $("#DownArrow3").html("");
+                $("#keytable3").slideUp();
+            }else{
+                console.log("show");
+                $("#DownArrow3").html("");
+                $("#keytable3").slideDown();
+            }
+        })
+    })
+</script>
+
+<!-- 전체 체크하는 스크립트 언론지 종류별로 -->
+<script>
+    $( document ).ready( function() {
+        $( '.check-all' ).click( function() {
+            $( '.ab' ).prop( 'checked', this.checked );
+        } );
+    } );
+</script>
+
+<script>
+    $( document ).ready( function() {
+        $( '.check-all-center' ).click( function() {
+            $( '.center' ).prop( 'checked', this.checked );
+        } );
+    } );
+</script>
+
+<script>
+    $( document ).ready( function() {
+        $( '.check-all-eco' ).click( function() {
+            $( '.eco' ).prop( 'checked', this.checked );
+        } );
+    } );
+</script>
+
+<script>
+    $( document ).ready( function() {
+        $( '.check-all-country' ).click( function() {
+            $( '.country' ).prop( 'checked', this.checked );
+        } );
+    } );
+</script>
+
+<script>
+    $( document ).ready( function() {
+        $( '.check-all-broad' ).click( function() {
+            $( '.broad' ).prop( 'checked', this.checked );
+        } );
+    } );
+</script>
+
+<script>
+    $( document ).ready( function() {
+        $( '.check-all-pro' ).click( function() {
+            $( '.pro' ).prop( 'checked', this.checked );
+        } );
+    } );
+</script>
+
+<script language="javascript">
+    var selection = "전체";
+    var queryString = "";
+
+    function buttonClicked() {
+        var keyword = document.getElementById("keywordtext").value;
+        var dateFrom = document.getElementById("directFrom").value;
+        var dateUntil = document.getElementById("directUntil").value;
+        var radio = document.getElementById("radio").value;
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth()+1; //January is 0!
+        var yyyy = today.getFullYear();
+        $("input[name=term]:checked").each(function () {
+            if($(this).val() == "1일"){
+                console.log($(this).val());
+                if(dd<10) {
+                    dd='0'+dd
+                }
+                if(mm<10) {
+                    mm='0'+mm
+                }
+                dateUntil = yyyy + "-" + mm + "-" + dd;
+                dd = dd - 1;
+                if(dd<10) {
+                    dd='0'+dd
+                }
+                dateFrom = yyyy + "-" + mm + "-" + dd;
+            }else if($(this).val() == "1주"){
+                console.log($(this).val());
+                if(dd<10) {
+                    dd='0'+dd
+                }
+                if(mm<10) {
+                    mm='0'+mm
+                }
+                dateUntil = yyyy + "-" + mm + "-" + dd;
+                dd = dd - 7;
+                if(dd<10) {
+                    dd='0'+dd
+                }
+                dateFrom = yyyy + "-" + mm + "-" + dd;
+            }else if($(this).val() == "1개월"){
+                console.log($(this).val());
+                if(dd<10) {
+                    dd='0'+dd
+                }
+                if(mm<10) {
+                    mm='0'+mm
+                }
+                dateUntil = yyyy + "-" + mm + "-" + dd;
+                mm = mm - 1;
+                if(mm<10) {
+                    mm='0'+mm
+                }
+                dateFrom = yyyy + "-" + mm + "-" + dd;
+            }else if($(this).val() == "3개월"){
+                console.log($(this).val());
+                if(dd<10) {
+                    dd='0'+dd
+                }
+                if(mm<10) {
+                    mm='0'+mm
+                }
+                dateUntil = yyyy + "-" + mm + "-" + dd;
+                mm = mm - 3;
+                if(mm<10) {
+                    mm='0'+mm
+                }
+                dateFrom = yyyy + "-" + mm + "-" + dd;
+            }else if($(this).val() == "6개월"){
+                console.log($(this).val());
+                if(dd<10) {
+                    dd='0'+dd
+                }
+                if(mm<10) {
+                    mm='0'+mm
+                }
+                dateUntil = yyyy + "-" + mm + "-" + dd;
+                if(mm<6) {
+                    mm = 11;
+                    yyyy = yyyy - 1;
+                }else{
+                    mm = mm - 6;
+                    if(mm<6) {
+                        mm='0'+mm
+                    }
+                }
+                dateFrom = yyyy + "-" + mm + "-" + dd;
+            }else if($(this).val() == "1년"){
+                console.log($(this).val());
+                if(dd<10) {
+                    dd='0'+dd
+                }
+                if(mm<10) {
+                    mm='0'+mm
+                }
+                dateUntil = yyyy + "-" + mm + "-" + dd;
+                yyyy = yyyy - 1;
+                dateFrom = yyyy + "-" + mm + "-" + dd;
+            }
+        });
+
+
+        $("input[name=sort]:checked").each(function () {
+            queryString = queryString + "category=" + $(this).val() + "&";
+            console.log(queryString);
+        });
+        $("input[name=paper]:checked").each(function () {
+            queryString = queryString + "provider=" + $(this).val() + "&";
+            console.log(queryString);
+        });
+        if(dateFrom)
+            queryString = queryString + "datefrom=" + dateFrom + "&";
+        if(dateUntil)
+            queryString = queryString + "dateuntil=" + dateUntil;
+
+        if (!keyword) {
+            alert("검색어를 입력해주세요.");
+        }else {
+            {window.location.href = "/search?query=" + keyword + "&" + queryString;}
+        }
+    }
+</script>
+
 </body>
 </html>

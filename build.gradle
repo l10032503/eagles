@@ -57,26 +57,6 @@ dependencies {
     compile 'commons-collections:commons-collections:3.2'
 
     compile 'com.googlecode.json-simple:json-simple:1.1'
-
-    compile 'com.thoughtworks.paranamer:paranamer:2.8'
-    compile ('org.apache.spark:spark-core_2.11:2.1.0'){
-        exclude group: 'org.slf4j'
-    }
-    /*compile ('org.apache.spark:spark-streaming_2.12:2.4.3'){
-        exclude group: 'org.slf4j'
-    }
     
-    compile ('org.apache.spark:spark-streaming-kafka-0-8_2.11:2.4.3'){
-        exclude group: 'org.slf4j'
-    }
-    
-    
-    compile 'org.apache.kafka:kafka_2.12:2.2.0'
-    compile('org.roaringbitmap:shims:0.7.45')
-
-    compile("org.scala-lang:scala-library:2.11.2")
-    compile("org.scala-lang:scala-reflect:2.11.2")
-    
-    compile("org.scala-lang.modules:scala-xml_2.11:1.0.2")*/
 }
 
