@@ -182,7 +182,7 @@
                 <div></div>
                 <div class="search-box-margin">
                     <form method="post" action="#">
-                        <input id="keywordtext" type="text" onkeydown="Enter_Check(); return false" placeholder=" 검색어를 입력해주세요.">
+                        <input id="keywordtext" type="text" onkeypress="if(event.keyCode==13) {buttonClicked(); return false;}" placeholder= "검색어를 입력해주세요.">
                     </form>
                 </div>
                 <div>

@@ -159,7 +159,7 @@
                         </ul>
                     </li> <!-- 여기까지 두번째 상단바 메뉴 -->
 
-                    <li><a class="icon fa-user" href="/left-sidebar"><span>함께 공부하기</span></a>
+                    <li><a class="icon fa-user" ><span>함께 공부하기</span></a>
                         <ul>
                             <li><a href="#">스터디 • 모임</a></li>
                             <li><a href="#">학원 • 과외</a></li>
@@ -172,7 +172,7 @@
                 <div></div>
                 <div class="search-box-margin">
                     <form method="post" action="#">
-                        <input id="keywordtext" type="text" placeholder=" 검색어를 입력해주세요." onkeydown="Enter_Check(); return false">
+                        <input id="keywordtext" type="text" placeholder=" 검색어를 입력해주세요." onkeypress="if(event.keyCode==13) {buttonClicked(); return false;}">
                     </form>
                 </div>
                 <div>
