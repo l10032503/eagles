@@ -109,7 +109,6 @@ public class UnivEssayController {
         resultString = bigkinds.postURL("http://tools.kinds.or.kr:8888/search/news",queryString);
         try{
             documents = document.makeDoumentElement(resultString);
-            System.out.println(documents.toString());
             for(int i = 0; i<documents.size(); i++){
                 documentsElement = (JSONObject) documents.get(i);
                 title = (String) documentsElement.get("title");

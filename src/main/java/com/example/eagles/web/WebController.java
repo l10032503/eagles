@@ -80,7 +80,6 @@ public class WebController {
                     searchQuery = bigkinds.postURL("http://tools.kinds.or.kr:8888/search/news",
                             newsSearch.makeQuery(news_ids_List,fields_List).toString());
                     news_ids_List.remove(news_id);
-                    System.out.println(searchQuery);
                     documents = document.makeDoumentElement(searchQuery);
                     documentsElement = (JSONObject) documents.get(0);
                     model.addAttribute("topic" + i + "title"+j, documentsElement.get("title"));

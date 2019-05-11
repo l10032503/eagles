@@ -61,7 +61,7 @@ public class YearKeyWordController {
             int month = Integer.parseInt(yyyyMMdd.format(today).substring(4, 6));
             int date  = Integer.parseInt(yyyyMMdd.format(today).substring(6, 8));
             cal.set(year, month - 1, date);
-            cal.add(Calendar.DATE, -7);     // 1년 전
+            cal.add(Calendar.DATE, -6);
             dateFrom = yyyy_MM_dd.format(cal.getTime());
         }
         if(dateUntil.equals("null")){

@@ -112,22 +112,32 @@ public class SearchController {
 
             JSONObject jsonObject = wordCloud.makeQuery(query, dateFrom, dateUntil,
                     providerList,category_List,category_incident_List, byline, provider_subject_List);
-
             String searchQuery = bigkinds.postURL("http://tools.kinds.or.kr:8888/word_cloud",
                     jsonObject.toString());
-
             Object obj = jsonParser.parse(searchQuery);
             jsonObject = (JSONObject) obj;
             return_object = (JSONObject) jsonObject.get("return_object");
             nodes = (JSONArray) return_object.get("nodes");
-            System.out.println(nodes);
 
             for(int i = 0; i<nodes.size(); i++){
                 documentsElement = (JSONObject) nodes.get(i);
                 model.addAttribute("keyword"+i, documentsElement.get("name"));
             }
 
+            jsonObject = newsSearch.makeQuery(query, dateFrom, dateUntil,
+                    providerList,category_List,category_incident_List, byline, provider_subject_List,
+                    subject_info_List, subject_info1_List, subject_info2_List, subject_info3_List,
+                    subject_info4_List, sortField, sortOrder, hilightInt, returnFromInt, 0, fields_List);
+            searchQuery = bigkinds.postURL("http://tools.kinds.or.kr:8888/search/news",
+                    jsonObject.toString());
+            obj = jsonParser.parse(searchQuery);
+            jsonObject = (JSONObject) obj;
+            return_object = (JSONObject) jsonObject.get("return_object");
+            returnSizeInt = Integer.parseInt(return_object.get("total_hits").toString());
+            if(returnSizeInt>5000)
+                returnSizeInt = 5000;
 
+            //
             jsonObject = newsSearch.makeQuery(query, dateFrom, dateUntil,
                     providerList,category_List,category_incident_List, byline, provider_subject_List,
                     subject_info_List, subject_info1_List, subject_info2_List, subject_info3_List,
