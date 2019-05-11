@@ -367,19 +367,27 @@
         <div class="container">
             <div id="content">
                 <div class="col-lg-2" style="float: left">
-                    <button style="width:100%;padding: 10px;word-break: keep-all;" class="mb-2">관련 기출</button>
-                    <button style="width:100%;padding: 10px;word-break: keep-all" class="mb-2">관련 도서</button>
-                    <h4 style="padding: 10px;word-break: keep-all">관련 키워드</h4>
-                    <p>{{keyword0}}</p>
-                    <p>{{keyword1}}</p>
-                    <p>{{keyword2}}</p>
-                    <p>{{keyword3}}</p>
-                    <p>{{keyword4}}</p>
-                    <p>{{keyword5}}</p>
-                    <p>{{keyword6}}</p>
-                    <p>{{keyword7}}</p>
-                    <p>{{keyword8}}</p>
-                    <p>{{keyword9}}</p>
+                    <div class="col-6 col-lg-12" style="float: left">
+                        <button style="width:100%;padding: 10px;word-break: keep-all;" class="mb-2">관련 기출</button>
+                    </div>
+                    <div class="col-6 col-lg-12" style="float: left">
+                        <button style="width:100%;padding: 10px;word-break: keep-all" class="mb-2">관련 도서</button>
+                    </div>
+                    <div class="col-lg-12">
+                        <button id="keyword-btn" style="width:100%;padding: 10px;word-break: keep-all" class="mb-2">관련 키워드</button>
+                    </div>
+                    <div id="keyword-table" style="display: block">
+                        <p>{{keyword0}}</p>
+                        <p>{{keyword1}}</p>
+                        <p>{{keyword2}}</p>
+                        <p>{{keyword3}}</p>
+                        <p>{{keyword4}}</p>
+                        <p>{{keyword5}}</p>
+                        <p>{{keyword6}}</p>
+                        <p>{{keyword7}}</p>
+                        <p>{{keyword8}}</p>
+                        <p>{{keyword9}}</p>
+                    </div>
                 </div>
                 <div class="col-lg-5" style="float: left">
                     <h3>스트레이트 기사</h3>
@@ -613,12 +621,25 @@
         $("#table-btn").click(function () {
             if($("#table").is(":visible")){
                 console.log("hide");
-                $("#table-btn").html("상세검색 펼치기");
                 $("#table").slideUp();
             }else{
                 console.log("show");
-                $("#table-btn").html("상세검색 접기");
                 $("#table").slideDown();
+            }
+        })
+    })
+</script>
+
+<script>
+    $(document).ready(function () {
+        console.log("test");
+        $("#keyword-btn").click(function () {
+            if($("#keyword-table").is(":visible")){
+                console.log("hide");
+                $("#keyword-table").slideUp();
+            }else{
+                console.log("show");
+                $("#keyword-table").slideDown();
             }
         })
     })
