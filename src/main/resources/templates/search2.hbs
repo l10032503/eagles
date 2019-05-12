@@ -52,6 +52,12 @@
         margin: 0 0 0 110px;
         padding: 5px;
     }
+    #floating-bar > button {
+        height: 52px;
+        width: 70px;
+        margin-bottom: 5px; padding: 3px; border-radius: 7px;
+    }
+
     #essaytitle{
         position: relative;
         background: #fff;
@@ -247,8 +253,8 @@
                                 <input id="radio" type="radio" name="term" value = "1주">1주&nbsp&nbsp&nbsp
                                 <input id="radio" type="radio" name="term" value = "1개월">1개월&nbsp&nbsp&nbsp
                                 <input id="radio" type="radio" name="term" value = "3개월">3개월&nbsp&nbsp&nbsp
-                                <input id="radio" type="radio" name="term" value = "6개월">6개월&nbsp&nbsp&nbsp
-                                <input id="radio" type="radio" name="term" value = "1년" checked>1년&nbsp&nbsp&nbsp
+                                <input id="radio" type="radio" name="term" value = "6개월" checked>6개월&nbsp&nbsp&nbsp
+                                <input id="radio" type="radio" name="term" value = "1년">1년&nbsp&nbsp&nbsp
                             </td>
                         </tr>
                         <tr>
@@ -395,7 +401,7 @@
                         <h5><a style="text-align: center; text-decoration:none!important" href="/newspage?codeprovider={{straight0provider}}&codedate={{straight0date}}">{{straight0title}}</a></h5>
                         <p >{{straight0hilight}}</p>
                         <p style="text-align: left">
-                            {{#if straight0newsprovider}}{{straight0newsprovider}} / {{/if}}
+                            {{#if straight0newsprovider}} {{straight0newsprovider}} / {{/if}}
                             {{straight0published_at}}</p>
                         <hr class="mb-5" style="width: 100%">
                     {{/if}}
@@ -403,7 +409,8 @@
                     {{#if straight1title}}
                         <h5><a style="text-align: center; text-decoration:none!important" href="/newspage?codeprovider={{straight1provider}}&codedate={{straight1date}}">{{straight1title}}</a></h5>
                         <p >{{straight1hilight}}</p>
-                        <p style="text-align: left">{{#if straight1newsprovider}}{{straight1newsprovider}} / {{/if}}
+                        <p style="text-align: left">
+                            {{#if straight1newsprovider}} {{straight1newsprovider}} / {{/if}}
                             {{straight1published_at}}</p>
                         <hr class="mb-5" style="width: 100%">
                     {{/if}}
@@ -411,7 +418,8 @@
                     {{#if straight2title}}
                         <h5><a style="text-align: center; text-decoration:none!important" href="/newspage?codeprovider={{straight2provider}}&codedate={{straight2date}}">{{straight2title}}</a></h5>
                         <p >{{straight2hilight}}</p>
-                        <p style="text-align: left"> {{#if straight2newsprovider}}{{straight2newsprovider}} / {{/if}}
+                        <p style="text-align: left">
+                            {{#if straight2newsprovider}}{{straight2newsprovider}} / {{/if}}
                             {{straight2published_at}}</p>
                         <hr class="mb-5" style="width: 100%">
                     {{/if}}
@@ -420,7 +428,8 @@
                     {{#if straight3title}}
                         <h5><a style="text-align: center; text-decoration:none!important" href="/newspage?codeprovider={{straight3provider}}&codedate={{straight3date}}">{{straight3title}}</a></h5>
                         <p >{{straight3hilight}}</p>
-                        <p style="text-align: left"> {{#if straight3newsprovider}}{{straight3newsprovider}} / {{/if}}
+                        <p style="text-align: left">
+                            {{#if straight3newsprovider}}{{straight3newsprovider}} / {{/if}}
                             {{straight3published_at}}</p>
                         <hr class="mb-5" style="width: 100%">
                     {{/if}}
@@ -429,7 +438,8 @@
                     {{#if straight4title}}
                         <h5><a style="text-align: center; text-decoration:none!important" href="/newspage?codeprovider={{straight4provider}}&codedate={{straight4date}}">{{straight4title}}</a></h5>
                         <p >{{straight4hilight}}</p>
-                        <p style="text-align: left"> {{#if straight4newsprovider}}{{straight4newsprovider}} / {{/if}}
+                        <p style="text-align: left">
+                            {{#if straight4newsprovider}}{{straight4newsprovider}} / {{/if}}
                             {{straight4published_at}}</p>
                         <hr class="mb-5" style="width: 100%">
                     {{/if}}
@@ -437,7 +447,8 @@
                     {{#if straight5title}}
                         <h5><a style="text-align: center; text-decoration:none!important" href="/newspage?codeprovider={{straight5provider}}&codedate={{straight5date}}">{{straight5title}}</a></h5>
                         <p >{{straight5hilight}}</p>
-                        <p style="text-align: left">{{#if straight5newsprovider}}{{straight5newsprovider}} / {{/if}}
+                        <p style="text-align: left">
+                            {{#if straight5newsprovider}}{{straight5newsprovider}} / {{/if}}
                             {{straight5published_at}}</p>
                         <hr class="mb-5" style="width: 100%">
                     {{/if}}
@@ -446,7 +457,8 @@
                     {{#if straight6title}}
                         <h5><a style="text-align: center; text-decoration:none!important" href="/newspage?codeprovider={{straight6provider}}&codedate={{straight6date}}">{{straight6title}}</a></h5>
                         <p >{{straight6hilight}}</p>
-                        <p style="text-align: left">{{#if straight6newsprovider}} {{straight6newsprovider}} / {{/if}}
+                        <p style="text-align: left">
+                            {{#if straight6newsprovider}}{{straight6newsprovider}} / {{/if}}
                             {{straight6published_at}}</p>
                         <hr class="mb-5" style="width: 100%">
                     {{/if}}
@@ -455,7 +467,8 @@
                     {{#if straight7title}}
                         <h5><a style="text-align: center; text-decoration:none!important" href="/newspage?codeprovider={{straight7provider}}&codedate={{straight7date}}">{{straight7title}}</a></h5>
                         <p >{{straight7hilight}}</p>
-                        <p style="text-align: left"> {{#if straight7newsprovider}}{{straight7newsprovider}} / {{/if}}
+                        <p style="text-align: left">
+                            {{#if straight7newsprovider}}{{straight7newsprovider}} / {{/if}}
                             {{straight7published_at}}</p>
                         <hr class="mb-5" style="width: 100%">
                     {{/if}}
@@ -463,7 +476,8 @@
                     {{#if straight8title}}
                         <h5><a style="text-align: center; text-decoration:none!important" href="/newspage?codeprovider={{straight8provider}}&codedate={{straight8date}}">{{straight8title}}</a></h5>
                         <p >{{straight8hilight}}</p>
-                        <p style="text-align: left"> {{#if straight8newsprovider}}{{straight8newsprovider}} / {{/if}}
+                        <p style="text-align: left">
+                            {{#if straight8newsprovider}}{{straight8newsprovider}} / {{/if}}
                             {{straight8published_at}}</p>
                         <hr class="mb-5" style="width: 100%">
                     {{/if}}
@@ -471,7 +485,8 @@
                     {{#if straight9title}}
                         <h5><a style="text-align: center; text-decoration:none!important" href="/newspage?codeprovider={{straight9provider}}&codedate={{straight9date}}">{{straight9title}}</a></h5>
                         <p >{{straight9hilight}}</p>
-                        <p style="text-align: left"> {{#if straight9newsprovider}}{{straight9newsprovider}} / {{/if}}
+                        <p style="text-align: left">
+                            {{#if straight9newsprovider}}{{straight9newsprovider}} / {{/if}}
                             {{straight9published_at}}</p>
                     {{/if}}
 
@@ -571,12 +586,14 @@
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
             <li class="page-item" style="margin: 0.75em 0 0.75em 0;">
-                <a class="page-link" aria-label="Previous">
+                <a class="page-link">
                     <span >이전</span>
                 </a>
             </li>
             <li class="page-item">
-                <div class="page-link">다음</div>
+                <div class="page-link">
+                    <span >다음</span>
+                </div>
             </li>
         </ul>
     </nav>

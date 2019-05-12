@@ -85,7 +85,7 @@ public class SearchController {
             int month = Integer.parseInt(yyyyMMdd.format(today).substring(4, 6));
             int date  = Integer.parseInt(yyyyMMdd.format(today).substring(6, 8));
             cal.set(year, month - 1, date);
-            cal.add(Calendar.YEAR, -1);     // 1년 전
+            cal.add(Calendar.MONTH, -6);     // 6개월 전
             SimpleDateFormat yyyy_MM_dd = new SimpleDateFormat("yyyy-MM-dd");
             dateFrom = yyyy_MM_dd.format(cal.getTime());
         }
@@ -178,9 +178,9 @@ public class SearchController {
                     model.addAttribute("straight" + straightIndex + "title", documentsElement.get("title"));
                     model.addAttribute("straight" + straightIndex + "provider", news_id.substring(0,8));
                     model.addAttribute("straight" + straightIndex + "date", news_id.substring(9));
-                    model.addAttribute("straight" + editIndex + "newsprovider", documentsElement.get("provider"));
+                    model.addAttribute("straight" + straightIndex + "newsprovider", documentsElement.get("provider"));
                     published_at = (String)documentsElement.get("published_at");
-                    model.addAttribute("straight" + editIndex + "published_at", published_at.substring(0,10));
+                    model.addAttribute("straight" + straightIndex + "published_at", published_at.substring(0,10));
                     straightIndex++;
                 } else if (editIndex>=10) {
                     break;
