@@ -22,7 +22,7 @@ public class Bigkinds {
             conn.setRequestProperty("Content-Type", "application/json");
             conn.setRequestProperty("Accept-Charset", "UTF-8");
             conn.setConnectTimeout(10000);
-            conn.setReadTimeout(10000);
+            conn.setReadTimeout(99999);
 
             OutputStream os = conn.getOutputStream();
             os.write(jsonValue.getBytes("UTF-8"));
