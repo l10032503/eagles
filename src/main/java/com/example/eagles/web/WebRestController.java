@@ -18,7 +18,7 @@ import java.util.*;
 @RestController
 public class WebRestController {
 
-    /*@GetMapping("/irtest")
+    @GetMapping("/irtest")
     public String irtest(Model model,
                          @RequestParam(value = "date", required = false, defaultValue = "null")String date,
                          @RequestParam(value = "provider", required = false, defaultValue = "null")String[] provider) {
@@ -112,7 +112,7 @@ public class WebRestController {
     public String test() {
         IssueRanking issueRanking = new IssueRanking();
         Bigkinds bigkinds = new Bigkinds();
-        String posttest = issueRanking.makeIssue("2016-01-18").toString();
+        String posttest = issueRanking.makeIssue("2019-05-13").toString();
         String post = bigkinds.postURL("http://tools.kinds.or.kr:8888/issue_ranking",posttest);
         return post;
     }
@@ -188,7 +188,7 @@ public class WebRestController {
         return listString;
     }
 
-        @GetMapping("/wordcounttest")
+        /*@GetMapping("/wordcounttest")
         public Map<String, Long> wordcounttest() {
             String words = "Siddhant,Agnihotry,Technocrat,Siddhant,Sid";
             List<String> wordList = Arrays.asList(words.split(","));
